@@ -81,6 +81,8 @@
         .running-day.optional { opacity: 0.7; }
         .running-day.optional .running-day-name { color: #a78bfa; }
         .running-day.optional-hide { display: none; }
+        .running-day.strength { background: linear-gradient(90deg, #ff6b9d22, transparent); }
+        .running-day.strength .running-day-name { color: #ff6b9d; }
 
         /* Sessions */
         .sessions { display: grid; gap: 20px; }
@@ -172,7 +174,7 @@
             <button class="week-btn" onclick="showWeek(9)">W9</button>
             <button class="week-btn" onclick="showWeek(10)">W10</button>
             <button class="week-btn" onclick="showWeek(11)">W11</button>
-            <button class="week-btn taper" onclick="showWeek(12)">W12</button>
+            <button class="week-btn deload" onclick="showWeek(12)">W12</button>
             <button class="week-btn taper" onclick="showWeek(13)">W13</button>
             <button class="week-btn taper" onclick="showWeek(14)">W14</button>
             <button class="week-btn taper" onclick="showWeek(15)">W15</button>
@@ -185,15 +187,16 @@
                 <h2>Week 6: Jan 28 – Feb 1</h2>
                 <span class="phase-tag phase-build">BUILD PHASE</span>
                 <div class="running-schedule">
+                    <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A</span></div>
                     <div class="running-day"><span class="running-day-name">Tuesday</span><span class="running-day-workout">8 km easy</span></div>
                     <div class="running-day quality"><span class="running-day-name">🔥 Wednesday</span><span class="running-day-workout">3×10 min tempo (14-15 km total)</span></div>
                     <div class="running-day" style="font-size:12px; color:#888; padding-left:100px; border:none;">↳ 3km warm-up → main set → 2km cool-down + optional strides</div>
-                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">10 km easy</span></div>
+                    <div class="running-day strength"><span class="running-day-name">💪 Thursday</span><span class="running-day-workout">Trainer</span></div>
+                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">10 km easy + Session B</span></div>
                     <div class="running-day long"><span class="running-day-name">🏃 Sunday</span><span class="running-day-workout">18 km, last 5 km @ 5:45-6:00</span></div>
                     <div class="optional-section">
                         <div class="optional-label">✨ Optional</div>
                         <div class="running-day optional"><span class="running-day-name">Tue PM</span><span class="running-day-workout">Easy double: 3-4 km very easy</span></div>
-                        <div class="running-day optional"><span class="running-day-name">Saturday</span><span class="running-day-workout">Swim 20-30 min OR shakeout 2-3 km</span></div>
                     </div>
                 </div>
             </div>
@@ -322,15 +325,16 @@
                 <h2>Week 7: Feb 4 – 8</h2>
                 <span class="phase-tag phase-build">BUILD PHASE</span>
                 <div class="running-schedule">
+                    <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A</span></div>
                     <div class="running-day"><span class="running-day-name">Tuesday</span><span class="running-day-workout">8 km easy</span></div>
                     <div class="running-day quality"><span class="running-day-name">🔥 Wednesday</span><span class="running-day-workout">2×15 min @ HM pace (15 km total)</span></div>
                     <div class="running-day" style="font-size:12px; color:#888; padding-left:100px; border:none;">↳ 3km warm-up → main set → 2km cool-down + optional strides</div>
-                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">10 km steady (6:00/km)</span></div>
+                    <div class="running-day strength"><span class="running-day-name">💪 Thursday</span><span class="running-day-workout">Trainer</span></div>
+                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">10 km steady + Session B</span></div>
                     <div class="running-day long"><span class="running-day-name">🏃 Sunday</span><span class="running-day-workout">19 km, last 6 km @ 5:35-5:45</span></div>
                     <div class="optional-section">
                         <div class="optional-label">✨ Optional</div>
                         <div class="running-day optional"><span class="running-day-name">Tue PM</span><span class="running-day-workout">Easy double: 3-4 km very easy</span></div>
-                        <div class="running-day optional"><span class="running-day-name">Saturday</span><span class="running-day-workout">Swim 20-30 min OR shakeout 2-3 km</span></div>
                     </div>
                 </div>
             </div>
@@ -399,10 +403,12 @@
                 <h2>Week 8: Feb 11 – 15</h2>
                 <span class="phase-tag phase-deload">DELOAD WEEK</span>
                 <div class="running-schedule">
+                    <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A (reduced)</span></div>
                     <div class="running-day"><span class="running-day-name">Tuesday</span><span class="running-day-workout">7 km easy</span></div>
                     <div class="running-day quality"><span class="running-day-name">🔥 Wednesday</span><span class="running-day-workout">5×5 min tempo (12 km total)</span></div>
                     <div class="running-day" style="font-size:12px; color:#888; padding-left:100px; border:none;">↳ 2km warm-up → main set → 2km cool-down</div>
-                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">9 km easy</span></div>
+                    <div class="running-day strength"><span class="running-day-name">💪 Thursday</span><span class="running-day-workout">Trainer (light)</span></div>
+                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">9 km easy + Session B</span></div>
                     <div class="running-day long"><span class="running-day-name">🏃 Sunday</span><span class="running-day-workout">16 km easy @ 6:30-6:55</span></div>
                     <div class="optional-section">
                         <div class="optional-label">✨ Optional (Deload — keep it light!)</div>
@@ -463,10 +469,12 @@
                 <h2>Week 9: Feb 18 – 22</h2>
                 <span class="phase-tag phase-peak">PEAK RUNNING</span>
                 <div class="running-schedule">
+                    <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A (maintain)</span></div>
                     <div class="running-day"><span class="running-day-name">Tuesday</span><span class="running-day-workout">8 km easy + strides</span></div>
                     <div class="running-day quality"><span class="running-day-name">🔥 Wednesday</span><span class="running-day-workout">4×2 km @ HM pace (13-14 km total)</span></div>
                     <div class="running-day" style="font-size:12px; color:#888; padding-left:100px; border:none;">↳ 3km warm-up → main set → 2km cool-down + optional strides</div>
-                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">10 km easy</span></div>
+                    <div class="running-day strength"><span class="running-day-name">💪 Thursday</span><span class="running-day-workout">Trainer</span></div>
+                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">10 km easy + Session B</span></div>
                     <div class="running-day long"><span class="running-day-name">🏃 Sunday</span><span class="running-day-workout">20 km, last 6 km @ 5:30-5:35</span></div>
                     <div class="optional-section">
                         <div class="optional-label">✨ Optional (Big week — don't overdo it)</div>
@@ -521,10 +529,12 @@
                 <h2>Week 10: Feb 25 – Mar 1</h2>
                 <span class="phase-tag phase-peak">PEAK RUNNING</span>
                 <div class="running-schedule">
+                    <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A (maintain)</span></div>
                     <div class="running-day"><span class="running-day-name">Tuesday</span><span class="running-day-workout">8 km easy</span></div>
                     <div class="running-day quality"><span class="running-day-name">🔥 Wednesday</span><span class="running-day-workout">25 min tempo (12-13 km total)</span></div>
                     <div class="running-day" style="font-size:12px; color:#888; padding-left:100px; border:none;">↳ 3km warm-up → main set → 2km cool-down + optional strides</div>
-                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">10 km steady (6:00/km)</span></div>
+                    <div class="running-day strength"><span class="running-day-name">💪 Thursday</span><span class="running-day-workout">Trainer</span></div>
+                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">10 km steady + Session B</span></div>
                     <div class="running-day long"><span class="running-day-name">🏃 Sunday</span><span class="running-day-workout">21 km, last 8 km @ 5:30-5:35 🔥</span></div>
                     <div class="optional-section">
                         <div class="optional-label">✨ Optional (Peak week — prioritize recovery!)</div>
@@ -565,15 +575,16 @@
                 <h2>Week 11: Mar 3 – 7</h2>
                 <span class="phase-tag phase-build">RECOVERY</span>
                 <div class="running-schedule">
+                    <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A</span></div>
                     <div class="running-day"><span class="running-day-name">Tuesday</span><span class="running-day-workout">7 km easy</span></div>
                     <div class="running-day quality"><span class="running-day-name">🔥 Wednesday</span><span class="running-day-workout">3×4 km @ HM pace (17 km total)</span></div>
                     <div class="running-day" style="font-size:12px; color:#888; padding-left:100px; border:none;">↳ 3km warm-up → main set → 2km cool-down + optional strides</div>
-                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">9 km easy</span></div>
+                    <div class="running-day strength"><span class="running-day-name">💪 Thursday</span><span class="running-day-workout">Trainer</span></div>
+                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">9 km easy + Session B</span></div>
                     <div class="running-day long"><span class="running-day-name">🏃 Sunday</span><span class="running-day-workout">18 km @ 6:20-6:40</span></div>
                     <div class="optional-section">
                         <div class="optional-label">✨ Optional</div>
                         <div class="running-day optional"><span class="running-day-name">Tue PM</span><span class="running-day-workout">Easy double: 3-4 km very easy</span></div>
-                        <div class="running-day optional"><span class="running-day-name">Saturday</span><span class="running-day-workout">Swim 20-30 min OR shakeout 2-3 km</span></div>
                     </div>
                 </div>
             </div>
@@ -614,15 +625,17 @@
         <div class="week" id="week-12">
             <div class="week-header">
                 <h2>Week 12: Mar 10 – 14</h2>
-                <span class="phase-tag phase-taper">TAPER BEGINS</span>
+                <span class="phase-tag phase-deload">DELOAD WEEK</span>
                 <div class="running-schedule">
+                    <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A (reduced)</span></div>
                     <div class="running-day"><span class="running-day-name">Tuesday</span><span class="running-day-workout">6 km easy</span></div>
                     <div class="running-day quality"><span class="running-day-name">🔥 Wednesday</span><span class="running-day-workout">20 min tempo (10 km total)</span></div>
                     <div class="running-day" style="font-size:12px; color:#888; padding-left:100px; border:none;">↳ 2km warm-up → main set → 2km cool-down</div>
-                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">8 km easy</span></div>
+                    <div class="running-day strength"><span class="running-day-name">💪 Thursday</span><span class="running-day-workout">Trainer (light)</span></div>
+                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">8 km easy + Session B</span></div>
                     <div class="running-day long"><span class="running-day-name">🏃 Sunday</span><span class="running-day-workout">16 km @ 6:30-7:00</span></div>
                     <div class="optional-section">
-                        <div class="optional-label">✨ Optional (Taper — less is more)</div>
+                        <div class="optional-label">✨ Optional (Deload — less is more)</div>
                         <div class="running-day optional"><span class="running-day-name">Saturday</span><span class="running-day-workout">Light walk or rest</span></div>
                     </div>
                 </div>
@@ -660,13 +673,15 @@
                 <h2>Week 13: Mar 17 – 21</h2>
                 <span class="phase-tag phase-taper">TAPER</span>
                 <div class="running-schedule">
+                    <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A</span></div>
                     <div class="running-day"><span class="running-day-name">Tuesday</span><span class="running-day-workout">6 km easy + strides</span></div>
                     <div class="running-day quality"><span class="running-day-name">🔥 Wednesday</span><span class="running-day-workout">2×5 km @ HM pace (15 km total)</span></div>
                     <div class="running-day" style="font-size:12px; color:#888; padding-left:100px; border:none;">↳ 3km warm-up → main set → 2km cool-down</div>
-                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">8 km easy</span></div>
-                    <div class="running-day long"><span class="running-day-name">🏃 Sunday</span><span class="running-day-workout">18 km, last 6 km @ 5:35-5:45</span></div>
+                    <div class="running-day strength"><span class="running-day-name">💪 Thursday</span><span class="running-day-workout">Trainer</span></div>
+                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">8 km easy + Session B</span></div>
+                    <div class="running-day long"><span class="running-day-name">🏃 Sunday</span><span class="running-day-workout">18 km, last 8 km @ 5:30-5:35</span></div>
                     <div class="optional-section">
-                        <div class="optional-label">✨ Optional (Taper — trust your fitness)</div>
+                        <div class="optional-label">✨ Optional</div>
                         <div class="running-day optional"><span class="running-day-name">Saturday</span><span class="running-day-workout">Easy swim or rest</span></div>
                     </div>
                 </div>
@@ -707,10 +722,12 @@
                 <h2>Week 14: Mar 24 – 28</h2>
                 <span class="phase-tag phase-taper">FINAL STRENGTH WEEK</span>
                 <div class="running-schedule">
+                    <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A (light)</span></div>
                     <div class="running-day"><span class="running-day-name">Tuesday</span><span class="running-day-workout">6 km easy</span></div>
                     <div class="running-day quality"><span class="running-day-name">🔥 Wednesday</span><span class="running-day-workout">3×10 min @ HM pace (13 km total)</span></div>
                     <div class="running-day" style="font-size:12px; color:#888; padding-left:100px; border:none;">↳ 2km warm-up → main set → 2km cool-down</div>
-                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">8 km easy</span></div>
+                    <div class="running-day strength"><span class="running-day-name">💪 Thursday</span><span class="running-day-workout">Trainer (light)</span></div>
+                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">8 km easy + Session B</span></div>
                     <div class="running-day long"><span class="running-day-name">🏃 Sunday</span><span class="running-day-workout">14 km, last 5 km @ 5:35-5:45</span></div>
                     <div class="optional-section">
                         <div class="optional-label">✨ Optional (Taper — rest &gt; more training)</div>
@@ -749,10 +766,12 @@
                 <h2>Week 15: Mar 31 – Apr 4</h2>
                 <span class="phase-tag phase-taper">RACE WEEK PREP</span>
                 <div class="running-schedule">
+                    <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A (minimal)</span></div>
                     <div class="running-day"><span class="running-day-name">Tuesday</span><span class="running-day-workout">5 km easy</span></div>
                     <div class="running-day quality"><span class="running-day-name">🔥 Wednesday</span><span class="running-day-workout">2×15 min tempo (10-11 km total)</span></div>
                     <div class="running-day" style="font-size:12px; color:#888; padding-left:100px; border:none;">↳ 2km warm-up → main set → 1-2km cool-down</div>
-                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">7 km easy</span></div>
+                    <div class="running-day strength"><span class="running-day-name">💪 Thursday</span><span class="running-day-workout">Trainer (optional/light)</span></div>
+                    <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">7 km easy + Session B (opt)</span></div>
                     <div class="running-day long"><span class="running-day-name">🏃 Sunday</span><span class="running-day-workout">12 km, last 5 km @ 5:40-5:50</span></div>
                     <div class="optional-section">
                         <div class="optional-label">✨ Optional (Race week prep — stay fresh!)</div>
@@ -785,13 +804,14 @@
                 <h2>Week 16: Apr 7 – 12 🏆</h2>
                 <span class="phase-tag phase-race">RACE WEEK!</span>
                 <div class="running-schedule">
+                    <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Activation only (10 min)</span></div>
                     <div class="running-day"><span class="running-day-name">Tuesday</span><span class="running-day-workout">5 km easy</span></div>
                     <div class="running-day quality"><span class="running-day-name">🔥 Wednesday</span><span class="running-day-workout">6 km easy + strides</span></div>
+                    <div class="running-day" style="font-size:12px; color:#888; padding-left:100px; border:none;">↳ No strength this week — trust your training!</div>
                     <div class="running-day"><span class="running-day-name">Fri / Sat</span><span class="running-day-workout">4 km easy + 3-4 km shakeout</span></div>
-                    <div class="running-day" style="font-size:12px; color:#888; padding-left:100px; border:none;">↳ Split across both days or combine — just stay loose!</div>
                     <div class="running-day long"><span class="running-day-name">🏆 Sunday</span><span class="running-day-workout">RACE DAY! Go get that 1:55! 🎉</span></div>
                     <div class="optional-section">
-                        <div class="optional-label">🚫 No optional work — RACE WEEK!</div>
+                        <div class="optional-label">🚫 No strength training — RACE WEEK!</div>
                     </div>
                 </div>
             </div>
