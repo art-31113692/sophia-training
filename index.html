@@ -166,6 +166,86 @@
             .rpe-note { font-size: 14px; }
             .exercise-group-title { font-size: 13px; }
         }
+        
+        /* Simple Mode */
+        .simple-mode {
+            background: linear-gradient(90deg, #ff6b9d22, #a78bfa22);
+            border: 2px solid #ff6b9d44;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        .simple-mode-header {
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .simple-mode-header:hover {
+            background: #ffffff08;
+        }
+        .simple-mode-header h3 {
+            color: #ff6b9d;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        .simple-mode-header .toggle-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        .simple-mode.collapsed .toggle-icon {
+            transform: rotate(-90deg);
+        }
+        .simple-mode-content {
+            padding: 0 20px 20px 20px;
+            display: grid;
+            gap: 15px;
+        }
+        @media (min-width: 600px) {
+            .simple-mode-content { grid-template-columns: 1fr 1fr; }
+        }
+        .simple-mode.collapsed .simple-mode-content {
+            display: none;
+        }
+        .simple-session {
+            background: #2a2a4a;
+            border-radius: 10px;
+            padding: 15px;
+        }
+        .simple-session h4 {
+            color: #00d4ff;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+        .simple-session.session-b h4 {
+            color: #ff6b9d;
+        }
+        .simple-exercise {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #ffffff11;
+            font-size: 15px;
+        }
+        .simple-exercise:last-child {
+            border-bottom: none;
+        }
+        .simple-exercise-name {
+            color: #eee;
+        }
+        .simple-exercise-sets {
+            color: #00d4ff;
+            font-weight: bold;
+        }
+        .simple-mode-note {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: #888;
+            font-size: 13px;
+            padding-top: 5px;
+        }
     </style>
 </head>
 <body>
@@ -175,6 +255,55 @@
         
         <div class="goal">
             <strong>Goals:</strong> Build strength • Avoid injury • Improve running • First pull-up! 🎯
+        </div>
+
+        <!-- Simple Mode Section -->
+        <div class="simple-mode collapsed" id="simpleMode">
+            <div class="simple-mode-header" onclick="toggleSimpleMode()">
+                <h3>⚡ Simple Mode — Time Crunched? Just do these!</h3>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="simple-mode-content">
+                <div class="simple-session">
+                    <h4>Session A — Lower + Pull</h4>
+                    <div class="simple-exercise">
+                        <span class="simple-exercise-name">Deadlift or Bulgarian Split Squat</span>
+                        <span class="simple-exercise-sets">3 × 5-6</span>
+                    </div>
+                    <div class="simple-exercise">
+                        <span class="simple-exercise-name">Band-Assisted Pull-Ups (or Dead Hangs)</span>
+                        <span class="simple-exercise-sets">3 × 5</span>
+                    </div>
+                    <div class="simple-exercise">
+                        <span class="simple-exercise-name">Single-Leg Calf Raises</span>
+                        <span class="simple-exercise-sets">2 × 10 each</span>
+                    </div>
+                    <div class="simple-exercise">
+                        <span class="simple-exercise-name">Suitcase Carry</span>
+                        <span class="simple-exercise-sets">2 × 30m each</span>
+                    </div>
+                </div>
+                <div class="simple-session session-b">
+                    <h4>Session B — Upper + Pull</h4>
+                    <div class="simple-exercise">
+                        <span class="simple-exercise-name">Inverted Rows</span>
+                        <span class="simple-exercise-sets">3 × 8</span>
+                    </div>
+                    <div class="simple-exercise">
+                        <span class="simple-exercise-name">Overhead Press</span>
+                        <span class="simple-exercise-sets">3 × 6</span>
+                    </div>
+                    <div class="simple-exercise">
+                        <span class="simple-exercise-name">Flexed Arm Hang</span>
+                        <span class="simple-exercise-sets">3 × max</span>
+                    </div>
+                    <div class="simple-exercise">
+                        <span class="simple-exercise-name">Single-Leg RDL</span>
+                        <span class="simple-exercise-sets">2 × 6 each</span>
+                    </div>
+                </div>
+                <p class="simple-mode-note">~25 mins each • Covers all the essentials • No decisions, just do it 💪</p>
+            </div>
         </div>
 
         <div class="week-nav">
@@ -902,6 +1031,11 @@
             // Update button states
             document.querySelectorAll('.week-btn').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
+        }
+        
+        function toggleSimpleMode() {
+            const simpleMode = document.getElementById('simpleMode');
+            simpleMode.classList.toggle('collapsed');
         }
     </script>
 </body>
