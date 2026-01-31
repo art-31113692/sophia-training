@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophia's Training Plan</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #eee;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { text-align: center; margin-bottom: 10px; color: #00d4ff; }
+        .subtitle { text-align: center; color: #888; margin-bottom: 30px; }
+        .goal { text-align: center; background: #00d4ff22; padding: 15px; border-radius: 10px; margin-bottom: 30px; }
+        .goal strong { color: #00d4ff; }
+        
+        /* Week Navigation */
+        .week-nav {
+            display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 30px;
+        }
+        .week-btn {
+            padding: 10px 15px; background: #2a2a4a; border: none; color: #fff;
+            border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.2s;
+        }
+        .week-btn:hover { background: #00d4ff; color: #000; }
+        .week-btn.active { background: #00d4ff; color: #000; font-weight: bold; }
+        .week-btn.deload { border: 2px solid #ffd700; }
+        .week-btn.taper { border: 2px solid #ff6b6b; }
+        .week-btn.race { background: #ff6b6b; color: #fff; }
+
+        /* Week Content */
+        .week { display: none; }
+        .week.active { display: block; }
+        .week-header {
+            background: linear-gradient(90deg, #00d4ff33, transparent);
+            padding: 20px; border-radius: 10px; margin-bottom: 20px;
+        }
+        .week-header h2 { color: #00d4ff; margin-bottom: 5px; }
+        .phase-tag {
+            display: inline-block; padding: 4px 12px; border-radius: 20px;
+            font-size: 12px; font-weight: bold; margin-top: 10px;
+        }
+        .phase-build { background: #4ade80; color: #000; }
+        .phase-peak { background: #fbbf24; color: #000; }
+        .phase-deload { background: #a78bfa; color: #000; }
+        .phase-taper { background: #fb923c; color: #000; }
+        .phase-race { background: #f87171; color: #000; }
+        
+        .running-note {
+            background: #ffffff11; padding: 10px 15px; border-radius: 8px;
+            margin-top: 10px; font-size: 14px; color: #aaa;
+        }
+        .running-note strong { color: #fff; }
+
+        /* Sessions */
+        .sessions { display: grid; gap: 20px; }
+        @media (min-width: 600px) { .sessions { grid-template-columns: 1fr 1fr; } }
+        
+        .session {
+            background: #2a2a4a; border-radius: 12px; padding: 20px;
+        }
+        .session h3 {
+            color: #00d4ff; margin-bottom: 15px; padding-bottom: 10px;
+            border-bottom: 1px solid #ffffff22;
+        }
+        .session-b h3 { color: #ff6b9d; }
+        
+        .exercise-group { margin-bottom: 15px; }
+        .exercise-group-title {
+            font-size: 12px; color: #888; text-transform: uppercase;
+            margin-bottom: 8px; letter-spacing: 1px;
+        }
+        .exercise {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 8px 0; border-bottom: 1px solid #ffffff11;
+        }
+        .exercise:last-child { border-bottom: none; }
+        .exercise-name { flex: 1; }
+        .exercise-name a {
+            color: #fff; text-decoration: none;
+            border-bottom: 1px dotted #00d4ff;
+        }
+        .exercise-name a:hover { color: #00d4ff; }
+        .exercise-sets {
+            color: #00d4ff; font-weight: bold; margin-left: 10px;
+            white-space: nowrap;
+        }
+        .video-icon { font-size: 12px; margin-left: 5px; }
+
+        .rpe-note {
+            margin-top: 15px; padding: 10px; background: #ffffff11;
+            border-radius: 8px; font-size: 13px; color: #aaa;
+        }
+        .rpe-note strong { color: #ffd700; }
+
+        /* Special weeks */
+        .rest-week {
+            text-align: center; padding: 40px; color: #888;
+        }
+        .rest-week h3 { color: #ff6b6b; margin-bottom: 10px; }
+
+        /* Legend */
+        .legend {
+            margin-top: 30px; padding: 20px; background: #2a2a4a;
+            border-radius: 12px;
+        }
+        .legend h4 { margin-bottom: 10px; color: #888; }
+        .legend-items { display: flex; flex-wrap: wrap; gap: 15px; font-size: 13px; }
+        .legend-item { display: flex; align-items: center; gap: 5px; }
+
+        .pull-up-tracker {
+            margin-top: 30px; padding: 20px; background: linear-gradient(90deg, #4ade8033, transparent);
+            border-radius: 12px; border: 1px solid #4ade80;
+        }
+        .pull-up-tracker h4 { color: #4ade80; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💪 Sophia's Training Plan</h1>
+        <p class="subtitle">Half Marathon: April 12, 2026 | Goal: Sub 1:55</p>
+        
+        <div class="goal">
+            <strong>Goals:</strong> Build strength • Avoid injury • Improve running • First pull-up! 🎯
+        </div>
+
+        <div class="week-nav">
+            <button class="week-btn active" onclick="showWeek(6)">W6</button>
+            <button class="week-btn" onclick="showWeek(7)">W7</button>
+            <button class="week-btn deload" onclick="showWeek(8)">W8</button>
+            <button class="week-btn" onclick="showWeek(9)">W9</button>
+            <button class="week-btn" onclick="showWeek(10)">W10</button>
+            <button class="week-btn" onclick="showWeek(11)">W11</button>
+            <button class="week-btn taper" onclick="showWeek(12)">W12</button>
+            <button class="week-btn taper" onclick="showWeek(13)">W13</button>
+            <button class="week-btn taper" onclick="showWeek(14)">W14</button>
+            <button class="week-btn taper" onclick="showWeek(15)">W15</button>
+            <button class="week-btn race" onclick="showWeek(16)">W16 🏃‍♀️</button>
+        </div>
+
+        <!-- WEEK 6 -->
+        <div class="week active" id="week-6">
+            <div class="week-header">
+                <h2>Week 6: Jan 28 – Feb 1</h2>
+                <span class="phase-tag phase-build">BUILD PHASE</span>
+                <div class="running-note">
+                    <strong>Running:</strong> 18km long run with fast finish (last 5km @ 5:45-6:00)
+                </div>
+            </div>
+            <div class="sessions">
+                <div class="session session-a">
+                    <h3>Session A — Lower + Pull</h3>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🔥 Warmup/Plyos</div>
+                        <div class="exercise">
+                            <span class="exercise-name"><a href="https://www.youtube.com/watch?v=zMC757mfJ8c" target="_blank">Pogos (Ankle Bounces)</a> <span class="video-icon">📹</span></span>
+                            <span class="exercise-sets">2 × 15</span>
+                        </div>
+                        <div class="exercise">
+                            <span class="exercise-name"><a href="https://www.youtube.com/watch?v=BHvH_eZKFkA" target="_blank">Single-Leg Bounds</a> <span class="video-icon">📹</span></span>
+                            <span class="exercise-sets">2 × 5 each</span>
+                        </div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🏋️ Main Lifts</div>
+                        <div class="exercise">
+                            <span class="exercise-name"><a href="https://www.youtube.com/watch?v=2C-uNgKwPLE" target="_blank">Bulgarian Split Squat</a> <span class="video-icon">📹</span></span>
+                            <span class="exercise-sets">3 × 6 each</span>
+                        </div>
+                        <div class="exercise">
+                            <span class="exercise-name"><a href="https://www.youtube.com/watch?v=_RlRDWO2jfg" target="_blank">Overhead Press</a> <span class="video-icon">📹</span></span>
+                            <span class="exercise-sets">3 × 8</span>
+                        </div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">💪 Pull-Up Progression</div>
+                        <div class="exercise">
+                            <span class="exercise-name"><a href="https://www.youtube.com/watch?v=aXFSlnaVN1k" target="_blank">Dead Hangs</a> <span class="video-icon">📹</span></span>
+                            <span class="exercise-sets">3 × 30s</span>
+                        </div>
+                        <div class="exercise">
+                            <span class="exercise-name"><a href="https://www.youtube.com/watch?v=Y3ntNsIS2Q8" target="_blank">Band-Assisted Pull-Ups</a> <span class="video-icon">📹</span></span>
+                            <span class="exercise-sets">4 × 5</span>
+                        </div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🦵 Stability</div>
+                        <div class="exercise">
+                            <span class="exercise-name"><a href="https://www.youtube.com/watch?v=jEy_czb3RKA" target="_blank">Single-Leg RDL</a> <span class="video-icon">📹</span></span>
+                            <span class="exercise-sets">2 × 8 each</span>
+                        </div>
+                        <div class="exercise">
+                            <span class="exercise-name"><a href="https://www.youtube.com/watch?v=gwLzBJYoWlI" target="_blank">Single-Leg Calf Raise</a> <span class="video-icon">📹</span></span>
+                            <span class="exercise-sets">3 × 10 each</span>
+                        </div>
+                        <div class="exercise">
+                            <span class="exercise-name"><a href="https://www.youtube.com/watch?v=oMxALDYBmHI" target="_blank">SL Glute Bridge Hold</a> <span class="video-icon">📹</span></span>
+                            <span class="exercise-sets">2 × 20s each</span>
+                        </div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🧳 Core</div>
+                        <div class="exercise">
+                            <span class="exercise-name"><a href="https://www.youtube.com/watch?v=Jji3k9kMXjI" target="_blank">Suitcase Carry</a> <span class="video-icon">📹</span></span>
+                            <span class="exercise-sets">2 × 30m each</span>
+                        </div>
+                    </div>
+                    <div class="rpe-note"><strong>RPE: 7</strong> — Establishing baseline. Focus on form.</div>
+                </div>
+                <div class="session session-b">
+                    <h3>Session B — Upper + Core</h3>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🔥 Movement Prep</div>
+                        <div class="exercise">
+                            <span class="exercise-name"><a href="https://www.youtube.com/watch?v=vLFKpoSH6ak" target="_blank">Lateral Band Walks</a> <span class="video-icon">📹</span></span>
+                            <span class="exercise-sets">2 × 12 each</span>
+                        </div>
+                        <div class="exercise">
+                            <span class="exercise-name"><a href="https://www.youtube.com/watch?v=wiFNA3sqjCA" target="_blank">Bird Dogs</a> <span class="video-icon">📹</span></span>
+                            <span class="exercise-sets">2 × 8 each</span>
+                        </div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🏋️ Upper Push/Pull</div>
+                        <div class="exercise">
+                            <span class="exercise-name"><a href="https://www.youtube.com/watch?v=gRVjAtPip0Y" target="_blank">Bench Press</a> <span class="video-icon">📹</span></span>
+                            <span class="exercise-sets">3 × 8</span>
+                        </div>
+                        <div class="exercise">
+                            <span class="exercise-name"><a href="https://www.youtube.com/watch?v=kBWAon7ItDw" target="_blank">Inverted Rows</a> <span class="video-icon">📹</span></span>
+                            <span class="exercise-sets">3 × 10</span>
+                        </div>
+                        <div class="exercise">
+                            <span class="exercise-name"><a href="https://www.youtube.com/watch?v=JObYtU7Y7ag" target="_blank">Band Pull-Aparts</a> <span class="video-icon">📹</span></span>
+                            <span class="exercise-sets">3 × 15</span>
+                        </div>
+                        <div class="exercise">
+                            <span class="exercise-name"><a href="https://www.youtube.com/watch?v=rep-qVOkqgk" target="_blank">Face Pulls</a> <span class="video-icon">📹</span></span>
+                            <span class="exercise-sets">3 × 12</span>
+                        </div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">💪 Pull-Up Progression</div>
+                        <div class="exercise">
+                            <span class="exercise-name"><a href="https://www.youtube.com/watch?v=pfPVOSDTxpk" target="_blank">Flexed Arm Hang</a> <span class="video-icon">📹</span></span>
+                            <span class="exercise-sets">3 × max</span>
+                        </div>
+                        <div class="exercise">
+                            <span class="exercise-name"><a href="https://www.youtube.com/watch?v=M-giLpLftvQ" target="_blank">Scapular Pull-Ups</a> <span class="video-icon">📹</span></span>
+                            <span class="exercise-sets">3 × 8</span>
+                        </div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🧘 Stability</div>
+                        <div class="exercise">
+                            <span class="exercise-name"><a href="https://www.youtube.com/watch?v=Jji3k9kMXjI" target="_blank">Suitcase Carry</a> <span class="video-icon">📹</span></span>
+                            <span class="exercise-sets">2 × 30m each</span>
+                        </div>
+                        <div class="exercise">
+                            <span class="exercise-name">Single-Leg Balance (eyes closed)</span>
+                            <span class="exercise-sets">2 × 30s each</span>
+                        </div>
+                    </div>
+                    <div class="rpe-note"><strong>RPE: 7</strong> — Establishing baseline. Focus on form.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WEEK 7 -->
+        <div class="week" id="week-7">
+            <div class="week-header">
+                <h2>Week 7: Feb 4 – 8</h2>
+                <span class="phase-tag phase-build">BUILD PHASE</span>
+                <div class="running-note">
+                    <strong>Running:</strong> 19km long run with fast finish (last 6km @ 5:35-5:45)
+                </div>
+            </div>
+            <div class="sessions">
+                <div class="session session-a">
+                    <h3>Session A — Lower + Pull</h3>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🔥 Warmup/Plyos</div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=zMC757mfJ8c" target="_blank">Pogos</a></span><span class="exercise-sets">2 × 15</span></div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=BHvH_eZKFkA" target="_blank">Single-Leg Bounds</a></span><span class="exercise-sets">2 × 5 each</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🏋️ Main Lifts ⬆️</div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=1Tq3QdYUuHs" target="_blank">Deadlift</a> <span class="video-icon">📹</span></span><span class="exercise-sets">3 × 5</span></div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=_RlRDWO2jfg" target="_blank">Overhead Press</a></span><span class="exercise-sets">3 × 8</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">💪 Pull-Up Progression</div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=aXFSlnaVN1k" target="_blank">Dead Hangs</a></span><span class="exercise-sets">3 × 30s</span></div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=Y3ntNsIS2Q8" target="_blank">Band-Assisted Pull-Ups</a></span><span class="exercise-sets">4 × 5</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🦵 Stability</div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=jEy_czb3RKA" target="_blank">Single-Leg RDL</a></span><span class="exercise-sets">2 × 8 each</span></div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=gwLzBJYoWlI" target="_blank">Single-Leg Calf Raise</a></span><span class="exercise-sets">3 × 10 each</span></div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=oMxALDYBmHI" target="_blank">SL Glute Bridge Hold</a></span><span class="exercise-sets">2 × 20s each</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🧳 Core</div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=Jji3k9kMXjI" target="_blank">Suitcase Carry</a></span><span class="exercise-sets">2 × 30m each</span></div>
+                    </div>
+                    <div class="rpe-note"><strong>RPE: 7-8</strong> — Add 2-5kg to main lifts if last week felt good.</div>
+                </div>
+                <div class="session session-b">
+                    <h3>Session B — Upper + Core</h3>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🔥 Movement Prep</div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=vLFKpoSH6ak" target="_blank">Lateral Band Walks</a></span><span class="exercise-sets">2 × 12 each</span></div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=wiFNA3sqjCA" target="_blank">Bird Dogs</a></span><span class="exercise-sets">2 × 8 each</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🏋️ Upper Push/Pull ⬆️</div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=gRVjAtPip0Y" target="_blank">Bench Press</a></span><span class="exercise-sets">3 × 8</span></div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=kBWAon7ItDw" target="_blank">Inverted Rows</a></span><span class="exercise-sets">3 × 10</span></div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=JObYtU7Y7ag" target="_blank">Band Pull-Aparts</a></span><span class="exercise-sets">3 × 15</span></div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=rep-qVOkqgk" target="_blank">Face Pulls</a></span><span class="exercise-sets">3 × 12</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">💪 Pull-Up Progression</div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=pfPVOSDTxpk" target="_blank">Flexed Arm Hang</a></span><span class="exercise-sets">3 × max</span></div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=M-giLpLftvQ" target="_blank">Scapular Pull-Ups</a></span><span class="exercise-sets">3 × 8</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🧘 Stability</div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=Jji3k9kMXjI" target="_blank">Suitcase Carry</a></span><span class="exercise-sets">2 × 30m each</span></div>
+                        <div class="exercise"><span class="exercise-name">Single-Leg Balance (eyes closed)</span><span class="exercise-sets">2 × 30s each</span></div>
+                    </div>
+                    <div class="rpe-note"><strong>RPE: 7-8</strong> — Push a little harder. Add weight to bench if ready.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WEEK 8 - DELOAD -->
+        <div class="week" id="week-8">
+            <div class="week-header">
+                <h2>Week 8: Feb 11 – 15</h2>
+                <span class="phase-tag phase-deload">DELOAD WEEK</span>
+                <div class="running-note">
+                    <strong>Running:</strong> 16km easy long run — recovery week in running too!
+                </div>
+            </div>
+            <div class="sessions">
+                <div class="session session-a">
+                    <h3>Session A — Lower + Pull (Reduced)</h3>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🔥 Warmup/Plyos</div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=zMC757mfJ8c" target="_blank">Pogos</a></span><span class="exercise-sets">2 × 12</span></div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=BHvH_eZKFkA" target="_blank">Single-Leg Bounds</a></span><span class="exercise-sets">2 × 4 each</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🏋️ Main Lifts ⬇️</div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=2C-uNgKwPLE" target="_blank">Bulgarian Split Squat</a></span><span class="exercise-sets">2 × 6 each</span></div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=_RlRDWO2jfg" target="_blank">Overhead Press</a></span><span class="exercise-sets">2 × 8</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">💪 Pull-Up Progression</div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=aXFSlnaVN1k" target="_blank">Dead Hangs</a></span><span class="exercise-sets">2 × 25s</span></div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=Y3ntNsIS2Q8" target="_blank">Band-Assisted Pull-Ups</a></span><span class="exercise-sets">3 × 5</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🦵 Stability (Light)</div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=jEy_czb3RKA" target="_blank">Single-Leg RDL</a></span><span class="exercise-sets">2 × 6 each</span></div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=gwLzBJYoWlI" target="_blank">Single-Leg Calf Raise</a></span><span class="exercise-sets">2 × 10 each</span></div>
+                    </div>
+                    <div class="rpe-note"><strong>RPE: 6</strong> — Let your body recover. Don't chase intensity.</div>
+                </div>
+                <div class="session session-b">
+                    <h3>Session B — Upper + Core (Reduced)</h3>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🔥 Movement Prep</div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=vLFKpoSH6ak" target="_blank">Lateral Band Walks</a></span><span class="exercise-sets">2 × 10 each</span></div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=wiFNA3sqjCA" target="_blank">Bird Dogs</a></span><span class="exercise-sets">2 × 6 each</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🏋️ Upper Push/Pull ⬇️</div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=gRVjAtPip0Y" target="_blank">Bench Press</a></span><span class="exercise-sets">2 × 8</span></div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=kBWAon7ItDw" target="_blank">Inverted Rows</a></span><span class="exercise-sets">2 × 8</span></div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=JObYtU7Y7ag" target="_blank">Band Pull-Aparts</a></span><span class="exercise-sets">2 × 12</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">💪 Pull-Up Progression</div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=pfPVOSDTxpk" target="_blank">Flexed Arm Hang</a></span><span class="exercise-sets">2 × max</span></div>
+                    </div>
+                    <div class="rpe-note"><strong>RPE: 6</strong> — Easy week. Come back stronger next week.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WEEK 9-16 abbreviated for space, using same pattern -->
+        <div class="week" id="week-9">
+            <div class="week-header">
+                <h2>Week 9: Feb 18 – 22</h2>
+                <span class="phase-tag phase-peak">PEAK RUNNING</span>
+                <div class="running-note"><strong>Running:</strong> 20km long run with fast finish — big week!</div>
+            </div>
+            <div class="sessions">
+                <div class="session session-a">
+                    <h3>Session A — Maintain Strength</h3>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🔥 Warmup</div>
+                        <div class="exercise"><span class="exercise-name">Pogos</span><span class="exercise-sets">2 × 12</span></div>
+                        <div class="exercise"><span class="exercise-name">Single-Leg Bounds</span><span class="exercise-sets">2 × 4 each</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🏋️ Main Lifts (Maintain)</div>
+                        <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=1Tq3QdYUuHs" target="_blank">Deadlift</a></span><span class="exercise-sets">3 × 4</span></div>
+                        <div class="exercise"><span class="exercise-name">Overhead Press</span><span class="exercise-sets">3 × 6</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">💪 Pull-Up Work</div>
+                        <div class="exercise"><span class="exercise-name">Dead Hangs</span><span class="exercise-sets">3 × 30s</span></div>
+                        <div class="exercise"><span class="exercise-name">Band-Assisted Pull-Ups</span><span class="exercise-sets">3 × 5</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🦵 Stability</div>
+                        <div class="exercise"><span class="exercise-name">Single-Leg RDL</span><span class="exercise-sets">2 × 6 each</span></div>
+                        <div class="exercise"><span class="exercise-name">Suitcase Carry</span><span class="exercise-sets">2 × 25m each</span></div>
+                    </div>
+                    <div class="rpe-note"><strong>RPE: 7</strong> — Running is priority. Maintain, don't chase PRs.</div>
+                </div>
+                <div class="session session-b">
+                    <h3>Session B — Upper (Moderate)</h3>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🏋️ Upper</div>
+                        <div class="exercise"><span class="exercise-name">Bench Press</span><span class="exercise-sets">3 × 6</span></div>
+                        <div class="exercise"><span class="exercise-name">Inverted Rows</span><span class="exercise-sets">3 × 8</span></div>
+                        <div class="exercise"><span class="exercise-name">Band Pull-Aparts</span><span class="exercise-sets">3 × 12</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">💪 Pull-Up Holds</div>
+                        <div class="exercise"><span class="exercise-name">Flexed Arm Hang</span><span class="exercise-sets">2 × max</span></div>
+                    </div>
+                    <div class="rpe-note"><strong>RPE: 6-7</strong> — Keep legs fresh for running.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week" id="week-10">
+            <div class="week-header">
+                <h2>Week 10: Feb 25 – Mar 1</h2>
+                <span class="phase-tag phase-peak">PEAK RUNNING</span>
+                <div class="running-note"><strong>Running:</strong> 21km long run — YOUR LONGEST RUN! 🔥</div>
+            </div>
+            <div class="sessions">
+                <div class="session session-a">
+                    <h3>Session A — Maintain (Light)</h3>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🏋️ Main Lifts</div>
+                        <div class="exercise"><span class="exercise-name">Bulgarian Split Squat</span><span class="exercise-sets">3 × 5 each</span></div>
+                        <div class="exercise"><span class="exercise-name">Overhead Press</span><span class="exercise-sets">3 × 6</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">💪 Pull-Up Work</div>
+                        <div class="exercise"><span class="exercise-name">Dead Hangs</span><span class="exercise-sets">3 × 30s</span></div>
+                        <div class="exercise"><span class="exercise-name">Band-Assisted Pull-Ups</span><span class="exercise-sets">3 × 5</span></div>
+                    </div>
+                    <div class="rpe-note"><strong>RPE: 6-7</strong> — Biggest running week. Don't dig a hole!</div>
+                </div>
+                <div class="session session-b">
+                    <h3>Session B — Upper Only</h3>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🏋️ Upper</div>
+                        <div class="exercise"><span class="exercise-name">Bench Press</span><span class="exercise-sets">3 × 6</span></div>
+                        <div class="exercise"><span class="exercise-name">Inverted Rows</span><span class="exercise-sets">3 × 8</span></div>
+                        <div class="exercise"><span class="exercise-name">Flexed Arm Hang</span><span class="exercise-sets">2 × max</span></div>
+                    </div>
+                    <div class="rpe-note"><strong>RPE: 6</strong> — Easy upper work. Save your legs.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week" id="week-11">
+            <div class="week-header">
+                <h2>Week 11: Mar 3 – 7</h2>
+                <span class="phase-tag phase-build">RECOVERY</span>
+                <div class="running-note"><strong>Running:</strong> 18km moderate — running eases up. Test your pull-up! 💪</div>
+            </div>
+            <div class="sessions">
+                <div class="session session-a">
+                    <h3>Session A — Full Session</h3>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🏋️ Main Lifts</div>
+                        <div class="exercise"><span class="exercise-name">Deadlift</span><span class="exercise-sets">3 × 5</span></div>
+                        <div class="exercise"><span class="exercise-name">Overhead Press</span><span class="exercise-sets">3 × 8</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">💪 Pull-Up Work — TEST IT!</div>
+                        <div class="exercise"><span class="exercise-name">Dead Hangs</span><span class="exercise-sets">3 × 30s</span></div>
+                        <div class="exercise"><span class="exercise-name">Band-Assisted or UNASSISTED?!</span><span class="exercise-sets">4 × 5</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🦵 Stability</div>
+                        <div class="exercise"><span class="exercise-name">Single-Leg RDL</span><span class="exercise-sets">2 × 8 each</span></div>
+                        <div class="exercise"><span class="exercise-name">Suitcase Carry</span><span class="exercise-sets">2 × 30m each</span></div>
+                    </div>
+                    <div class="rpe-note"><strong>RPE: 7</strong> — Good week to test pull-up progress!</div>
+                </div>
+                <div class="session session-b">
+                    <h3>Session B — Full Session</h3>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🏋️ Upper</div>
+                        <div class="exercise"><span class="exercise-name">Bench Press</span><span class="exercise-sets">3 × 8</span></div>
+                        <div class="exercise"><span class="exercise-name">Inverted Rows</span><span class="exercise-sets">3 × 10</span></div>
+                        <div class="exercise"><span class="exercise-name">Face Pulls</span><span class="exercise-sets">3 × 12</span></div>
+                        <div class="exercise"><span class="exercise-name">Flexed Arm Hang</span><span class="exercise-sets">3 × max</span></div>
+                    </div>
+                    <div class="rpe-note"><strong>RPE: 7</strong> — Enjoy the easier running week!</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week" id="week-12">
+            <div class="week-header">
+                <h2>Week 12: Mar 10 – 14</h2>
+                <span class="phase-tag phase-taper">TAPER BEGINS</span>
+                <div class="running-note"><strong>Running:</strong> 16km easy — freshening up begins!</div>
+            </div>
+            <div class="sessions">
+                <div class="session session-a">
+                    <h3>Session A — Reduced Volume</h3>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🏋️ Main Lifts</div>
+                        <div class="exercise"><span class="exercise-name">Bulgarian Split Squat</span><span class="exercise-sets">2 × 6 each</span></div>
+                        <div class="exercise"><span class="exercise-name">Overhead Press</span><span class="exercise-sets">2 × 6</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">💪 Pull-Up Work</div>
+                        <div class="exercise"><span class="exercise-name">Dead Hangs</span><span class="exercise-sets">2 × 25s</span></div>
+                        <div class="exercise"><span class="exercise-name">Band-Assisted Pull-Ups</span><span class="exercise-sets">3 × 5</span></div>
+                    </div>
+                    <div class="rpe-note"><strong>RPE: 6</strong> — Starting to freshen up. No new exercises.</div>
+                </div>
+                <div class="session session-b">
+                    <h3>Session B — Reduced Volume</h3>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🏋️ Upper</div>
+                        <div class="exercise"><span class="exercise-name">Bench Press</span><span class="exercise-sets">2 × 8</span></div>
+                        <div class="exercise"><span class="exercise-name">Inverted Rows</span><span class="exercise-sets">2 × 8</span></div>
+                        <div class="exercise"><span class="exercise-name">Flexed Arm Hang</span><span class="exercise-sets">2 × max</span></div>
+                    </div>
+                    <div class="rpe-note"><strong>RPE: 6</strong> — Keep moving, stay sharp.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week" id="week-13">
+            <div class="week-header">
+                <h2>Week 13: Mar 17 – 21</h2>
+                <span class="phase-tag phase-taper">TAPER</span>
+                <div class="running-note"><strong>Running:</strong> 18km with fast finish</div>
+            </div>
+            <div class="sessions">
+                <div class="session session-a">
+                    <h3>Session A — Light</h3>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🏋️ Main Lifts</div>
+                        <div class="exercise"><span class="exercise-name">Deadlift</span><span class="exercise-sets">2 × 4</span></div>
+                        <div class="exercise"><span class="exercise-name">Overhead Press</span><span class="exercise-sets">2 × 6</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">💪 Pull-Up Work</div>
+                        <div class="exercise"><span class="exercise-name">Dead Hangs</span><span class="exercise-sets">2 × 20s</span></div>
+                        <div class="exercise"><span class="exercise-name">Band-Assisted Pull-Ups</span><span class="exercise-sets">2 × 5</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🧳 Core Only</div>
+                        <div class="exercise"><span class="exercise-name">Suitcase Carry</span><span class="exercise-sets">2 × 25m each</span></div>
+                    </div>
+                    <div class="rpe-note"><strong>RPE: 5-6</strong> — Keep moving, don't fatigue.</div>
+                </div>
+                <div class="session session-b">
+                    <h3>Session B — Very Light</h3>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🏋️ Upper</div>
+                        <div class="exercise"><span class="exercise-name">Bench Press</span><span class="exercise-sets">2 × 6</span></div>
+                        <div class="exercise"><span class="exercise-name">Band Pull-Aparts</span><span class="exercise-sets">2 × 12</span></div>
+                    </div>
+                    <div class="rpe-note"><strong>RPE: 5</strong> — Minimal work. Staying loose.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week" id="week-14">
+            <div class="week-header">
+                <h2>Week 14: Mar 24 – 28</h2>
+                <span class="phase-tag phase-taper">FINAL STRENGTH WEEK</span>
+                <div class="running-note"><strong>Running:</strong> 14km with fast finish — last real strength week!</div>
+            </div>
+            <div class="sessions">
+                <div class="session session-a">
+                    <h3>Session A — Minimal</h3>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🏋️ Light Lifts</div>
+                        <div class="exercise"><span class="exercise-name">Bulgarian Split Squat (light)</span><span class="exercise-sets">2 × 5 each</span></div>
+                        <div class="exercise"><span class="exercise-name">Overhead Press (light)</span><span class="exercise-sets">2 × 5</span></div>
+                    </div>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">💪 Pull-Ups</div>
+                        <div class="exercise"><span class="exercise-name">Dead Hangs only</span><span class="exercise-sets">2 × 20s</span></div>
+                    </div>
+                    <div class="rpe-note"><strong>RPE: 5</strong> — Last real strength session. Light and easy.</div>
+                </div>
+                <div class="session session-b">
+                    <h3>Session B — Optional</h3>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🏋️ Upper (Optional)</div>
+                        <div class="exercise"><span class="exercise-name">Bench Press (very light)</span><span class="exercise-sets">2 × 6</span></div>
+                        <div class="exercise"><span class="exercise-name">Band Pull-Aparts</span><span class="exercise-sets">2 × 10</span></div>
+                    </div>
+                    <div class="rpe-note"><strong>RPE: 4-5</strong> — Skip if you feel tired. Rest > training now.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week" id="week-15">
+            <div class="week-header">
+                <h2>Week 15: Mar 31 – Apr 4</h2>
+                <span class="phase-tag phase-taper">RACE WEEK PREP</span>
+                <div class="running-note"><strong>Running:</strong> 12km with fast finish — almost there!</div>
+            </div>
+            <div class="sessions">
+                <div class="session session-a">
+                    <h3>Monday/Tuesday Only — Activation</h3>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">🔥 Blood Flow Only</div>
+                        <div class="exercise"><span class="exercise-name">Bodyweight Squats</span><span class="exercise-sets">2 × 10</span></div>
+                        <div class="exercise"><span class="exercise-name">Band Pull-Aparts</span><span class="exercise-sets">2 × 10</span></div>
+                        <div class="exercise"><span class="exercise-name">Dead Hangs</span><span class="exercise-sets">2 × 15s</span></div>
+                        <div class="exercise"><span class="exercise-name">Bird Dogs</span><span class="exercise-sets">2 × 6 each</span></div>
+                    </div>
+                    <div class="rpe-note"><strong>15-20 minutes total.</strong> Just activation. No fatigue!</div>
+                </div>
+                <div class="session session-b rest-week">
+                    <h3>Session B</h3>
+                    <p>❌ <strong>SKIP</strong></p>
+                    <p>Rest and trust your training!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="week" id="week-16">
+            <div class="week-header">
+                <h2>Week 16: Apr 7 – 12 🏆</h2>
+                <span class="phase-tag phase-race">RACE WEEK!</span>
+                <div class="running-note"><strong>Running:</strong> Shakeouts only → <strong>RACE DAY APRIL 12!</strong> 🏃‍♀️🎉</div>
+            </div>
+            <div class="sessions rest-week" style="text-align: center; padding: 40px;">
+                <h3 style="color: #ff6b6b; font-size: 24px;">🏆 RACE WEEK 🏆</h3>
+                <p style="margin: 20px 0; font-size: 18px;">No strength training this week.</p>
+                <p style="color: #888;">Monday: Optional 10min walk + dynamic stretches</p>
+                <p style="color: #888;">Tuesday-Friday: REST. Trust your training.</p>
+                <p style="color: #888;">Saturday: Light shakeout jog</p>
+                <p style="margin-top: 30px; font-size: 24px; color: #4ade80;">
+                    <strong>Sunday April 12: GO GET THAT 1:55! 🎯</strong>
+                </p>
+            </div>
+        </div>
+
+        <div class="pull-up-tracker">
+            <h4>🎯 Pull-Up Progress Tracker</h4>
+            <p>Week 6-7: Build with band-assisted + negatives</p>
+            <p>Week 8: Deload (maintain)</p>
+            <p>Week 9-10: Maintain during peak running</p>
+            <p><strong>Week 11: TEST IT!</strong> Try unassisted!</p>
+            <p>Week 12+: Maintain what you've got → crush it after the race!</p>
+        </div>
+
+        <div class="legend">
+            <h4>Legend</h4>
+            <div class="legend-items">
+                <div class="legend-item"><span class="phase-tag phase-build">BUILD</span> Push strength</div>
+                <div class="legend-item"><span class="phase-tag phase-peak">PEAK</span> Running priority</div>
+                <div class="legend-item"><span class="phase-tag phase-deload">DELOAD</span> Recovery</div>
+                <div class="legend-item"><span class="phase-tag phase-taper">TAPER</span> Freshen up</div>
+                <div class="legend-item"><span class="phase-tag phase-race">RACE</span> Go time!</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showWeek(num) {
+            // Hide all weeks
+            document.querySelectorAll('.week').forEach(w => w.classList.remove('active'));
+            // Show selected week
+            document.getElementById('week-' + num).classList.add('active');
+            // Update button states
+            document.querySelectorAll('.week-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
