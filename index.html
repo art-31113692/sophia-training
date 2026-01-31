@@ -65,8 +65,8 @@
             display: flex; justify-content: space-between; align-items: center;
             padding: 8px 12px; background: #ffffff08; border-radius: 6px;
         }
-        .running-day-name { color: #4ade80; font-weight: bold; font-size: 13px; min-width: 90px; }
-        .running-day-workout { color: #eee; font-size: 13px; }
+        .running-day-name { color: #4ade80; font-weight: bold; font-size: 15px; min-width: 90px; }
+        .running-day-workout { color: #eee; font-size: 15px; }
         .running-day.quality { background: linear-gradient(90deg, #fbbf2422, transparent); }
         .running-day.quality .running-day-name { color: #fbbf24; }
         .running-day.long { background: linear-gradient(90deg, #00d4ff22, transparent); }
@@ -107,7 +107,7 @@
             padding: 8px 0; border-bottom: 1px solid #ffffff11;
         }
         .exercise:last-child { border-bottom: none; }
-        .exercise-name { flex: 1; }
+        .exercise-name { flex: 1; font-size: 15px; }
         .exercise-name a {
             color: #fff; text-decoration: none;
             border-bottom: 1px dotted #00d4ff;
@@ -115,7 +115,7 @@
         .exercise-name a:hover { color: #00d4ff; }
         .exercise-sets {
             color: #00d4ff; font-weight: bold; margin-left: 10px;
-            white-space: nowrap;
+            white-space: nowrap; font-size: 15px;
         }
         .video-icon { font-size: 12px; margin-left: 5px; }
 
@@ -156,6 +156,16 @@
         .info-box th { color: #888; font-weight: normal; }
         .info-box td:first-child { color: #00d4ff; }
         .info-box p { color: #aaa; font-size: 13px; margin-top: 10px; }
+        
+        /* Mobile-friendly larger text */
+        @media (max-width: 600px) {
+            .running-day-name, .running-day-workout { font-size: 16px; }
+            .exercise-name, .exercise-sets { font-size: 16px; }
+            .exercise { padding: 10px 0; }
+            .running-day { padding: 10px 12px; }
+            .rpe-note { font-size: 14px; }
+            .exercise-group-title { font-size: 13px; }
+        }
     </style>
 </head>
 <body>
