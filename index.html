@@ -118,6 +118,31 @@
             white-space: nowrap; font-size: 15px;
         }
         .video-icon { font-size: 12px; margin-left: 5px; }
+        
+        /* Weight tracking inputs */
+        .weight-input {
+            width: 60px;
+            padding: 4px 8px;
+            margin-left: 10px;
+            background: #1a1a2e;
+            border: 1px solid #ffffff22;
+            border-radius: 6px;
+            color: #4ade80;
+            font-size: 13px;
+            text-align: center;
+        }
+        .weight-input:focus {
+            outline: none;
+            border-color: #4ade80;
+            box-shadow: 0 0 5px #4ade8044;
+        }
+        .weight-input::placeholder {
+            color: #555;
+            font-size: 11px;
+        }
+        .weight-input:not(:placeholder-shown) {
+            background: #4ade8015;
+        }
 
         .rpe-note {
             margin-top: 15px; padding: 10px; background: #ffffff11;
@@ -1079,14 +1104,71 @@
             simpleMode.classList.toggle('collapsed');
         }
         
-        // On page load, move Simple Mode into the initially active week
+        // Weight tracking functions
+        function getWeightKey(weekId, exerciseName) {
+            // Create a unique key for each exercise
+            return 'weight_' + weekId + '_' + exerciseName.replace(/[^a-zA-Z0-9]/g, '_');
+        }
+        
+        function saveWeight(input) {
+            const key = input.dataset.weightKey;
+            if (input.value.trim()) {
+                localStorage.setItem(key, input.value);
+            } else {
+                localStorage.removeItem(key);
+            }
+        }
+        
+        function loadWeights() {
+            document.querySelectorAll('.weight-input').forEach(input => {
+                const key = input.dataset.weightKey;
+                const saved = localStorage.getItem(key);
+                if (saved) {
+                    input.value = saved;
+                }
+            });
+        }
+        
+        function addWeightInputs() {
+            // Add weight inputs to all exercises in week sessions
+            document.querySelectorAll('.week').forEach(week => {
+                const weekId = week.id;
+                week.querySelectorAll('.session .exercise').forEach(exercise => {
+                    // Skip if already has input
+                    if (exercise.querySelector('.weight-input')) return;
+                    
+                    // Get exercise name for the key
+                    const nameEl = exercise.querySelector('.exercise-name');
+                    if (!nameEl) return;
+                    const exerciseName = nameEl.textContent.trim();
+                    
+                    // Create input
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.className = 'weight-input';
+                    input.placeholder = 'kg';
+                    input.dataset.weightKey = getWeightKey(weekId, exerciseName);
+                    input.addEventListener('change', () => saveWeight(input));
+                    input.addEventListener('blur', () => saveWeight(input));
+                    
+                    exercise.appendChild(input);
+                });
+            });
+        }
+        
+        // On page load
         document.addEventListener('DOMContentLoaded', function() {
+            // Move Simple Mode into the initially active week
             const activeWeek = document.querySelector('.week.active');
             const simpleMode = document.getElementById('simpleMode');
             const sessions = activeWeek.querySelector('.sessions');
             if (sessions) {
                 activeWeek.insertBefore(simpleMode, sessions);
             }
+            
+            // Add weight inputs and load saved values
+            addWeightInputs();
+            loadWeights();
         });
     </script>
 </body>
