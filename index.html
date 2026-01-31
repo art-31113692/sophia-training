@@ -279,7 +279,7 @@
             <button class="week-btn race" onclick="showWeek(16)">W16 🏃‍♀️</button>
         </div>
 
-        <!-- Simple Mode Section (with YouTube links) -->
+        <!-- Simple Mode Section (moves to active week via JS) -->
         <div class="simple-mode collapsed" id="simpleMode">
             <div class="simple-mode-header" onclick="toggleSimpleMode()">
                 <h3>⚡ Simple Mode — Time Crunched? Just do these!</h3>
@@ -1035,16 +1035,34 @@
             // Hide all weeks
             document.querySelectorAll('.week').forEach(w => w.classList.remove('active'));
             // Show selected week
-            document.getElementById('week-' + num).classList.add('active');
+            const activeWeek = document.getElementById('week-' + num);
+            activeWeek.classList.add('active');
             // Update button states
             document.querySelectorAll('.week-btn').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
+            
+            // Move Simple Mode into the active week, before the sessions
+            const simpleMode = document.getElementById('simpleMode');
+            const sessions = activeWeek.querySelector('.sessions');
+            if (sessions) {
+                activeWeek.insertBefore(simpleMode, sessions);
+            }
         }
         
         function toggleSimpleMode() {
             const simpleMode = document.getElementById('simpleMode');
             simpleMode.classList.toggle('collapsed');
         }
+        
+        // On page load, move Simple Mode into the initially active week
+        document.addEventListener('DOMContentLoaded', function() {
+            const activeWeek = document.querySelector('.week.active');
+            const simpleMode = document.getElementById('simpleMode');
+            const sessions = activeWeek.querySelector('.sessions');
+            if (sessions) {
+                activeWeek.insertBefore(simpleMode, sessions);
+            }
+        });
     </script>
 </body>
 </html>
