@@ -120,6 +120,32 @@
         .video-icon { font-size: 12px; margin-left: 5px; }
         
         /* Weight tracking inputs */
+        .weight-controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .weight-btn {
+            padding: 8px 16px;
+            background: #2a2a4a;
+            border: 1px solid #ffffff22;
+            border-radius: 8px;
+            color: #aaa;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .weight-btn:hover {
+            background: #3a3a5a;
+            color: #fff;
+            border-color: #4ade80;
+        }
+        .weight-btn.export { border-color: #4ade8044; }
+        .weight-btn.import { border-color: #00d4ff44; }
+        .weight-btn.clear { border-color: #ff6b6b44; }
+        .weight-btn.clear:hover { border-color: #ff6b6b; color: #ff6b6b; }
         .weight-input {
             width: 60px;
             padding: 4px 8px;
@@ -1078,6 +1104,18 @@
                 <div class="legend-item"><span class="phase-tag phase-race">RACE</span> Go time!</div>
             </div>
         </div>
+        
+        <!-- Weight Data Controls -->
+        <div class="info-box" style="border-left-color: #4ade80;">
+            <h4 style="color: #4ade80;">💾 Weight Tracking Data</h4>
+            <p style="color: #888; margin-bottom: 15px;">Your weights are saved in this browser. Use these buttons to backup or restore your data.</p>
+            <div class="weight-controls">
+                <button class="weight-btn export" onclick="exportWeights()">📥 Export Backup</button>
+                <button class="weight-btn import" onclick="document.getElementById('importFile').click()">📤 Import Backup</button>
+                <button class="weight-btn clear" onclick="clearWeights()">🗑️ Clear All</button>
+            </div>
+            <input type="file" id="importFile" accept=".json" style="display:none" onchange="importWeights(event)">
+        </div>
     </div>
 
     <script>
@@ -1170,6 +1208,89 @@
             addWeightInputs();
             loadWeights();
         });
+        
+        // Export weights to JSON file
+        function exportWeights() {
+            const weights = {};
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key.startsWith('weight_')) {
+                    weights[key] = localStorage.getItem(key);
+                }
+            }
+            
+            if (Object.keys(weights).length === 0) {
+                alert('No weight data to export yet!');
+                return;
+            }
+            
+            const data = {
+                exportDate: new Date().toISOString(),
+                weights: weights
+            };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'sophia-training-weights-' + new Date().toISOString().split('T')[0] + '.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        // Import weights from JSON file
+        function importWeights(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (!data.weights) {
+                        alert('Invalid backup file format');
+                        return;
+                    }
+                    
+                    let count = 0;
+                    for (const key in data.weights) {
+                        localStorage.setItem(key, data.weights[key]);
+                        count++;
+                    }
+                    
+                    loadWeights(); // Refresh displayed values
+                    alert('Imported ' + count + ' weight entries!');
+                } catch (err) {
+                    alert('Error reading backup file: ' + err.message);
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; // Reset file input
+        }
+        
+        // Clear all weight data
+        function clearWeights() {
+            if (!confirm('Are you sure you want to delete ALL saved weights? This cannot be undone!')) {
+                return;
+            }
+            
+            const keys = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key.startsWith('weight_')) {
+                    keys.push(key);
+                }
+            }
+            
+            keys.forEach(key => localStorage.removeItem(key));
+            
+            // Clear input fields
+            document.querySelectorAll('.weight-input').forEach(input => {
+                input.value = '';
+            });
+            
+            alert('Cleared ' + keys.length + ' weight entries.');
+        }
     </script>
 </body>
 </html>
