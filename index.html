@@ -235,6 +235,14 @@
         .simple-exercise-name {
             color: #eee;
         }
+        .simple-exercise-name a {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px dotted #00d4ff;
+        }
+        .simple-exercise-name a:hover {
+            color: #00d4ff;
+        }
         .simple-exercise-sets {
             color: #00d4ff;
             font-weight: bold;
@@ -257,55 +265,6 @@
             <strong>Goals:</strong> Build strength • Avoid injury • Improve running • First pull-up! 🎯
         </div>
 
-        <!-- Simple Mode Section -->
-        <div class="simple-mode collapsed" id="simpleMode">
-            <div class="simple-mode-header" onclick="toggleSimpleMode()">
-                <h3>⚡ Simple Mode — Time Crunched? Just do these!</h3>
-                <span class="toggle-icon">▼</span>
-            </div>
-            <div class="simple-mode-content">
-                <div class="simple-session">
-                    <h4>Session A — Lower + Pull</h4>
-                    <div class="simple-exercise">
-                        <span class="simple-exercise-name">Deadlift or Bulgarian Split Squat</span>
-                        <span class="simple-exercise-sets">3 × 5-6</span>
-                    </div>
-                    <div class="simple-exercise">
-                        <span class="simple-exercise-name">Band-Assisted Pull-Ups (or Dead Hangs)</span>
-                        <span class="simple-exercise-sets">3 × 5</span>
-                    </div>
-                    <div class="simple-exercise">
-                        <span class="simple-exercise-name">Single-Leg Calf Raises</span>
-                        <span class="simple-exercise-sets">2 × 10 each</span>
-                    </div>
-                    <div class="simple-exercise">
-                        <span class="simple-exercise-name">Suitcase Carry</span>
-                        <span class="simple-exercise-sets">2 × 30m each</span>
-                    </div>
-                </div>
-                <div class="simple-session session-b">
-                    <h4>Session B — Upper + Pull</h4>
-                    <div class="simple-exercise">
-                        <span class="simple-exercise-name">Inverted Rows</span>
-                        <span class="simple-exercise-sets">3 × 8</span>
-                    </div>
-                    <div class="simple-exercise">
-                        <span class="simple-exercise-name">Overhead Press</span>
-                        <span class="simple-exercise-sets">3 × 6</span>
-                    </div>
-                    <div class="simple-exercise">
-                        <span class="simple-exercise-name">Flexed Arm Hang</span>
-                        <span class="simple-exercise-sets">3 × max</span>
-                    </div>
-                    <div class="simple-exercise">
-                        <span class="simple-exercise-name">Single-Leg RDL</span>
-                        <span class="simple-exercise-sets">2 × 6 each</span>
-                    </div>
-                </div>
-                <p class="simple-mode-note">~25 mins each • Covers all the essentials • No decisions, just do it 💪</p>
-            </div>
-        </div>
-
         <div class="week-nav">
             <button class="week-btn active" onclick="showWeek(6)">W6</button>
             <button class="week-btn" onclick="showWeek(7)">W7</button>
@@ -318,6 +277,55 @@
             <button class="week-btn taper" onclick="showWeek(14)">W14</button>
             <button class="week-btn taper" onclick="showWeek(15)">W15</button>
             <button class="week-btn race" onclick="showWeek(16)">W16 🏃‍♀️</button>
+        </div>
+
+        <!-- Simple Mode Section (with YouTube links) -->
+        <div class="simple-mode collapsed" id="simpleMode">
+            <div class="simple-mode-header" onclick="toggleSimpleMode()">
+                <h3>⚡ Simple Mode — Time Crunched? Just do these!</h3>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="simple-mode-content">
+                <div class="simple-session">
+                    <h4>Session A — Lower + Pull</h4>
+                    <div class="simple-exercise">
+                        <span class="simple-exercise-name"><a href="https://www.youtube.com/watch?v=3UwO0fKukRw" target="_blank">Deadlift</a> or <a href="https://www.youtube.com/watch?v=2C-uNgKwPLE" target="_blank">Bulgarian Split Squat</a> 📹</span>
+                        <span class="simple-exercise-sets">3 × 5-6</span>
+                    </div>
+                    <div class="simple-exercise">
+                        <span class="simple-exercise-name"><a href="https://www.youtube.com/watch?v=Y3ntNsIS2Q8" target="_blank">Band-Assisted Pull-Ups</a> (or <a href="https://www.youtube.com/watch?v=Nc-JGSZZMAQ" target="_blank">Dead Hangs</a>) 📹</span>
+                        <span class="simple-exercise-sets">3 × 5</span>
+                    </div>
+                    <div class="simple-exercise">
+                        <span class="simple-exercise-name"><a href="https://www.youtube.com/watch?v=HmgXnST4Mdw" target="_blank">Single-Leg Calf Raises</a> 📹</span>
+                        <span class="simple-exercise-sets">2 × 10 each</span>
+                    </div>
+                    <div class="simple-exercise">
+                        <span class="simple-exercise-name"><a href="https://www.youtube.com/watch?v=ur4ou6mX7sw" target="_blank">Suitcase Carry</a> 📹</span>
+                        <span class="simple-exercise-sets">2 × 30m each</span>
+                    </div>
+                </div>
+                <div class="simple-session session-b">
+                    <h4>Session B — Upper + Pull</h4>
+                    <div class="simple-exercise">
+                        <span class="simple-exercise-name"><a href="https://www.youtube.com/watch?v=Fl0UMfdEzsE" target="_blank">Inverted Rows</a> 📹</span>
+                        <span class="simple-exercise-sets">3 × 8</span>
+                    </div>
+                    <div class="simple-exercise">
+                        <span class="simple-exercise-name"><a href="https://www.youtube.com/watch?v=_RlRDWO2jfg" target="_blank">Overhead Press</a> 📹</span>
+                        <span class="simple-exercise-sets">3 × 6</span>
+                    </div>
+                    <div class="simple-exercise">
+                        <span class="simple-exercise-name"><a href="https://www.youtube.com/watch?v=bHRif04GiYM" target="_blank">Flexed Arm Hang</a> 📹</span>
+                        <span class="simple-exercise-sets">3 × max</span>
+                    </div>
+                    <div class="simple-exercise">
+                        <span class="simple-exercise-name"><a href="https://www.youtube.com/watch?v=Zfr6wizR8rs" target="_blank">Single-Leg RDL</a> 📹</span>
+                        <span class="simple-exercise-sets">2 × 6 each</span>
+                    </div>
+                </div>
+                <p class="simple-mode-note">~25 mins each • Covers all the essentials • No decisions, just do it 💪</p>
+            </div>
         </div>
 
         <!-- WEEK 6 -->
