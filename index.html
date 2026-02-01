@@ -18,7 +18,7 @@
         .subtitle { text-align: center; color: #888; margin-bottom: 30px; }
         .goal { text-align: center; background: #00d4ff22; padding: 15px; border-radius: 10px; margin-bottom: 30px; }
         .goal strong { color: #00d4ff; }
-        
+
         /* Week Navigation */
         .week-nav {
             display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 30px;
@@ -50,13 +50,13 @@
         .phase-deload { background: #a78bfa; color: #000; }
         .phase-taper { background: #fb923c; color: #000; }
         .phase-race { background: #f87171; color: #000; }
-        
+
         .running-note {
             background: #ffffff11; padding: 10px 15px; border-radius: 8px;
             margin-top: 10px; font-size: 14px; color: #aaa;
         }
         .running-note strong { color: #fff; }
-        
+
         .running-schedule {
             background: #ffffff11; padding: 15px; border-radius: 8px;
             margin-top: 10px; display: grid; gap: 8px;
@@ -71,7 +71,7 @@
         .running-day.quality .running-day-name { color: #fbbf24; }
         .running-day.long { background: linear-gradient(90deg, #00d4ff22, transparent); }
         .running-day.long .running-day-name { color: #00d4ff; }
-        
+
         .optional-section {
             margin-top: 12px; padding-top: 12px; border-top: 1px dashed #ffffff22;
         }
@@ -87,7 +87,7 @@
         /* Sessions */
         .sessions { display: grid; gap: 20px; }
         @media (min-width: 600px) { .sessions { grid-template-columns: 1fr 1fr; } }
-        
+
         .session {
             background: #2a2a4a; border-radius: 12px; padding: 20px;
         }
@@ -96,7 +96,7 @@
             border-bottom: 1px solid #ffffff22;
         }
         .session-b h3 { color: #ff6b9d; }
-        
+
         .exercise-group { margin-bottom: 15px; }
         .exercise-group-title {
             font-size: 12px; color: #888; text-transform: uppercase;
@@ -118,7 +118,7 @@
             white-space: nowrap; font-size: 15px;
         }
         .video-icon { font-size: 12px; margin-left: 5px; }
-        
+
         /* Weight tracking inputs */
         .weight-controls {
             display: flex;
@@ -196,7 +196,7 @@
             border-radius: 12px; border: 1px solid #4ade80;
         }
         .pull-up-tracker h4 { color: #4ade80; margin-bottom: 10px; }
-        
+
         .info-box {
             margin-top: 20px; padding: 20px; background: #2a2a4a;
             border-radius: 12px; border-left: 4px solid #fbbf24;
@@ -207,7 +207,7 @@
         .info-box th { color: #888; font-weight: normal; }
         .info-box td:first-child { color: #00d4ff; }
         .info-box p { color: #aaa; font-size: 13px; margin-top: 10px; }
-        
+
         /* Mobile-friendly larger text */
         @media (max-width: 600px) {
             .running-day-name, .running-day-workout { font-size: 16px; }
@@ -217,7 +217,7 @@
             .rpe-note { font-size: 14px; }
             .exercise-group-title { font-size: 13px; }
         }
-        
+
         /* Simple Mode */
         .simple-mode {
             background: linear-gradient(90deg, #ff6b9d22, #a78bfa22);
@@ -311,7 +311,7 @@
     <div class="container">
         <h1>💪 Sophia's Training Plan</h1>
         <p class="subtitle">Half Marathon: April 12, 2026 | Goal: Sub 1:55</p>
-        
+
         <div class="goal">
             <strong>Goals:</strong> Build strength • Avoid injury • Improve running • First pull-up! 🎯
             <br><br>
@@ -335,12 +335,12 @@
         <!-- Simple Mode Section (moves to active week via JS) -->
         <div class="simple-mode collapsed" id="simpleMode">
             <div class="simple-mode-header" onclick="toggleSimpleMode()">
-                <h3>⚡ Simple Mode — Time Crunched? Just do these!</h3>
+                <h3>⚡ Simple Mode - Time Crunched? Just do these!</h3>
                 <span class="toggle-icon">▼</span>
             </div>
             <div class="simple-mode-content">
                 <div class="simple-session">
-                    <h4>Session A — Lower + Pull</h4>
+                    <h4>Session A - Lower + Pull</h4>
                     <div class="simple-exercise">
                         <span class="simple-exercise-name"><a href="https://www.youtube.com/watch?v=3UwO0fKukRw" target="_blank">Deadlift</a> or <a href="https://www.youtube.com/watch?v=2C-uNgKwPLE" target="_blank">Bulgarian Split Squat</a> 📹</span>
                         <span class="simple-exercise-sets">3 × 5-6</span>
@@ -359,7 +359,7 @@
                     </div>
                 </div>
                 <div class="simple-session session-b">
-                    <h4>Session B — Upper + Pull</h4>
+                    <h4>Session B - Upper + Pull</h4>
                     <div class="simple-exercise">
                         <span class="simple-exercise-name"><a href="https://www.youtube.com/watch?v=Yq75-6SUn7A" target="_blank">Pogos</a> (warm-up) 📹</span>
                         <span class="simple-exercise-sets">2 × 10</span>
@@ -388,7 +388,7 @@
         <!-- WEEK 6 -->
         <div class="week" id="week-6">
             <div class="week-header">
-                <h2>Week 6: Jan 28 – Feb 1</h2>
+                <h2>Week 6: Jan 26 - Feb 1</h2>
                 <span class="phase-tag phase-build">BUILD PHASE</span>
                 <div class="running-schedule">
                     <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A</span></div>
@@ -408,7 +408,7 @@
             </div>
             <div class="sessions">
                 <div class="session session-a">
-                    <h3>Session A — Lower + Pull</h3>
+                    <h3>Session A - Lower + Pull</h3>
                     <div class="exercise-group">
                         <div class="exercise-group-title">🔥 Warmup/Plyos</div>
                         <div class="exercise">
@@ -464,10 +464,10 @@
                             <span class="exercise-sets">2 × 30m each</span>
                         </div>
                     </div>
-                    <div class="rpe-note"><strong>RPE: 7</strong> — Establishing baseline. Focus on form.</div>
+                    <div class="rpe-note"><strong>RPE: 7</strong> - Establishing baseline. Focus on form.</div>
                 </div>
                 <div class="session session-b">
-                    <h3>Session B — Upper + Core</h3>
+                    <h3>Session B - Upper + Core</h3>
                     <div class="exercise-group">
                         <div class="exercise-group-title">⚡ Quick Plyos (Warm-up)</div>
                         <div class="exercise">
@@ -527,7 +527,7 @@
                             <span class="exercise-sets">2 × 30s each</span>
                         </div>
                     </div>
-                    <div class="rpe-note"><strong>RPE: 7</strong> — Establishing baseline. Focus on form.</div>
+                    <div class="rpe-note"><strong>RPE: 7</strong> - Establishing baseline. Focus on form.</div>
                 </div>
             </div>
         </div>
@@ -535,7 +535,7 @@
         <!-- WEEK 7 -->
         <div class="week" id="week-7">
             <div class="week-header">
-                <h2>Week 7: Feb 4 – 8</h2>
+                <h2>Week 7: Feb 2 – 8</h2>
                 <span class="phase-tag phase-build">BUILD PHASE</span>
                 <div class="running-schedule">
                     <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A</span></div>
@@ -555,7 +555,7 @@
             </div>
             <div class="sessions">
                 <div class="session session-a">
-                    <h3>Session A — Lower + Pull</h3>
+                    <h3>Session A - Lower + Pull</h3>
                     <div class="exercise-group">
                         <div class="exercise-group-title">🔥 Warmup/Plyos</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=Yq75-6SUn7A" target="_blank">Pogos</a></span><span class="exercise-sets">2 × 15</span></div>
@@ -581,10 +581,10 @@
                         <div class="exercise-group-title">🧳 Core</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=ur4ou6mX7sw" target="_blank">Suitcase Carry</a></span><span class="exercise-sets">2 × 30m each</span></div>
                     </div>
-                    <div class="rpe-note"><strong>RPE: 7-8</strong> — Add 2-5kg to main lifts if last week felt good.</div>
+                    <div class="rpe-note"><strong>RPE: 7-8</strong> - Add 2-5kg to main lifts if last week felt good.</div>
                 </div>
                 <div class="session session-b">
-                    <h3>Session B — Upper + Core</h3>
+                    <h3>Session B - Upper + Core</h3>
                     <div class="exercise-group">
                         <div class="exercise-group-title">⚡ Quick Plyos (Warm-up)</div>
                         <div class="exercise">
@@ -614,7 +614,7 @@
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=ur4ou6mX7sw" target="_blank">Suitcase Carry</a></span><span class="exercise-sets">2 × 30m each</span></div>
                         <div class="exercise"><span class="exercise-name">Single-Leg Balance (eyes closed)</span><span class="exercise-sets">2 × 30s each</span></div>
                     </div>
-                    <div class="rpe-note"><strong>RPE: 7-8</strong> — Push a little harder. Add weight to bench if ready.</div>
+                    <div class="rpe-note"><strong>RPE: 7-8</strong> - Push a little harder. Add weight to bench if ready.</div>
                 </div>
             </div>
         </div>
@@ -622,7 +622,7 @@
         <!-- WEEK 8 - DELOAD -->
         <div class="week" id="week-8">
             <div class="week-header">
-                <h2>Week 8: Feb 11 – 15</h2>
+                <h2>Week 8: Feb 9 – 15</h2>
                 <span class="phase-tag phase-deload">DELOAD WEEK</span>
                 <div class="running-schedule">
                     <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A (reduced)</span></div>
@@ -634,14 +634,14 @@
                     <div class="running-day strength"><span class="running-day-name">💪 Saturday</span><span class="running-day-workout">Session B</span></div>
                     <div class="running-day long"><span class="running-day-name">🏃 Sunday</span><span class="running-day-workout">16 km easy @ 6:30-6:55</span></div>
                     <div class="optional-section">
-                        <div class="optional-label">✨ Optional (Deload — keep it light!)</div>
+                        <div class="optional-label">✨ Optional (Deload - keep it light!)</div>
                         <div class="running-day optional"><span class="running-day-name">Saturday</span><span class="running-day-workout">Easy swim or full rest</span></div>
                     </div>
                 </div>
             </div>
             <div class="sessions">
                 <div class="session session-a">
-                    <h3>Session A — Lower + Pull (Reduced)</h3>
+                    <h3>Session A - Lower + Pull (Reduced)</h3>
                     <div class="exercise-group">
                         <div class="exercise-group-title">🔥 Warmup/Plyos</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=Yq75-6SUn7A" target="_blank">Pogos</a></span><span class="exercise-sets">2 × 12</span></div>
@@ -662,10 +662,10 @@
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=Zfr6wizR8rs" target="_blank">Single-Leg RDL</a></span><span class="exercise-sets">2 × 6 each</span></div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=HmgXnST4Mdw" target="_blank">Single-Leg Calf Raise</a></span><span class="exercise-sets">2 × 10 each</span></div>
                     </div>
-                    <div class="rpe-note"><strong>RPE: 6</strong> — Let your body recover. Don't chase intensity.</div>
+                    <div class="rpe-note"><strong>RPE: 6</strong> - Let your body recover. Don't chase intensity.</div>
                 </div>
                 <div class="session session-b">
-                    <h3>Session B — Upper + Core (Reduced)</h3>
+                    <h3>Session B - Upper + Core (Reduced)</h3>
                     <div class="exercise-group">
                         <div class="exercise-group-title">🔥 Movement Prep</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=PhNkkOieB-8" target="_blank">Lateral Band Walks</a></span><span class="exercise-sets">2 × 10 each</span></div>
@@ -681,7 +681,7 @@
                         <div class="exercise-group-title">💪 Pull-Up Progression</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=bHRif04GiYM" target="_blank">Flexed Arm Hang</a></span><span class="exercise-sets">2 × max</span></div>
                     </div>
-                    <div class="rpe-note"><strong>RPE: 6</strong> — Easy week. Come back stronger next week.</div>
+                    <div class="rpe-note"><strong>RPE: 6</strong> - Easy week. Come back stronger next week.</div>
                 </div>
             </div>
         </div>
@@ -689,7 +689,7 @@
         <!-- WEEK 9-16 abbreviated for space, using same pattern -->
         <div class="week" id="week-9">
             <div class="week-header">
-                <h2>Week 9: Feb 18 – 22</h2>
+                <h2>Week 9: Feb 16 – 22</h2>
                 <span class="phase-tag phase-peak">PEAK RUNNING</span>
                 <div class="running-schedule">
                     <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A (maintain)</span></div>
@@ -701,14 +701,14 @@
                     <div class="running-day strength"><span class="running-day-name">💪 Saturday</span><span class="running-day-workout">Session B</span></div>
                     <div class="running-day long"><span class="running-day-name">🏃 Sunday</span><span class="running-day-workout">20 km, last 6 km @ 5:30-5:35</span></div>
                     <div class="optional-section">
-                        <div class="optional-label">✨ Optional (Big week — don't overdo it)</div>
+                        <div class="optional-label">✨ Optional (Big week - don't overdo it)</div>
                         <div class="running-day optional"><span class="running-day-name">Saturday</span><span class="running-day-workout">Light swim OR mobility only</span></div>
                     </div>
                 </div>
             </div>
             <div class="sessions">
                 <div class="session session-a">
-                    <h3>Session A — Maintain Strength</h3>
+                    <h3>Session A - Maintain Strength</h3>
                     <div class="exercise-group">
                         <div class="exercise-group-title">🔥 Warmup</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=Yq75-6SUn7A" target="_blank">Pogos</a></span><span class="exercise-sets">2 × 12</span></div>
@@ -729,10 +729,10 @@
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=Zfr6wizR8rs" target="_blank">Single-Leg RDL</a></span><span class="exercise-sets">2 × 6 each</span></div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=ur4ou6mX7sw" target="_blank">Suitcase Carry</a></span><span class="exercise-sets">2 × 25m each</span></div>
                     </div>
-                    <div class="rpe-note"><strong>RPE: 7</strong> — Running is priority. Maintain, don't chase PRs.</div>
+                    <div class="rpe-note"><strong>RPE: 7</strong> - Running is priority. Maintain, don't chase PRs.</div>
                 </div>
                 <div class="session session-b">
-                    <h3>Session B — Upper (Moderate)</h3>
+                    <h3>Session B - Upper (Moderate)</h3>
                     <div class="exercise-group">
                         <div class="exercise-group-title">🏋️ Upper</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=vcBig73ojpE" target="_blank">Bench Press</a></span><span class="exercise-sets">3 × 6</span></div>
@@ -743,14 +743,14 @@
                         <div class="exercise-group-title">💪 Pull-Up Holds</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=bHRif04GiYM" target="_blank">Flexed Arm Hang</a></span><span class="exercise-sets">2 × max</span></div>
                     </div>
-                    <div class="rpe-note"><strong>RPE: 6-7</strong> — Keep legs fresh for running.</div>
+                    <div class="rpe-note"><strong>RPE: 6-7</strong> - Keep legs fresh for running.</div>
                 </div>
             </div>
         </div>
 
         <div class="week" id="week-10">
             <div class="week-header">
-                <h2>Week 10: Feb 25 – Mar 1</h2>
+                <h2>Week 10: Feb 23 – Mar 1</h2>
                 <span class="phase-tag phase-peak">PEAK RUNNING</span>
                 <div class="running-schedule">
                     <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A (maintain)</span></div>
@@ -762,14 +762,14 @@
                     <div class="running-day strength"><span class="running-day-name">💪 Saturday</span><span class="running-day-workout">Session B</span></div>
                     <div class="running-day long"><span class="running-day-name">🏃 Sunday</span><span class="running-day-workout">21 km, last 8 km @ 5:30-5:35 🔥</span></div>
                     <div class="optional-section">
-                        <div class="optional-label">✨ Optional (Peak week — prioritize recovery!)</div>
+                        <div class="optional-label">✨ Optional (Peak week - prioritize recovery!)</div>
                         <div class="running-day optional"><span class="running-day-name">Saturday</span><span class="running-day-workout">Rest or very light mobility</span></div>
                     </div>
                 </div>
             </div>
             <div class="sessions">
                 <div class="session session-a">
-                    <h3>Session A — Maintain (Light)</h3>
+                    <h3>Session A - Maintain (Light)</h3>
                     <div class="exercise-group">
                         <div class="exercise-group-title">🏋️ Main Lifts</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=2C-uNgKwPLE" target="_blank">Bulgarian Split Squat</a></span><span class="exercise-sets">3 × 5 each</span></div>
@@ -780,24 +780,24 @@
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=Nc-JGSZZMAQ" target="_blank">Dead Hangs</a></span><span class="exercise-sets">3 × 30s</span></div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=Y3ntNsIS2Q8" target="_blank">Band-Assisted Pull-Ups</a></span><span class="exercise-sets">3 × 5</span></div>
                     </div>
-                    <div class="rpe-note"><strong>RPE: 6-7</strong> — Biggest running week. Don't dig a hole!</div>
+                    <div class="rpe-note"><strong>RPE: 6-7</strong> - Biggest running week. Don't dig a hole!</div>
                 </div>
                 <div class="session session-b">
-                    <h3>Session B — Upper Only</h3>
+                    <h3>Session B - Upper Only</h3>
                     <div class="exercise-group">
                         <div class="exercise-group-title">🏋️ Upper</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=vcBig73ojpE" target="_blank">Bench Press</a></span><span class="exercise-sets">3 × 6</span></div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=Fl0UMfdEzsE" target="_blank">Inverted Rows</a></span><span class="exercise-sets">3 × 8</span></div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=bHRif04GiYM" target="_blank">Flexed Arm Hang</a></span><span class="exercise-sets">2 × max</span></div>
                     </div>
-                    <div class="rpe-note"><strong>RPE: 6</strong> — Easy upper work. Save your legs.</div>
+                    <div class="rpe-note"><strong>RPE: 6</strong> - Easy upper work. Save your legs.</div>
                 </div>
             </div>
         </div>
 
         <div class="week" id="week-11">
             <div class="week-header">
-                <h2>Week 11: Mar 3 – 7</h2>
+                <h2>Week 11: Mar 2 – 8</h2>
                 <span class="phase-tag phase-build">BUILD PHASE</span>
                 <div class="running-schedule">
                     <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A</span></div>
@@ -817,14 +817,14 @@
             </div>
             <div class="sessions">
                 <div class="session session-a">
-                    <h3>Session A — Full Session</h3>
+                    <h3>Session A - Full Session</h3>
                     <div class="exercise-group">
                         <div class="exercise-group-title">🏋️ Main Lifts</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=3UwO0fKukRw" target="_blank">Deadlift</a></span><span class="exercise-sets">3 × 5</span></div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=_RlRDWO2jfg" target="_blank">Overhead Press</a></span><span class="exercise-sets">3 × 8</span></div>
                     </div>
                     <div class="exercise-group">
-                        <div class="exercise-group-title">💪 Pull-Up Work — TEST IT!</div>
+                        <div class="exercise-group-title">💪 Pull-Up Work - TEST IT!</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=Nc-JGSZZMAQ" target="_blank">Dead Hangs</a></span><span class="exercise-sets">3 × 30s</span></div>
                         <div class="exercise"><span class="exercise-name">Band-Assisted or UNASSISTED?!</span><span class="exercise-sets">4 × 5</span></div>
                     </div>
@@ -833,10 +833,10 @@
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=Zfr6wizR8rs" target="_blank">Single-Leg RDL</a></span><span class="exercise-sets">2 × 8 each</span></div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=ur4ou6mX7sw" target="_blank">Suitcase Carry</a></span><span class="exercise-sets">2 × 30m each</span></div>
                     </div>
-                    <div class="rpe-note"><strong>RPE: 7</strong> — Good week to test pull-up progress!</div>
+                    <div class="rpe-note"><strong>RPE: 7</strong> - Good week to test pull-up progress!</div>
                 </div>
                 <div class="session session-b">
-                    <h3>Session B — Full Session</h3>
+                    <h3>Session B - Full Session</h3>
                     <div class="exercise-group">
                         <div class="exercise-group-title">⚡ Quick Plyos (Warm-up)</div>
                         <div class="exercise">
@@ -851,14 +851,14 @@
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=rep-qVOkqgk" target="_blank">Face Pulls</a></span><span class="exercise-sets">3 × 12</span></div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=bHRif04GiYM" target="_blank">Flexed Arm Hang</a></span><span class="exercise-sets">3 × max</span></div>
                     </div>
-                    <div class="rpe-note"><strong>RPE: 7</strong> — Enjoy the easier running week!</div>
+                    <div class="rpe-note"><strong>RPE: 7</strong> - Enjoy the easier running week!</div>
                 </div>
             </div>
         </div>
 
         <div class="week" id="week-12">
             <div class="week-header">
-                <h2>Week 12: Mar 10 – 14</h2>
+                <h2>Week 12: Mar 9 – 15</h2>
                 <span class="phase-tag phase-deload">DELOAD WEEK</span>
                 <div class="running-schedule">
                     <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A (reduced)</span></div>
@@ -870,14 +870,14 @@
                     <div class="running-day strength"><span class="running-day-name">💪 Saturday</span><span class="running-day-workout">Session B</span></div>
                     <div class="running-day long"><span class="running-day-name">🏃 Sunday</span><span class="running-day-workout">16 km @ 6:30-7:00</span></div>
                     <div class="optional-section">
-                        <div class="optional-label">✨ Optional (Deload — less is more)</div>
+                        <div class="optional-label">✨ Optional (Deload - less is more)</div>
                         <div class="running-day optional"><span class="running-day-name">Saturday</span><span class="running-day-workout">Light walk or rest</span></div>
                     </div>
                 </div>
             </div>
             <div class="sessions">
                 <div class="session session-a">
-                    <h3>Session A — Reduced Volume</h3>
+                    <h3>Session A - Reduced Volume</h3>
                     <div class="exercise-group">
                         <div class="exercise-group-title">🏋️ Main Lifts</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=2C-uNgKwPLE" target="_blank">Bulgarian Split Squat</a></span><span class="exercise-sets">2 × 6 each</span></div>
@@ -888,24 +888,24 @@
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=Nc-JGSZZMAQ" target="_blank">Dead Hangs</a></span><span class="exercise-sets">2 × 25s</span></div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=Y3ntNsIS2Q8" target="_blank">Band-Assisted Pull-Ups</a></span><span class="exercise-sets">3 × 5</span></div>
                     </div>
-                    <div class="rpe-note"><strong>RPE: 6</strong> — Starting to freshen up. No new exercises.</div>
+                    <div class="rpe-note"><strong>RPE: 6</strong> - Starting to freshen up. No new exercises.</div>
                 </div>
                 <div class="session session-b">
-                    <h3>Session B — Reduced Volume</h3>
+                    <h3>Session B - Reduced Volume</h3>
                     <div class="exercise-group">
                         <div class="exercise-group-title">🏋️ Upper</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=vcBig73ojpE" target="_blank">Bench Press</a></span><span class="exercise-sets">2 × 8</span></div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=Fl0UMfdEzsE" target="_blank">Inverted Rows</a></span><span class="exercise-sets">2 × 8</span></div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=bHRif04GiYM" target="_blank">Flexed Arm Hang</a></span><span class="exercise-sets">2 × max</span></div>
                     </div>
-                    <div class="rpe-note"><strong>RPE: 6</strong> — Keep moving, stay sharp.</div>
+                    <div class="rpe-note"><strong>RPE: 6</strong> - Keep moving, stay sharp.</div>
                 </div>
             </div>
         </div>
 
         <div class="week" id="week-13">
             <div class="week-header">
-                <h2>Week 13: Mar 17 – 21</h2>
+                <h2>Week 13: Mar 16 – 22</h2>
                 <span class="phase-tag phase-taper">TAPER</span>
                 <div class="running-schedule">
                     <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A</span></div>
@@ -924,7 +924,7 @@
             </div>
             <div class="sessions">
                 <div class="session session-a">
-                    <h3>Session A — Light</h3>
+                    <h3>Session A - Light</h3>
                     <div class="exercise-group">
                         <div class="exercise-group-title">🏋️ Main Lifts</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=3UwO0fKukRw" target="_blank">Deadlift</a></span><span class="exercise-sets">2 × 4</span></div>
@@ -939,23 +939,23 @@
                         <div class="exercise-group-title">🧳 Core Only</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=ur4ou6mX7sw" target="_blank">Suitcase Carry</a></span><span class="exercise-sets">2 × 25m each</span></div>
                     </div>
-                    <div class="rpe-note"><strong>RPE: 5-6</strong> — Keep moving, don't fatigue.</div>
+                    <div class="rpe-note"><strong>RPE: 5-6</strong> - Keep moving, don't fatigue.</div>
                 </div>
                 <div class="session session-b">
-                    <h3>Session B — Very Light</h3>
+                    <h3>Session B - Very Light</h3>
                     <div class="exercise-group">
                         <div class="exercise-group-title">🏋️ Upper</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=vcBig73ojpE" target="_blank">Bench Press</a></span><span class="exercise-sets">2 × 6</span></div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=JObYtU7Y7ag" target="_blank">Band Pull-Aparts</a></span><span class="exercise-sets">2 × 12</span></div>
                     </div>
-                    <div class="rpe-note"><strong>RPE: 5</strong> — Minimal work. Staying loose.</div>
+                    <div class="rpe-note"><strong>RPE: 5</strong> - Minimal work. Staying loose.</div>
                 </div>
             </div>
         </div>
 
         <div class="week" id="week-14">
             <div class="week-header">
-                <h2>Week 14: Mar 24 – 28</h2>
+                <h2>Week 14: Mar 23 – 29</h2>
                 <span class="phase-tag phase-taper">FINAL STRENGTH WEEK</span>
                 <div class="running-schedule">
                     <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A (light)</span></div>
@@ -967,14 +967,14 @@
                     <div class="running-day strength"><span class="running-day-name">💪 Saturday</span><span class="running-day-workout">Session B</span></div>
                     <div class="running-day long"><span class="running-day-name">🏃 Sunday</span><span class="running-day-workout">14 km, last 5 km @ 5:35-5:45</span></div>
                     <div class="optional-section">
-                        <div class="optional-label">✨ Optional (Taper — rest &gt; more training)</div>
+                        <div class="optional-label">✨ Optional (Taper - rest &gt; more training)</div>
                         <div class="running-day optional"><span class="running-day-name">Saturday</span><span class="running-day-workout">Rest or gentle walk</span></div>
                     </div>
                 </div>
             </div>
             <div class="sessions">
                 <div class="session session-a">
-                    <h3>Session A — Minimal</h3>
+                    <h3>Session A - Minimal</h3>
                     <div class="exercise-group">
                         <div class="exercise-group-title">🏋️ Light Lifts</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=2C-uNgKwPLE" target="_blank">Bulgarian Split Squat (light)</a></span><span class="exercise-sets">2 × 5 each</span></div>
@@ -984,23 +984,23 @@
                         <div class="exercise-group-title">💪 Pull-Ups</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=Nc-JGSZZMAQ" target="_blank">Dead Hangs only</a></span><span class="exercise-sets">2 × 20s</span></div>
                     </div>
-                    <div class="rpe-note"><strong>RPE: 5</strong> — Last real strength session. Light and easy.</div>
+                    <div class="rpe-note"><strong>RPE: 5</strong> - Last real strength session. Light and easy.</div>
                 </div>
                 <div class="session session-b">
-                    <h3>Session B — Optional</h3>
+                    <h3>Session B - Optional</h3>
                     <div class="exercise-group">
                         <div class="exercise-group-title">🏋️ Upper (Optional)</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=vcBig73ojpE" target="_blank">Bench Press (very light)</a></span><span class="exercise-sets">2 × 6</span></div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=JObYtU7Y7ag" target="_blank">Band Pull-Aparts</a></span><span class="exercise-sets">2 × 10</span></div>
                     </div>
-                    <div class="rpe-note"><strong>RPE: 4-5</strong> — Skip if you feel tired. Rest > training now.</div>
+                    <div class="rpe-note"><strong>RPE: 4-5</strong> - Skip if you feel tired. Rest > training now.</div>
                 </div>
             </div>
         </div>
 
         <div class="week" id="week-15">
             <div class="week-header">
-                <h2>Week 15: Mar 31 – Apr 4</h2>
+                <h2>Week 15: Mar 30 – Apr 5</h2>
                 <span class="phase-tag phase-taper">RACE WEEK PREP</span>
                 <div class="running-schedule">
                     <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Session A (minimal)</span></div>
@@ -1012,14 +1012,14 @@
                     <div class="running-day strength"><span class="running-day-name">💪 Saturday</span><span class="running-day-workout">Session B (optional)</span></div>
                     <div class="running-day long"><span class="running-day-name">🏃 Sunday</span><span class="running-day-workout">12 km, last 5 km @ 5:40-5:50</span></div>
                     <div class="optional-section">
-                        <div class="optional-label">✨ Optional (Race week prep — stay fresh!)</div>
-                        <div class="running-day optional"><span class="running-day-name">Saturday</span><span class="running-day-workout">Rest — save those legs!</span></div>
+                        <div class="optional-label">✨ Optional (Race week prep - stay fresh!)</div>
+                        <div class="running-day optional"><span class="running-day-name">Saturday</span><span class="running-day-workout">Rest - save those legs!</span></div>
                     </div>
                 </div>
             </div>
             <div class="sessions">
                 <div class="session session-a">
-                    <h3>Monday/Tuesday Only — Activation</h3>
+                    <h3>Monday/Tuesday Only - Activation</h3>
                     <div class="exercise-group">
                         <div class="exercise-group-title">🔥 Blood Flow Only</div>
                         <div class="exercise"><span class="exercise-name"><a href="https://www.youtube.com/watch?v=aclHkVaku9U" target="_blank">Bodyweight Squats</a></span><span class="exercise-sets">2 × 10</span></div>
@@ -1039,18 +1039,18 @@
 
         <div class="week" id="week-16">
             <div class="week-header">
-                <h2>Week 16: Apr 7 – 12 🏆</h2>
+                <h2>Week 16: Apr 6 – 12 🏆</h2>
                 <span class="phase-tag phase-race">RACE WEEK!</span>
                 <div class="running-schedule">
                     <div class="running-day strength"><span class="running-day-name">💪 Monday</span><span class="running-day-workout">Activation only (10 min)</span></div>
                     <div class="running-day"><span class="running-day-name">Tuesday</span><span class="running-day-workout">5 km easy (6:20-7:00)</span></div>
                     <div class="running-day quality"><span class="running-day-name">🔥 Wednesday</span><span class="running-day-workout">6 km easy + strides (6:20-7:00)</span></div>
-                    <div class="running-day" style="font-size:12px; color:#888; padding-left:100px; border:none;">↳ No strength this week — trust your training!</div>
+                    <div class="running-day" style="font-size:12px; color:#888; padding-left:100px; border:none;">↳ No strength this week - trust your training!</div>
                     <div class="running-day"><span class="running-day-name">Friday</span><span class="running-day-workout">4 km easy</span></div>
                     <div class="running-day"><span class="running-day-name">Saturday</span><span class="running-day-workout">3-4 km shakeout</span></div>
                     <div class="running-day long"><span class="running-day-name">🏆 Sunday</span><span class="running-day-workout">RACE DAY! Go get that 1:55! 🎉</span></div>
                     <div class="optional-section">
-                        <div class="optional-label">🚫 No strength training — RACE WEEK!</div>
+                        <div class="optional-label">🚫 No strength training - RACE WEEK!</div>
                     </div>
                 </div>
             </div>
@@ -1096,7 +1096,7 @@
                 <tr><td>2-4 km @ HM</td><td>90 sec - 2 min jog (or 400m)</td></tr>
                 <tr><td>5+ km or 15+ min</td><td>2-3 min jog</td></tr>
             </table>
-            <p>💡 Always jog recovery — don't stand still. You should feel "ready but not fresh" for the next rep.</p>
+            <p>💡 Always jog recovery - don't stand still. You should feel "ready but not fresh" for the next rep.</p>
         </div>
 
         <div class="info-box" style="border-left-color: #a78bfa;">
@@ -1105,7 +1105,7 @@
             <table>
                 <tr><th>What</th><th>How</th></tr>
                 <tr><td>Duration</td><td>20-30 seconds (80-100m)</td></tr>
-                <tr><td>Effort</td><td>85-90% — fast but smooth, not straining</td></tr>
+                <tr><td>Effort</td><td>85-90% - fast but smooth, not straining</td></tr>
                 <tr><td>Recovery</td><td>Walk back / 60-90 sec between</td></tr>
                 <tr><td>Form</td><td>Relaxed shoulders, quick feet, smooth acceleration</td></tr>
             </table>
@@ -1122,7 +1122,7 @@
                 <div class="legend-item"><span class="phase-tag phase-race">RACE</span> Go time!</div>
             </div>
         </div>
-        
+
         <!-- Weight Data Controls -->
         <div class="info-box" style="border-left-color: #4ade80;">
             <h4 style="color: #4ade80;">💾 Weight Tracking Data</h4>
@@ -1141,26 +1141,26 @@
         const RACE_DATE = new Date(2026, 3, 12); // Month is 0-indexed
         const MIN_WEEK = 6;
         const MAX_WEEK = 16;
-        
+
         function getCurrentWeek() {
             const today = new Date();
             today.setHours(0, 0, 0, 0);
-            
+
             // Week 16 starts Monday April 6, 2026
             const week16Start = new Date(2026, 3, 6);
-            
+
             // Calculate difference in days
             const diffTime = week16Start - today;
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            
+
             // Calculate week number (each week earlier = -1 from 16)
             const weeksUntilW16 = Math.ceil(diffDays / 7);
             const currentWeek = 16 - weeksUntilW16;
-            
+
             // Clamp to valid range
             return Math.max(MIN_WEEK, Math.min(MAX_WEEK, currentWeek));
         }
-        
+
         function showWeek(num, fromClick = true) {
             // Hide all weeks
             document.querySelectorAll('.week').forEach(w => w.classList.remove('active'));
@@ -1169,7 +1169,7 @@
             activeWeek.classList.add('active');
             // Update button states
             document.querySelectorAll('.week-btn').forEach(b => b.classList.remove('active'));
-            
+
             // Find and activate the correct button
             if (fromClick && event && event.target) {
                 event.target.classList.add('active');
@@ -1182,7 +1182,7 @@
                     }
                 });
             }
-            
+
             // Move Simple Mode into the active week, before the sessions
             const simpleMode = document.getElementById('simpleMode');
             const sessions = activeWeek.querySelector('.sessions');
@@ -1190,18 +1190,18 @@
                 activeWeek.insertBefore(simpleMode, sessions);
             }
         }
-        
+
         function toggleSimpleMode() {
             const simpleMode = document.getElementById('simpleMode');
             simpleMode.classList.toggle('collapsed');
         }
-        
+
         // Weight tracking functions
         function getWeightKey(weekId, exerciseName) {
             // Create a unique key for each exercise
             return 'weight_' + weekId + '_' + exerciseName.replace(/[^a-zA-Z0-9]/g, '_');
         }
-        
+
         function saveWeight(input) {
             const key = input.dataset.weightKey;
             if (input.value.trim()) {
@@ -1210,7 +1210,7 @@
                 localStorage.removeItem(key);
             }
         }
-        
+
         function loadWeights() {
             document.querySelectorAll('.weight-input').forEach(input => {
                 const key = input.dataset.weightKey;
@@ -1220,7 +1220,7 @@
                 }
             });
         }
-        
+
         function addWeightInputs() {
             // Add weight inputs to all exercises in week sessions
             document.querySelectorAll('.week').forEach(week => {
@@ -1228,12 +1228,12 @@
                 week.querySelectorAll('.session .exercise').forEach(exercise => {
                     // Skip if already has input
                     if (exercise.querySelector('.weight-input')) return;
-                    
+
                     // Get exercise name for the key
                     const nameEl = exercise.querySelector('.exercise-name');
                     if (!nameEl) return;
                     const exerciseName = nameEl.textContent.trim();
-                    
+
                     // Create input
                     const input = document.createElement('input');
                     input.type = 'text';
@@ -1242,23 +1242,23 @@
                     input.dataset.weightKey = getWeightKey(weekId, exerciseName);
                     input.addEventListener('change', () => saveWeight(input));
                     input.addEventListener('blur', () => saveWeight(input));
-                    
+
                     exercise.appendChild(input);
                 });
             });
         }
-        
+
         // On page load
         document.addEventListener('DOMContentLoaded', function() {
             // Auto-detect and show current week
             const currentWeek = getCurrentWeek();
             showWeek(currentWeek, false);
-            
+
             // Add weight inputs and load saved values
             addWeightInputs();
             loadWeights();
         });
-        
+
         // Export weights to JSON file
         function exportWeights() {
             const weights = {};
@@ -1268,17 +1268,17 @@
                     weights[key] = localStorage.getItem(key);
                 }
             }
-            
+
             if (Object.keys(weights).length === 0) {
                 alert('No weight data to export yet!');
                 return;
             }
-            
+
             const data = {
                 exportDate: new Date().toISOString(),
                 weights: weights
             };
-            
+
             const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -1287,12 +1287,12 @@
             a.click();
             URL.revokeObjectURL(url);
         }
-        
+
         // Import weights from JSON file
         function importWeights(event) {
             const file = event.target.files[0];
             if (!file) return;
-            
+
             const reader = new FileReader();
             reader.onload = function(e) {
                 try {
@@ -1301,13 +1301,13 @@
                         alert('Invalid backup file format');
                         return;
                     }
-                    
+
                     let count = 0;
                     for (const key in data.weights) {
                         localStorage.setItem(key, data.weights[key]);
                         count++;
                     }
-                    
+
                     loadWeights(); // Refresh displayed values
                     alert('Imported ' + count + ' weight entries!');
                 } catch (err) {
@@ -1317,13 +1317,13 @@
             reader.readAsText(file);
             event.target.value = ''; // Reset file input
         }
-        
+
         // Clear all weight data
         function clearWeights() {
             if (!confirm('Are you sure you want to delete ALL saved weights? This cannot be undone!')) {
                 return;
             }
-            
+
             const keys = [];
             for (let i = 0; i < localStorage.length; i++) {
                 const key = localStorage.key(i);
@@ -1331,14 +1331,14 @@
                     keys.push(key);
                 }
             }
-            
+
             keys.forEach(key => localStorage.removeItem(key));
-            
+
             // Clear input fields
             document.querySelectorAll('.weight-input').forEach(input => {
                 input.value = '';
             });
-            
+
             alert('Cleared ' + keys.length + ' weight entries.');
         }
     </script>
