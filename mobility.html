@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightly Mobility Routine - Sophia's Training Plan</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #eee;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 800px; margin: 0 auto; }
+        
+        h1 { text-align: center; margin-bottom: 10px; color: #a78bfa; }
+        .subtitle { text-align: center; color: #888; margin-bottom: 30px; }
+        
+        .intro {
+            background: #a78bfa22;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-left: 4px solid #a78bfa;
+        }
+        .intro p { margin-bottom: 10px; color: #ccc; }
+        .intro strong { color: #a78bfa; }
+        
+        .routine-info {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .info-badge {
+            background: #2a2a4a;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .info-badge span { color: #a78bfa; font-weight: bold; }
+        
+        .stretch-card {
+            background: #2a2a4a;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4ade80;
+        }
+        .stretch-card.relaxation {
+            border-left-color: #a78bfa;
+        }
+        
+        .stretch-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .stretch-number {
+            background: #4ade80;
+            color: #000;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        .stretch-card.relaxation .stretch-number {
+            background: #a78bfa;
+        }
+        .stretch-title {
+            flex: 1;
+            margin-left: 12px;
+        }
+        .stretch-title h3 {
+            color: #fff;
+            margin-bottom: 4px;
+            font-size: 18px;
+        }
+        .stretch-title .duration {
+            color: #888;
+            font-size: 13px;
+        }
+        
+        .video-link {
+            background: #ff000022;
+            color: #ff6b6b;
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s;
+        }
+        .video-link:hover {
+            background: #ff000044;
+        }
+        
+        .stretch-description {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .stretch-target {
+            color: #4ade80;
+            font-size: 13px;
+            font-style: italic;
+        }
+        .stretch-card.relaxation .stretch-target {
+            color: #a78bfa;
+        }
+        
+        .tips-section {
+            background: #2a2a4a;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .tips-section h3 {
+            color: #fbbf24;
+            margin-bottom: 15px;
+        }
+        .tips-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .tips-section li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #ccc;
+        }
+        .tips-section li::before {
+            content: "💡";
+            position: absolute;
+            left: 0;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #00d4ff;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .section-divider {
+            text-align: center;
+            margin: 30px 0;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 600px) {
+            .stretch-header { flex-direction: column; }
+            .video-link { margin-top: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Training Plan</a>
+        
+        <h1>🌙 Nightly Mobility Routine</h1>
+        <p class="subtitle">For desk workers & runners • 12-15 minutes before bed</p>
+        
+        <div class="intro">
+            <p><strong>Why this routine?</strong> Sitting all day tightens your hip flexors, rounds your shoulders, and shortens your hamstrings. Running adds stress to your calves, hips, and IT band. This routine targets all of it.</p>
+            <p>Hold each stretch for <strong>60-90 seconds</strong>. Breathe slow and deep. This isn't about pushing hard — it's about unwinding.</p>
+        </div>
+        
+        <div class="routine-info">
+            <div class="info-badge">⏱️ <span>12-15 min</span></div>
+            <div class="info-badge">🎯 <span>9 stretches</span></div>
+            <div class="info-badge">🛏️ <span>Before bed</span></div>
+            <div class="info-badge">🔧 <span>Band optional</span></div>
+        </div>
+
+        <!-- Stretch 1 -->
+        <div class="stretch-card">
+            <div class="stretch-header">
+                <div style="display: flex; align-items: center;">
+                    <div class="stretch-number">1</div>
+                    <div class="stretch-title">
+                        <h3>90/90 Hip Stretch</h3>
+                        <div class="duration">60-90 sec each side</div>
+                    </div>
+                </div>
+                <a href="https://www.youtube.com/watch?v=VYvMMw8z3rE" target="_blank" class="video-link">📹 Watch Demo</a>
+            </div>
+            <p class="stretch-description">Sit with both legs bent at 90°. Front shin parallel to your body, back shin perpendicular. Lean gently over front leg, then rotate toward back leg.</p>
+            <p class="stretch-target">→ Opens hip internal & external rotation (tight from sitting + running)</p>
+        </div>
+
+        <!-- Stretch 2 -->
+        <div class="stretch-card">
+            <div class="stretch-header">
+                <div style="display: flex; align-items: center;">
+                    <div class="stretch-number">2</div>
+                    <div class="stretch-title">
+                        <h3>Half-Kneeling Hip Flexor Stretch</h3>
+                        <div class="duration">60-90 sec each side</div>
+                    </div>
+                </div>
+                <a href="https://www.youtube.com/watch?v=q4B2hwUxILM" target="_blank" class="video-link">📹 Watch Demo</a>
+            </div>
+            <p class="stretch-description">Back knee down, squeeze glute on that side, shift hips forward slightly. Raise same-side arm overhead and lean away for deeper stretch.</p>
+            <p class="stretch-target">→ Undoes desk-chair hip flexor tightness</p>
+        </div>
+
+        <!-- Stretch 3 -->
+        <div class="stretch-card">
+            <div class="stretch-header">
+                <div style="display: flex; align-items: center;">
+                    <div class="stretch-number">3</div>
+                    <div class="stretch-title">
+                        <h3>Pigeon Pose</h3>
+                        <div class="duration">60-90 sec each side</div>
+                    </div>
+                </div>
+                <a href="https://www.youtube.com/watch?v=0_zPqA65Nok" target="_blank" class="video-link">📹 Yoga With Adriene</a>
+            </div>
+            <p class="stretch-description">Classic pigeon: front leg bent in front of you, back leg extended. Fold forward over front leg. Alternative: Figure-4 on your back if pigeon is too intense.</p>
+            <p class="stretch-target">→ Glutes and deep hip rotators</p>
+        </div>
+
+        <!-- Stretch 4 -->
+        <div class="stretch-card">
+            <div class="stretch-header">
+                <div style="display: flex; align-items: center;">
+                    <div class="stretch-number">4</div>
+                    <div class="stretch-title">
+                        <h3>Supine Hamstring Stretch</h3>
+                        <div class="duration">60-90 sec each side</div>
+                    </div>
+                </div>
+                <a href="https://www.youtube.com/watch?v=Il1L75v6gq0" target="_blank" class="video-link">📹 Watch Demo</a>
+            </div>
+            <p class="stretch-description">Lie on back, loop band or strap around foot, extend leg toward ceiling. Keep opposite leg flat on ground. Gently pull to increase stretch.</p>
+            <p class="stretch-target">→ Hamstrings without straining lower back (uses your band!)</p>
+        </div>
+
+        <!-- Stretch 5 -->
+        <div class="stretch-card">
+            <div class="stretch-header">
+                <div style="display: flex; align-items: center;">
+                    <div class="stretch-number">5</div>
+                    <div class="stretch-title">
+                        <h3>Supine Spinal Twist</h3>
+                        <div class="duration">60-90 sec each side</div>
+                    </div>
+                </div>
+                <a href="https://www.youtube.com/watch?v=mKC3IeldPOc" target="_blank" class="video-link">📹 Yoga With Adriene</a>
+            </div>
+            <p class="stretch-description">Lie on back, drop both knees to one side, arms out wide, look opposite direction. Let gravity do the work — don't force it.</p>
+            <p class="stretch-target">→ Thoracic spine and lower back — decompresses after sitting</p>
+        </div>
+
+        <div class="section-divider">— Transition to all fours —</div>
+
+        <!-- Stretch 6 -->
+        <div class="stretch-card">
+            <div class="stretch-header">
+                <div style="display: flex; align-items: center;">
+                    <div class="stretch-number">6</div>
+                    <div class="stretch-title">
+                        <h3>Cat-Cow</h3>
+                        <div class="duration">8-10 slow breaths</div>
+                    </div>
+                </div>
+                <a href="https://www.youtube.com/watch?v=y39PrKY_4JM" target="_blank" class="video-link">📹 Yoga With Adriene</a>
+            </div>
+            <p class="stretch-description">On all fours, inhale and arch spine (cow), exhale and round spine (cat). Move slowly with your breath. Let your head follow naturally.</p>
+            <p class="stretch-target">→ Spine mobility, calming for nervous system</p>
+        </div>
+
+        <!-- Stretch 7 -->
+        <div class="stretch-card">
+            <div class="stretch-header">
+                <div style="display: flex; align-items: center;">
+                    <div class="stretch-number">7</div>
+                    <div class="stretch-title">
+                        <h3>Child's Pose with Lat Stretch</h3>
+                        <div class="duration">60-90 sec total</div>
+                    </div>
+                </div>
+                <a href="https://www.youtube.com/watch?v=3WQAVd1m2zk" target="_blank" class="video-link">📹 Watch Demo</a>
+            </div>
+            <p class="stretch-description">Sink hips back to heels, arms extended forward. Walk hands to each side (30 sec each) to stretch lats.</p>
+            <p class="stretch-target">→ Lats, shoulders, lower back</p>
+        </div>
+
+        <!-- Stretch 8 -->
+        <div class="stretch-card">
+            <div class="stretch-header">
+                <div style="display: flex; align-items: center;">
+                    <div class="stretch-number">8</div>
+                    <div class="stretch-title">
+                        <h3>Wall Calf Stretch</h3>
+                        <div class="duration">45 sec each position, each leg</div>
+                    </div>
+                </div>
+                <a href="https://www.youtube.com/watch?v=PjQEjGvHjKQ" target="_blank" class="video-link">📹 Bob & Brad</a>
+            </div>
+            <p class="stretch-description">Toe on wall, heel on floor, lean in. Do with straight leg (gastrocnemius), then with bent knee (soleus). Both matter for runners!</p>
+            <p class="stretch-target">→ Calves and achilles — crucial for runners</p>
+        </div>
+
+        <div class="section-divider">— Final relaxation —</div>
+
+        <!-- Stretch 9 -->
+        <div class="stretch-card relaxation">
+            <div class="stretch-header">
+                <div style="display: flex; align-items: center;">
+                    <div class="stretch-number">9</div>
+                    <div class="stretch-title">
+                        <h3>Legs Up the Wall</h3>
+                        <div class="duration">2-3 minutes</div>
+                    </div>
+                </div>
+                <a href="https://www.youtube.com/watch?v=2137wAXvufE" target="_blank" class="video-link">📹 Yoga With Adriene</a>
+            </div>
+            <p class="stretch-description">Lie with legs resting up the wall (or on your bed frame). Arms relaxed at sides. Just breathe. This is your reward for showing up.</p>
+            <p class="stretch-target">→ Relaxes nervous system, drains legs after running, promotes sleep</p>
+        </div>
+
+        <div class="tips-section">
+            <h3>💡 Tips for Success</h3>
+            <ul>
+                <li><strong>Dim the lights</strong> — helps signal to your body it's wind-down time</li>
+                <li><strong>No forcing</strong> — this isn't stretching for gains, it's recovery</li>
+                <li><strong>Breathe deep</strong> — slow exhales activate your parasympathetic system</li>
+                <li><strong>Skip what hurts</strong> — sharp pain means stop; dull stretch is fine</li>
+                <li><strong>Consistency > intensity</strong> — 10 min daily beats 30 min once a week</li>
+                <li><strong>Pair with sleep routine</strong> — do it at the same time each night</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
