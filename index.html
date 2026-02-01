@@ -317,7 +317,7 @@
         </div>
 
         <div class="week-nav">
-            <button class="week-btn active" onclick="showWeek(6)">W6</button>
+            <button class="week-btn" onclick="showWeek(6)">W6</button>
             <button class="week-btn" onclick="showWeek(7)">W7</button>
             <button class="week-btn deload" onclick="showWeek(8)">W8</button>
             <button class="week-btn" onclick="showWeek(9)">W9</button>
@@ -384,7 +384,7 @@
         </div>
 
         <!-- WEEK 6 -->
-        <div class="week active" id="week-6">
+        <div class="week" id="week-6">
             <div class="week-header">
                 <h2>Week 6: Jan 28 – Feb 1</h2>
                 <span class="phase-tag phase-build">BUILD PHASE</span>
@@ -1119,7 +1119,31 @@
     </div>
 
     <script>
-        function showWeek(num) {
+        // Race date: April 12, 2026 (Sunday)
+        const RACE_DATE = new Date(2026, 3, 12); // Month is 0-indexed
+        const MIN_WEEK = 6;
+        const MAX_WEEK = 16;
+        
+        function getCurrentWeek() {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            
+            // Week 16 starts Monday April 6, 2026
+            const week16Start = new Date(2026, 3, 6);
+            
+            // Calculate difference in days
+            const diffTime = week16Start - today;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            
+            // Calculate week number (each week earlier = -1 from 16)
+            const weeksUntilW16 = Math.ceil(diffDays / 7);
+            const currentWeek = 16 - weeksUntilW16;
+            
+            // Clamp to valid range
+            return Math.max(MIN_WEEK, Math.min(MAX_WEEK, currentWeek));
+        }
+        
+        function showWeek(num, fromClick = true) {
             // Hide all weeks
             document.querySelectorAll('.week').forEach(w => w.classList.remove('active'));
             // Show selected week
@@ -1127,7 +1151,19 @@
             activeWeek.classList.add('active');
             // Update button states
             document.querySelectorAll('.week-btn').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
+            
+            // Find and activate the correct button
+            if (fromClick && event && event.target) {
+                event.target.classList.add('active');
+            } else {
+                // Programmatic call - find button by week number
+                const buttons = document.querySelectorAll('.week-btn');
+                buttons.forEach(b => {
+                    if (b.textContent.includes('W' + num)) {
+                        b.classList.add('active');
+                    }
+                });
+            }
             
             // Move Simple Mode into the active week, before the sessions
             const simpleMode = document.getElementById('simpleMode');
@@ -1196,13 +1232,9 @@
         
         // On page load
         document.addEventListener('DOMContentLoaded', function() {
-            // Move Simple Mode into the initially active week
-            const activeWeek = document.querySelector('.week.active');
-            const simpleMode = document.getElementById('simpleMode');
-            const sessions = activeWeek.querySelector('.sessions');
-            if (sessions) {
-                activeWeek.insertBefore(simpleMode, sessions);
-            }
+            // Auto-detect and show current week
+            const currentWeek = getCurrentWeek();
+            showWeek(currentWeek, false);
             
             // Add weight inputs and load saved values
             addWeightInputs();
