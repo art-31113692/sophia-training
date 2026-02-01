@@ -189,6 +189,78 @@
             <div class="info-badge">🔧 <span>Band optional</span></div>
         </div>
 
+        <!-- Music Player -->
+        <div class="music-player">
+            <div class="music-header" onclick="togglePlayer()">
+                <span>🎵 Chill Yoga Music (1 Hour)</span>
+                <span class="player-toggle" id="playerToggle">▼</span>
+            </div>
+            <div class="player-container" id="playerContainer">
+                <iframe 
+                    width="100%" 
+                    height="80" 
+                    src="https://www.youtube.com/embed/cnw5VA4rxf8?rel=0" 
+                    title="Yoga Music" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+                <p class="music-tip">💡 Hit play, then scroll down to start your routine</p>
+            </div>
+        </div>
+        <style>
+            .music-player {
+                background: #2a2a4a;
+                border-radius: 12px;
+                margin-bottom: 30px;
+                overflow: hidden;
+                border: 1px solid #a78bfa44;
+            }
+            .music-header {
+                padding: 15px 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+                background: #a78bfa22;
+            }
+            .music-header:hover {
+                background: #a78bfa33;
+            }
+            .music-header span:first-child {
+                font-weight: bold;
+                color: #a78bfa;
+            }
+            .player-toggle {
+                color: #a78bfa;
+                transition: transform 0.3s;
+            }
+            .player-toggle.collapsed {
+                transform: rotate(-90deg);
+            }
+            .player-container {
+                padding: 15px;
+                transition: all 0.3s ease;
+            }
+            .player-container.hidden {
+                display: none;
+            }
+            .music-tip {
+                color: #888;
+                font-size: 13px;
+                margin-top: 10px;
+                text-align: center;
+            }
+        </style>
+        <script>
+            function togglePlayer() {
+                const container = document.getElementById('playerContainer');
+                const toggle = document.getElementById('playerToggle');
+                container.classList.toggle('hidden');
+                toggle.classList.toggle('collapsed');
+            }
+        </script>
+
         <!-- Stretch 1 -->
         <div class="stretch-card">
             <div class="stretch-header">
