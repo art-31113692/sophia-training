@@ -1146,15 +1146,20 @@
             const today = new Date();
             today.setHours(0, 0, 0, 0);
 
+            // Get the Monday of the current week
+            const dayOfWeek = today.getDay(); // 0 = Sunday, 1 = Monday, etc.
+            const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+            const thisMonday = new Date(today);
+            thisMonday.setDate(today.getDate() + mondayOffset);
+
             // Week 16 starts Monday April 6, 2026
             const week16Start = new Date(2026, 3, 6);
 
-            // Calculate difference in days (use Math.round to handle DST transitions)
-            const diffTime = week16Start - today;
+            // Calculate difference in weeks from this Monday to Week 16 Monday
+            const diffTime = week16Start - thisMonday;
             const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+            const weeksUntilW16 = Math.round(diffDays / 7);
 
-            // Calculate week number (each week earlier = -1 from 16)
-            const weeksUntilW16 = Math.floor(diffDays / 7);
             const currentWeek = 16 - weeksUntilW16;
 
             // Clamp to valid range
