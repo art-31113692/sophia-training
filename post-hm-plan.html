@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-HM Plan: 5K/10K + Strength</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #eee;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 700px; margin: 0 auto; }
+        h1 { text-align: center; color: #00d4ff; margin-bottom: 5px; font-size: 22px; }
+        .subtitle { text-align: center; color: #888; margin-bottom: 25px; font-size: 14px; }
+        .goals {
+            display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .goal-chip {
+            background: #00d4ff22; border: 1px solid #00d4ff44; padding: 6px 14px;
+            border-radius: 20px; font-size: 13px; color: #00d4ff;
+        }
+        .phase {
+            margin-bottom: 30px; background: #ffffff08; border-radius: 12px;
+            overflow: hidden;
+        }
+        .phase-header {
+            padding: 15px 20px; cursor: pointer; display: flex;
+            justify-content: space-between; align-items: center;
+        }
+        .phase-header h2 { font-size: 17px; margin: 0; }
+        .phase-header .arrow { transition: transform 0.2s; font-size: 14px; color: #888; }
+        .phase-header .arrow.open { transform: rotate(90deg); }
+        .phase-body { padding: 0 20px 20px; }
+        .phase-meta { font-size: 13px; color: #aaa; margin-bottom: 15px; }
+        .phase-meta strong { color: #ccc; }
+
+        .phase-1 .phase-header { background: linear-gradient(90deg, #4ade8033, transparent); }
+        .phase-1 .phase-header h2 { color: #4ade80; }
+        .phase-2 .phase-header { background: linear-gradient(90deg, #fbbf2433, transparent); }
+        .phase-2 .phase-header h2 { color: #fbbf24; }
+        .phase-3 .phase-header { background: linear-gradient(90deg, #f472b633, transparent); }
+        .phase-3 .phase-header h2 { color: #f472b6; }
+        .phase-4 .phase-header { background: linear-gradient(90deg, #a78bfa33, transparent); }
+        .phase-4 .phase-header h2 { color: #a78bfa; }
+
+        .week {
+            background: #2a2a4a; border-radius: 10px; padding: 15px;
+            margin-bottom: 12px;
+        }
+        .week:last-child { margin-bottom: 0; }
+        .week-title {
+            font-size: 14px; font-weight: bold; color: #00d4ff;
+            margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #ffffff15;
+        }
+        .day {
+            display: flex; padding: 6px 0; font-size: 14px;
+            border-bottom: 1px solid #ffffff08;
+        }
+        .day:last-child { border-bottom: none; }
+        .day-name {
+            min-width: 45px; font-weight: 600; font-size: 13px;
+        }
+        .day-rest { color: #666; }
+        .day-easy .day-name { color: #4ade80; }
+        .day-quality .day-name { color: #fbbf24; }
+        .day-long .day-name { color: #00d4ff; }
+        .day-strength .day-name { color: #ff6b9d; }
+        .day-vo2 .day-name { color: #f97316; }
+        .day-tss .day-name { color: #c084fc; }
+        .day-race .day-name { color: #f87171; }
+        .day-desc { color: #ccc; }
+
+        .section {
+            margin-top: 30px; background: #ffffff08; border-radius: 12px; padding: 20px;
+        }
+        .section h2 { color: #00d4ff; font-size: 17px; margin-bottom: 15px; }
+        .section h3 { color: #ccc; font-size: 14px; margin: 12px 0 6px; }
+        .section ul { padding-left: 20px; }
+        .section li { font-size: 14px; color: #bbb; margin-bottom: 4px; }
+        .section li strong { color: #eee; }
+
+        .strength-grid { display: grid; gap: 12px; }
+        @media (min-width: 500px) { .strength-grid { grid-template-columns: 1fr 1fr; } }
+        .strength-card {
+            background: #2a2a4a; border-radius: 10px; padding: 15px;
+        }
+        .strength-card h3 {
+            font-size: 14px; margin-bottom: 10px; padding-bottom: 8px;
+            border-bottom: 1px solid #ffffff15;
+        }
+        .strength-card.session-a h3 { color: #00d4ff; }
+        .strength-card.session-b h3 { color: #ff6b9d; }
+        .strength-card .group-label {
+            font-size: 11px; color: #888; text-transform: uppercase;
+            letter-spacing: 1px; margin: 10px 0 4px;
+        }
+        .strength-card .group-label:first-of-type { margin-top: 0; }
+        .strength-card li { font-size: 13px; color: #ccc; margin-bottom: 3px; }
+
+        .progression-table {
+            width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px;
+        }
+        .progression-table th {
+            text-align: left; color: #888; font-size: 11px; text-transform: uppercase;
+            letter-spacing: 1px; padding: 6px 8px; border-bottom: 1px solid #ffffff22;
+        }
+        .progression-table td {
+            padding: 6px 8px; color: #ccc; border-bottom: 1px solid #ffffff08;
+        }
+
+        .back-link {
+            display: block; text-align: center; margin-top: 30px;
+            color: #00d4ff; text-decoration: none; font-size: 14px;
+        }
+
+        .draft-banner {
+            background: #fbbf2433; border: 1px solid #fbbf2466; padding: 10px 15px;
+            border-radius: 8px; text-align: center; margin-bottom: 25px;
+            font-size: 13px; color: #fbbf24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="draft-banner">📝 DRAFT — review &amp; tweak before finalising</div>
+
+        <h1>Post-HM Plan</h1>
+        <div class="subtitle">5K / 10K + Strength &bull; May &ndash; August 2026 &bull; 17 Weeks</div>
+
+        <div class="goals">
+            <span class="goal-chip">🎯 10K sub-48:30</span>
+            <span class="goal-chip">🎯 5K sub-22:30</span>
+            <span class="goal-chip">💪 First pull-up</span>
+        </div>
+
+        <!-- PHASE 1 -->
+        <div class="phase phase-1">
+            <div class="phase-header" onclick="togglePhase(this)">
+                <h2>Phase 1: Strength Ramp + 10K Base</h2>
+                <span class="arrow open">▶</span>
+            </div>
+            <div class="phase-body">
+                <div class="phase-meta">Weeks 1–4 &bull; May &bull; <strong>Strength: 3×10 @ RPE 7-8</strong> &bull; <strong>Long run: 8–10km</strong></div>
+
+                <div class="week">
+                    <div class="week-title">Week 1 — May 5</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">3×8min tempo @ 5:10/km, 2min jog</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 8km easy</span></div>
+                </div>
+
+                <div class="week">
+                    <div class="week-title">Week 2 — May 12</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
+                    <div class="day day-vo2"><span class="day-name">Tue</span><span class="day-desc">VO2max: 5×3min @ 4:10/km, 2min jog</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">2×12min tempo @ 5:05/km, 3min jog</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 9km easy</span></div>
+                </div>
+
+                <div class="week">
+                    <div class="week-title">Week 3 — May 19</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">4×8min tempo @ 5:05/km, 2min jog</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 9km easy</span></div>
+                </div>
+
+                <div class="week">
+                    <div class="week-title">Week 4 — May 26</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
+                    <div class="day day-vo2"><span class="day-name">Tue</span><span class="day-desc">VO2max: 5×3min @ 4:10/km, 2min jog</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">3×10min tempo @ 5:00/km, 2min jog</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 10km easy</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 2 -->
+        <div class="phase phase-2">
+            <div class="phase-header" onclick="togglePhase(this)">
+                <h2>Phase 2: 10K Development</h2>
+                <span class="arrow open">▶</span>
+            </div>
+            <div class="phase-body">
+                <div class="phase-meta">Weeks 5–9 &bull; June &bull; <strong>Strength: 3×8, heavier</strong> &bull; <strong>Long run: 10–13km</strong></div>
+
+                <div class="week">
+                    <div class="week-title">Week 5 — June 2</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 6km</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">4×6min @ 4:50/km (threshold), 2min jog</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 10km easy</span></div>
+                </div>
+
+                <div class="week">
+                    <div class="week-title">Week 6 — June 9</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
+                    <div class="day day-vo2"><span class="day-name">Tue</span><span class="day-desc">VO2max: 5×3min @ 4:05/km, 2min jog</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">3×10min @ 4:55/km, 2min jog</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 11km easy</span></div>
+                </div>
+
+                <div class="week">
+                    <div class="week-title">Week 7 — June 16</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 6km</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">5×6min @ 4:50/km, 90s jog</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 12km easy</span></div>
+                </div>
+
+                <div class="week">
+                    <div class="week-title">Week 8 — June 23</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
+                    <div class="day day-vo2"><span class="day-name">Tue</span><span class="day-desc">VO2max: 6×3min @ 4:05/km, 2min jog</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">2×15min @ 4:55/km, 3min jog</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 13km easy</span></div>
+                </div>
+
+                <div class="week">
+                    <div class="week-title">Week 9 — June 30</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km (mini deload)</span></div>
+                    <div class="day day-race"><span class="day-name">Wed</span><span class="day-desc">🏁 10K TIME TRIAL</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 10km easy</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 3 -->
+        <div class="phase phase-3">
+            <div class="phase-header" onclick="togglePhase(this)">
+                <h2>Phase 3: 5K Sharpening</h2>
+                <span class="arrow open">▶</span>
+            </div>
+            <div class="phase-body">
+                <div class="phase-meta">Weeks 10–14 &bull; July &bull; <strong>Strength: 4×5, heavy</strong> &bull; <strong>Long run: 12–15km</strong></div>
+
+                <div class="week">
+                    <div class="week-title">Week 10 — July 7</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">6×800m @ 4:15/km, 90s jog</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 12km easy</span></div>
+                </div>
+
+                <div class="week">
+                    <div class="week-title">Week 11 — July 14</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
+                    <div class="day day-vo2"><span class="day-name">Tue</span><span class="day-desc">VO2max: 6×3min @ 4:00/km, 2min jog</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">5×1km @ 4:20/km, 2min jog</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 13km w/ progressive finish</span></div>
+                </div>
+
+                <div class="week">
+                    <div class="week-title">Week 12 — July 21</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">8×600m @ 4:10/km, 90s jog</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 14km easy</span></div>
+                </div>
+
+                <div class="week">
+                    <div class="week-title">Week 13 — July 28</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
+                    <div class="day day-vo2"><span class="day-name">Tue</span><span class="day-desc">VO2max: 6×3min @ 4:00/km, 90s jog</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">6×800m @ 4:10/km, 90s jog</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 15km w/ progressive finish</span></div>
+                </div>
+
+                <div class="week">
+                    <div class="week-title">Week 14 — August 4</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">4×1km @ 4:15/km, 2min jog (sharpener)</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 12km easy</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 4 -->
+        <div class="phase phase-4">
+            <div class="phase-header" onclick="togglePhase(this)">
+                <h2>Phase 4: Test & Peak</h2>
+                <span class="arrow open">▶</span>
+            </div>
+            <div class="phase-body">
+                <div class="phase-meta">Weeks 15–17 &bull; August &bull; <strong>Strength: maintain 4×5</strong></div>
+
+                <div class="week">
+                    <div class="week-title">Week 15 — August 11</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">3×1km @ 4:15/km, 2min jog (light)</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 10km easy</span></div>
+                </div>
+
+                <div class="week">
+                    <div class="week-title">Week 16 — August 18</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
+                    <div class="day day-vo2"><span class="day-name">Tue</span><span class="day-desc">VO2max: 5×3min @ 4:00/km, 2min jog</span></div>
+                    <div class="day day-easy"><span class="day-name">Wed</span><span class="day-desc">Easy 4km (pre-race)</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-race"><span class="day-name">Sun</span><span class="day-desc">🏁 5K TIME TRIAL</span></div>
+                </div>
+
+                <div class="week">
+                    <div class="week-title">Week 17 — August 25</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km</span></div>
+                    <div class="day day-easy"><span class="day-name">Wed</span><span class="day-desc">Easy 4km</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Celebration run 🎉</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STRENGTH DETAILS -->
+        <div class="section">
+            <h2>💪 Strength Sessions</h2>
+            <p style="font-size: 13px; color: #aaa; margin-bottom: 15px;">Every session ends with <strong style="color:#fbbf24;">Farmer's Walks: 3×30–40m</strong> (heavy DBs or KBs)</p>
+
+            <div class="strength-grid">
+                <div class="strength-card session-a">
+                    <h3>Session A — Monday</h3>
+                    <div class="group-label">Power / Plyos</div>
+                    <ul>
+                        <li>Box jumps 3×5</li>
+                        <li>Med ball slams 3×8</li>
+                    </ul>
+                    <div class="group-label">Compound Lifts</div>
+                    <ul>
+                        <li>Goblet squat</li>
+                        <li>DB bench press</li>
+                        <li>Bent-over row</li>
+                    </ul>
+                    <div class="group-label">Pull-up Progression</div>
+                    <ul><li>(see below)</li></ul>
+                    <div class="group-label">Core</div>
+                    <ul><li>Dead bugs 3×10</li></ul>
+                </div>
+
+                <div class="strength-card session-b">
+                    <h3>Session B — Saturday</h3>
+                    <div class="group-label">Power / Plyos</div>
+                    <ul>
+                        <li>Jump squats 3×5</li>
+                        <li>KB swings 3×10</li>
+                    </ul>
+                    <div class="group-label">Compound Lifts</div>
+                    <ul>
+                        <li>RDL</li>
+                        <li>Overhead press</li>
+                        <li>Walking lunges</li>
+                    </ul>
+                    <div class="group-label">Pull-up Progression</div>
+                    <ul><li>(see below)</li></ul>
+                    <div class="group-label">Core</div>
+                    <ul><li>Pallof press 3×10/side</li></ul>
+                </div>
+            </div>
+
+            <h3>Rep Scheme Progression</h3>
+            <table class="progression-table">
+                <tr><th>Phase</th><th>Sets × Reps</th><th>Load</th></tr>
+                <tr><td>Phase 1 (Wk 1–4)</td><td>3×10</td><td>RPE 7-8</td></tr>
+                <tr><td>Phase 2 (Wk 5–9)</td><td>3×8</td><td>Heavier</td></tr>
+                <tr><td>Phase 3 (Wk 10–14)</td><td>4×5</td><td>Heavy</td></tr>
+                <tr><td>Phase 4 (Wk 15–17)</td><td>4×5</td><td>Maintain</td></tr>
+            </table>
+        </div>
+
+        <!-- PULL-UP PROGRESSION -->
+        <div class="section">
+            <h2>🧗 Pull-up Progression</h2>
+            <table class="progression-table">
+                <tr><th>Phase</th><th>Progression</th></tr>
+                <tr><td>Phase 1</td><td>Band-assisted 3×5 → Negatives 3×3</td></tr>
+                <tr><td>Phase 2</td><td>Lighter band 3×5 → Negatives 3×5 (slow 5s descent)</td></tr>
+                <tr><td>Phase 3</td><td>Lightest band 3×5 → Unassisted attempts</td></tr>
+                <tr><td>Phase 4</td><td>Full pull-ups! 💪</td></tr>
+            </table>
+        </div>
+
+        <!-- COLOUR KEY -->
+        <div class="section">
+            <h2>🎨 Colour Key</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; font-size: 13px;">
+                <span><span style="color:#ff6b9d;">●</span> Strength</span>
+                <span><span style="color:#4ade80;">●</span> Easy run</span>
+                <span><span style="color:#fbbf24;">●</span> Quality run</span>
+                <span><span style="color:#f97316;">●</span> VO2max</span>
+                <span><span style="color:#00d4ff;">●</span> Long run</span>
+                <span><span style="color:#c084fc;">●</span> TSS</span>
+                <span><span style="color:#f87171;">●</span> Time trial</span>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-link">← Back to HM Plan</a>
+    </div>
+
+    <script>
+        function togglePhase(header) {
+            const body = header.nextElementSibling;
+            const arrow = header.querySelector('.arrow');
+            if (body.style.display === 'none') {
+                body.style.display = 'block';
+                arrow.classList.add('open');
+            } else {
+                body.style.display = 'none';
+                arrow.classList.remove('open');
+            }
+        }
+    </script>
+</body>
+</html>
