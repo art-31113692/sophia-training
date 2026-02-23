@@ -75,6 +75,8 @@
         .day-tss .day-name { color: #c084fc; }
         .day-race .day-name { color: #f87171; }
         .day-desc { color: #ccc; }
+        .day-optional { opacity: 0.6; font-style: italic; }
+        .day-optional .day-name { color: #888; }
 
         .section {
             margin-top: 30px; background: #ffffff08; border-radius: 12px; padding: 20px;
@@ -124,71 +126,87 @@
             border-radius: 8px; text-align: center; margin-bottom: 25px;
             font-size: 13px; color: #fbbf24;
         }
+
+        .note {
+            font-size: 12px; color: #888; margin-top: 6px; padding-left: 45px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="draft-banner">📝 DRAFT — review &amp; tweak before finalising</div>
+        <div class="draft-banner">&#x1F4DD; DRAFT v3 &mdash; coaching panel revisions + Sophia&rsquo;s tweaks</div>
 
         <h1>Post-HM Plan</h1>
-        <div class="subtitle">5K / 10K + Strength &bull; May &ndash; August 2026 &bull; 17 Weeks</div>
+        <div class="subtitle">5K / 10K + Strength &bull; May &ndash; September 2026 &bull; 19 Weeks</div>
 
         <div class="goals">
-            <span class="goal-chip">🎯 10K sub-50:00</span>
-            <span class="goal-chip">🎯 5K sub-24:00</span>
-            <span class="goal-chip">💪 First pull-up</span>
+            <span class="goal-chip">&#x1F3AF; 10K sub-50:00</span>
+            <span class="goal-chip">&#x1F3AF; 5K sub-24:00</span>
+            <span class="goal-chip">&#x1F4AA; First pull-up</span>
+        </div>
+
+        <!-- NOTES -->
+        <div class="section" style="margin-top: 0; margin-bottom: 30px;">
+            <h2>&#x1F4CB; How to Read This Plan</h2>
+            <ul>
+                <li>All runs include <strong>10min warm-up jog + 5min cooldown</strong> (not listed each day)</li>
+                <li><em style="opacity:0.6;">Italic/faded days</em> are <strong>optional</strong> &mdash; do them if you feel good, skip if tired</li>
+                <li>TSS = The Strength Syndicate (heavy strength class) &mdash; Mon Session A is lighter on lower body to compensate</li>
+                <li>No running on Saturdays &mdash; strength only</li>
+                <li><strong>Farmer&rsquo;s walk loading:</strong> Start ~25-30kg per hand, progress to ~35-40kg by Phase 3</li>
+            </ul>
         </div>
 
         <!-- PHASE 1 -->
         <div class="phase phase-1">
             <div class="phase-header" onclick="togglePhase(this)">
                 <h2>Phase 1: Strength Ramp + 10K Base</h2>
-                <span class="arrow open">▶</span>
+                <span class="arrow open">&#x25B6;</span>
             </div>
             <div class="phase-body">
-                <div class="phase-meta">Weeks 1–4 &bull; May &bull; <strong>Strength: 3×10 @ RPE 7-8</strong> &bull; <strong>Long run: 8–10km</strong></div>
+                <div class="phase-meta">Weeks 1&ndash;4 &bull; May &bull; <strong>Strength: 3&times;10 @ RPE 7-8</strong> &bull; <strong>Plyos: 3&times;3 (learning)</strong> &bull; <strong>Long run: 8&ndash;10km</strong></div>
 
                 <div class="week">
-                    <div class="week-title">Week 1 — May 5</div>
-                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
-                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km + 4×20s strides</span></div>
-                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">3×8min tempo @ 5:20/km, 2min jog</span></div>
-                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
-                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="week-title">Week 1 &mdash; May 5</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (lower body: 2&times;10, upper: 3&times;10)</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 6km + 4&times;20s strides</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">3&times;8min tempo @ 5:20/km, 2min jog</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS (heavy strength class)</span></div>
+                    <div class="day day-optional"><span class="day-name">Fri</span><span class="day-desc">Optional: easy 3km recovery jog</span></div>
                     <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
                     <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 8km easy</span></div>
                 </div>
 
                 <div class="week">
-                    <div class="week-title">Week 2 — May 12</div>
-                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
-                    <div class="day day-vo2"><span class="day-name">Tue</span><span class="day-desc">VO2max: 5×3min @ 4:50/km, 2min jog</span></div>
-                    <div class="day day-easy"><span class="day-name">Wed</span><span class="day-desc">Easy 5km</span></div>
+                    <div class="week-title">Week 2 &mdash; May 12</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (lower body: 2&times;10)</span></div>
+                    <div class="day day-vo2"><span class="day-name">Tue</span><span class="day-desc">VO2max: 5&times;3min @ 4:50/km, 2min jog</span></div>
+                    <div class="day day-easy"><span class="day-name">Wed</span><span class="day-desc">Easy 6km</span></div>
                     <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
-                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-optional"><span class="day-name">Fri</span><span class="day-desc">Optional: easy 3km recovery jog</span></div>
                     <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
                     <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 9km easy</span></div>
                 </div>
 
                 <div class="week">
-                    <div class="week-title">Week 3 — May 19</div>
-                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
-                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km + 4×20s strides</span></div>
-                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">4×8min tempo @ 5:20/km, 2min jog</span></div>
+                    <div class="week-title">Week 3 &mdash; May 19</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (lower body: 2&times;10)</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 7km + 4&times;20s strides</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">20min continuous tempo @ 5:20/km</span></div>
                     <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
-                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-optional"><span class="day-name">Fri</span><span class="day-desc">Optional: easy 3km recovery jog</span></div>
                     <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
                     <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 9km easy</span></div>
                 </div>
 
                 <div class="week">
-                    <div class="week-title">Week 4 — May 26 — DELOAD</div>
-                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (2×10, lighter)</span></div>
-                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km + 4×20s strides</span></div>
+                    <div class="week-title">Week 4 &mdash; May 26 &mdash; DELOAD</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (2&times;10, lighter)</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km + 4&times;20s strides</span></div>
                     <div class="day day-easy"><span class="day-name">Wed</span><span class="day-desc">Easy 4km</span></div>
                     <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS (take it easy)</span></div>
                     <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
-                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B (2×10, lighter)</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B (2&times;10, lighter)</span></div>
                     <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 7km easy</span></div>
                 </div>
             </div>
@@ -198,64 +216,64 @@
         <div class="phase phase-2">
             <div class="phase-header" onclick="togglePhase(this)">
                 <h2>Phase 2: 10K Development</h2>
-                <span class="arrow open">▶</span>
+                <span class="arrow open">&#x25B6;</span>
             </div>
             <div class="phase-body">
-                <div class="phase-meta">Weeks 5–9 &bull; June &bull; <strong>Strength: 3×8, heavier</strong> &bull; <strong>Long run: 10–13km</strong></div>
+                <div class="phase-meta">Weeks 5&ndash;9 &bull; June &bull; <strong>Strength: 3&times;8, heavier</strong> &bull; <strong>Plyos: 3&times;5</strong> &bull; <strong>Long run: 10&ndash;13km</strong></div>
 
                 <div class="week">
-                    <div class="week-title">Week 5 — June 2</div>
-                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
-                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 6km + 4×20s strides</span></div>
-                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">4×6min @ 5:10/km (threshold), 2min jog</span></div>
+                    <div class="week-title">Week 5 &mdash; June 2</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (lower body: 2&times;8)</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 7km + 4&times;20s strides</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">4&times;6min cruise intervals @ 5:05/km, 60s jog</span></div>
                     <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
-                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-optional"><span class="day-name">Fri</span><span class="day-desc">Optional: easy 3-4km recovery jog</span></div>
                     <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
                     <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 10km easy</span></div>
                 </div>
 
                 <div class="week">
-                    <div class="week-title">Week 6 — June 9</div>
-                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
-                    <div class="day day-vo2"><span class="day-name">Tue</span><span class="day-desc">VO2max: 5×3min @ 4:50/km, 2min jog</span></div>
-                    <div class="day day-easy"><span class="day-name">Wed</span><span class="day-desc">Easy 5km</span></div>
+                    <div class="week-title">Week 6 &mdash; June 9</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (lower body: 2&times;8)</span></div>
+                    <div class="day day-vo2"><span class="day-name">Tue</span><span class="day-desc">VO2max: 5&times;3min @ 4:50/km, 2min jog</span></div>
+                    <div class="day day-easy"><span class="day-name">Wed</span><span class="day-desc">Easy 6km</span></div>
                     <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
-                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-optional"><span class="day-name">Fri</span><span class="day-desc">Optional: easy 3-4km recovery jog</span></div>
                     <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
-                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 11km easy</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 11km &mdash; last 2km @ 5:20/km</span></div>
                 </div>
 
                 <div class="week">
-                    <div class="week-title">Week 7 — June 16</div>
-                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
-                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 6km + 4×20s strides</span></div>
-                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">5×6min @ 5:10/km, 90s jog</span></div>
+                    <div class="week-title">Week 7 &mdash; June 16</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (lower body: 2&times;8)</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 7km + 4&times;20s strides</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">22min continuous tempo @ 5:15/km</span></div>
                     <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
-                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-optional"><span class="day-name">Fri</span><span class="day-desc">Optional: easy 4km recovery jog</span></div>
                     <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
                     <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 12km easy</span></div>
                 </div>
 
                 <div class="week">
-                    <div class="week-title">Week 8 — June 23</div>
-                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
-                    <div class="day day-vo2"><span class="day-name">Tue</span><span class="day-desc">VO2max: 6×3min @ 4:45/km, 2min jog</span></div>
-                    <div class="day day-easy"><span class="day-name">Wed</span><span class="day-desc">Easy 5km</span></div>
+                    <div class="week-title">Week 8 &mdash; June 23</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (lower body: 2&times;8)</span></div>
+                    <div class="day day-vo2"><span class="day-name">Tue</span><span class="day-desc">VO2max: 6&times;3min @ 4:45/km, 2min jog</span></div>
+                    <div class="day day-easy"><span class="day-name">Wed</span><span class="day-desc">Easy 6km</span></div>
                     <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
-                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
+                    <div class="day day-optional"><span class="day-name">Fri</span><span class="day-desc">Optional: easy 4km recovery jog</span></div>
                     <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
-                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 13km easy</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 13km &mdash; last 2km @ 5:20/km</span></div>
                 </div>
 
                 <div class="week">
-                    <div class="week-title">Week 9 — June 30</div>
-                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
-                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km + 4×20s strides</span></div>
-                    <div class="day day-race"><span class="day-name">Wed</span><span class="day-desc">🏁 10K TIME TRIAL</span></div>
-                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="week-title">Week 9 &mdash; June 30 &mdash; 10K TEST</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (lighter, deload feel)</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km + 4&times;20s strides</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">3&times;2km @ 5:00/km (10K race pace), 90s jog</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS (go easy)</span></div>
                     <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
-                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
-                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 10km easy</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B (light)</span></div>
+                    <div class="day day-race"><span class="day-name">Sun</span><span class="day-desc">&#x1F3C1; 10K TIME TRIAL</span></div>
                 </div>
             </div>
         </div>
@@ -264,63 +282,63 @@
         <div class="phase phase-3">
             <div class="phase-header" onclick="togglePhase(this)">
                 <h2>Phase 3: 5K Sharpening</h2>
-                <span class="arrow open">▶</span>
+                <span class="arrow open">&#x25B6;</span>
             </div>
             <div class="phase-body">
-                <div class="phase-meta">Weeks 10–14 &bull; July &bull; <strong>Strength: 4×5, heavy</strong> &bull; <strong>Long run: 12–15km</strong></div>
+                <div class="phase-meta">Weeks 10&ndash;14 &bull; July &bull; <strong>Strength: 4&times;5, heavy</strong> &bull; <strong>Plyos: 4&times;5</strong> &bull; <strong>Long run: 12&ndash;13km</strong> &bull; <strong>Sat Session B: lighter lower body (3&times;5)</strong></div>
 
                 <div class="week">
-                    <div class="week-title">Week 10 — July 7</div>
-                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
-                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km + 4×20s strides</span></div>
-                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">6×800m @ 4:45/km, 90s jog</span></div>
+                    <div class="week-title">Week 10 &mdash; July 7</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (lower body: 3&times;5)</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 7km + 4&times;20s strides</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">5&times;1km @ 4:45/km, 2min jog</span></div>
                     <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
-                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
-                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-optional"><span class="day-name">Fri</span><span class="day-desc">Optional: easy 3-4km recovery jog</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B (lower body: 3&times;5)</span></div>
                     <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 12km easy</span></div>
                 </div>
 
                 <div class="week">
-                    <div class="week-title">Week 11 — July 14</div>
-                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
-                    <div class="day day-vo2"><span class="day-name">Tue</span><span class="day-desc">VO2max: 6×3min @ 4:45/km, 2min jog</span></div>
-                    <div class="day day-easy"><span class="day-name">Wed</span><span class="day-desc">Easy 5km</span></div>
+                    <div class="week-title">Week 11 &mdash; July 14</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (lower body: 3&times;5)</span></div>
+                    <div class="day day-vo2"><span class="day-name">Tue</span><span class="day-desc">VO2max: 6&times;3min @ 4:45/km, 2min jog</span></div>
+                    <div class="day day-easy"><span class="day-name">Wed</span><span class="day-desc">Easy 6km</span></div>
                     <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
-                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
-                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
-                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 13km w/ progressive finish</span></div>
-                </div>
-
-                <div class="week">
-                    <div class="week-title">Week 12 — July 21</div>
-                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
-                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km + 4×20s strides</span></div>
-                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">8×600m @ 4:40/km, 90s jog</span></div>
-                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
-                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
-                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-optional"><span class="day-name">Fri</span><span class="day-desc">Optional: easy 3-4km recovery jog</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B (lower body: 3&times;5)</span></div>
                     <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 13km easy</span></div>
                 </div>
 
                 <div class="week">
-                    <div class="week-title">Week 13 — July 28 — DELOAD</div>
-                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (3×5, moderate)</span></div>
-                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km + 4×20s strides</span></div>
+                    <div class="week-title">Week 12 &mdash; July 21</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (lower body: 3&times;5)</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 7km + 4&times;20s strides</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">6&times;800m @ 4:40/km, 90s jog</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-optional"><span class="day-name">Fri</span><span class="day-desc">Optional: easy 3-4km recovery jog</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B (lower body: 3&times;5)</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 13km easy</span></div>
+                </div>
+
+                <div class="week">
+                    <div class="week-title">Week 13 &mdash; July 28 &mdash; DELOAD</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (3&times;5, moderate)</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km + 4&times;20s strides</span></div>
                     <div class="day day-easy"><span class="day-name">Wed</span><span class="day-desc">Easy 4km</span></div>
                     <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS (take it easy)</span></div>
                     <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
-                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B (3×5, moderate)</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B (3&times;5, moderate)</span></div>
                     <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 10km easy</span></div>
                 </div>
 
                 <div class="week">
-                    <div class="week-title">Week 14 — August 4</div>
-                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
-                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km + 4×20s strides</span></div>
-                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">4×1km @ 4:45/km, 2min jog (sharpener)</span></div>
+                    <div class="week-title">Week 14 &mdash; August 4</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (lower body: 3&times;5)</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 7km + 4&times;20s strides</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">8&times;600m @ 4:40/km, 90s jog</span></div>
                     <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
-                    <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
-                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-optional"><span class="day-name">Fri</span><span class="day-desc">Optional: easy 3-4km recovery jog</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B (lower body: 3&times;5)</span></div>
                     <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 12km easy</span></div>
                 </div>
             </div>
@@ -329,17 +347,39 @@
         <!-- PHASE 4 -->
         <div class="phase phase-4">
             <div class="phase-header" onclick="togglePhase(this)">
-                <h2>Phase 4: Test & Peak</h2>
-                <span class="arrow open">▶</span>
+                <h2>Phase 4: Test &amp; Peak</h2>
+                <span class="arrow open">&#x25B6;</span>
             </div>
             <div class="phase-body">
-                <div class="phase-meta">Weeks 15–17 &bull; August &bull; <strong>Strength: maintain 4×5</strong></div>
+                <div class="phase-meta">Weeks 15&ndash;19 &bull; August&ndash;September &bull; <strong>Strength: maintain 4&times;5</strong> &bull; <strong>Plyos: 3&times;3 (maintain)</strong></div>
 
                 <div class="week">
-                    <div class="week-title">Week 15 — August 11</div>
-                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
-                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km + 4×20s strides</span></div>
-                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">3×1km @ 4:50/km, 2min jog (light)</span></div>
+                    <div class="week-title">Week 15 &mdash; August 11</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (maintain)</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 7km + 4&times;20s strides</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">5&times;600m @ 4:40/km, 90s jog (sharpener)</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-optional"><span class="day-name">Fri</span><span class="day-desc">Optional: easy 3km recovery jog</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 10km easy</span></div>
+                </div>
+
+                <div class="week">
+                    <div class="week-title">Week 16 &mdash; August 18</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (maintain)</span></div>
+                    <div class="day day-vo2"><span class="day-name">Tue</span><span class="day-desc">VO2max: 5&times;3min @ 4:45/km, 2min jog</span></div>
+                    <div class="day day-easy"><span class="day-name">Wed</span><span class="day-desc">Easy 5km</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="day day-optional"><span class="day-name">Fri</span><span class="day-desc">Optional: easy 3km recovery jog</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Long run 10km &mdash; last 2km @ 5:15/km</span></div>
+                </div>
+
+                <div class="week">
+                    <div class="week-title">Week 17 &mdash; August 25</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (maintain)</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 6km + 4&times;20s strides</span></div>
+                    <div class="day day-quality"><span class="day-name">Wed</span><span class="day-desc">3&times;1km @ 4:50/km, 2min jog (light)</span></div>
                     <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
                     <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
                     <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
@@ -347,113 +387,117 @@
                 </div>
 
                 <div class="week">
-                    <div class="week-title">Week 16 — August 18</div>
-                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
-                    <div class="day day-vo2"><span class="day-name">Tue</span><span class="day-desc">VO2max: 5×3min @ 4:45/km, 2min jog</span></div>
-                    <div class="day day-easy"><span class="day-name">Wed</span><span class="day-desc">Easy 4km (pre-race)</span></div>
-                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
+                    <div class="week-title">Week 18 &mdash; September 1 &mdash; 5K RACE WEEK</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (light)</span></div>
+                    <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km + 4&times;20s strides</span></div>
+                    <div class="day day-easy"><span class="day-name">Wed</span><span class="day-desc">Easy 4km</span></div>
+                    <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS (go very easy)</span></div>
                     <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
-                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
-                    <div class="day day-race"><span class="day-name">Sun</span><span class="day-desc">🏁 5K TIME TRIAL</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B (light, upper only)</span></div>
+                    <div class="day day-race"><span class="day-name">Sun</span><span class="day-desc">&#x1F3C1; 5K TIME TRIAL</span></div>
                 </div>
 
                 <div class="week">
-                    <div class="week-title">Week 17 — August 25</div>
-                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A</span></div>
+                    <div class="week-title">Week 19 &mdash; September 8 &mdash; Victory Lap</div>
+                    <div class="day day-strength"><span class="day-name">Mon</span><span class="day-desc">Strength A (fun session)</span></div>
                     <div class="day day-easy"><span class="day-name">Tue</span><span class="day-desc">Easy 5km</span></div>
                     <div class="day day-easy"><span class="day-name">Wed</span><span class="day-desc">Easy 4km</span></div>
                     <div class="day day-tss"><span class="day-name">Thu</span><span class="day-desc">TSS</span></div>
                     <div class="day day-rest"><span class="day-name">Fri</span><span class="day-desc">Rest</span></div>
-                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B</span></div>
-                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Celebration run 🎉</span></div>
+                    <div class="day day-strength"><span class="day-name">Sat</span><span class="day-desc">Strength B &mdash; pull-up test! &#x1F4AA;</span></div>
+                    <div class="day day-long"><span class="day-name">Sun</span><span class="day-desc">Celebration run &#x1F389;</span></div>
                 </div>
             </div>
         </div>
 
         <!-- STRENGTH DETAILS -->
         <div class="section">
-            <h2>💪 Strength Sessions</h2>
-            <p style="font-size: 13px; color: #aaa; margin-bottom: 15px;">Every session ends with <strong style="color:#fbbf24;">Farmer's Walks: 3×30–40m</strong> (heavy DBs or KBs)</p>
+            <h2>&#x1F4AA; Strength Sessions</h2>
+            <p style="font-size: 13px; color: #aaa; margin-bottom: 5px;">Every session ends with <strong style="color:#fbbf24;">Farmer&rsquo;s Walks: 3&times;30&ndash;40m</strong></p>
+            <p style="font-size: 12px; color: #888; margin-bottom: 15px;">Load: start ~25-30kg/hand, progress to ~35-40kg by Phase 3. If you can walk 40m without grip failing, go heavier.</p>
 
             <div class="strength-grid">
                 <div class="strength-card session-a">
-                    <h3>Session A — Monday</h3>
+                    <h3>Session A &mdash; Monday</h3>
                     <div class="group-label">Power / Plyos</div>
                     <ul>
-                        <li>Box jumps 3×5</li>
-                        <li>Med ball slams 3×8</li>
+                        <li>Box jumps (P1: 3&times;3, P2: 3&times;5, P3: 4&times;5, P4: 3&times;3)</li>
+                        <li>Med ball slams 3&times;8</li>
                     </ul>
                     <div class="group-label">Compound Lifts</div>
                     <ul>
-                        <li>Goblet squat</li>
+                        <li>Goblet squat &mdash; <em>lower body: reduced volume (see phase notes)</em></li>
                         <li>DB bench press</li>
                         <li>Bent-over row</li>
                     </ul>
                     <div class="group-label">Pull-up Progression</div>
                     <ul><li>(see below)</li></ul>
                     <div class="group-label">Core</div>
-                    <ul><li>Dead bugs 3×10</li></ul>
+                    <ul><li>Dead bugs 3&times;10</li></ul>
+                    <p style="font-size: 11px; color: #f97316; margin-top: 8px;">&#x26A0;&#xFE0F; Mon lower body volume is reduced because TSS Thu is a heavy strength class. Upper body stays full volume.</p>
                 </div>
 
                 <div class="strength-card session-b">
-                    <h3>Session B — Saturday</h3>
+                    <h3>Session B &mdash; Saturday</h3>
                     <div class="group-label">Power / Plyos</div>
                     <ul>
-                        <li>Jump squats 3×5</li>
-                        <li>KB swings 3×10</li>
+                        <li>Jump squats (P1: 3&times;3, P2: 3&times;5, P3: 4&times;5, P4: 3&times;3)</li>
+                        <li>KB swings 3&times;10</li>
                     </ul>
                     <div class="group-label">Compound Lifts</div>
                     <ul>
-                        <li>RDL</li>
+                        <li>RDL &mdash; <em>Phase 3: reduce to 3&times;5 (protect Sun long run)</em></li>
                         <li>Overhead press</li>
-                        <li>Walking lunges</li>
+                        <li>Walking lunges &mdash; <em>Phase 3: reduce to 3&times;5</em></li>
                     </ul>
                     <div class="group-label">Pull-up Progression</div>
                     <ul><li>(see below)</li></ul>
                     <div class="group-label">Core</div>
-                    <ul><li>Pallof press 3×10/side</li></ul>
+                    <ul><li>Pallof press 3&times;10/side</li></ul>
                 </div>
             </div>
 
             <h3>Rep Scheme Progression</h3>
             <table class="progression-table">
-                <tr><th>Phase</th><th>Sets × Reps</th><th>Load</th></tr>
-                <tr><td>Phase 1 (Wk 1–4)</td><td>3×10</td><td>RPE 7-8</td></tr>
-                <tr><td>Phase 2 (Wk 5–9)</td><td>3×8</td><td>Heavier</td></tr>
-                <tr><td>Phase 3 (Wk 10–14)</td><td>4×5</td><td>Heavy</td></tr>
-                <tr><td>Phase 4 (Wk 15–17)</td><td>4×5</td><td>Maintain</td></tr>
+                <tr><th>Phase</th><th>Sets &times; Reps</th><th>Mon Lower Body</th><th>Sat Lower Body</th></tr>
+                <tr><td>Phase 1 (Wk 1&ndash;4)</td><td>3&times;10</td><td>2&times;10</td><td>3&times;10</td></tr>
+                <tr><td>Phase 2 (Wk 5&ndash;9)</td><td>3&times;8</td><td>2&times;8</td><td>3&times;8</td></tr>
+                <tr><td>Phase 3 (Wk 10&ndash;14)</td><td>4&times;5</td><td>3&times;5</td><td>3&times;5</td></tr>
+                <tr><td>Phase 4 (Wk 15&ndash;19)</td><td>4&times;5</td><td>3&times;5</td><td>4&times;5</td></tr>
             </table>
         </div>
 
         <!-- PULL-UP PROGRESSION -->
         <div class="section">
-            <h2>🧗 Pull-up Progression</h2>
+            <h2>&#x1F9D7; Pull-up Progression</h2>
             <p style="font-size: 13px; color: #aaa; margin-bottom: 10px;">Done in every Strength A &amp; B session. <strong style="color:#fbbf24;">Daily homework:</strong> 30s dead hang + 5 scapular pull-ups (takes 2 min, do before bed with mobility)</p>
             <table class="progression-table">
                 <tr><th>Phase</th><th>In Session (Mon &amp; Sat)</th><th>Key Cue</th></tr>
-                <tr><td>Phase 1</td><td>Band-assisted 3×5 + Negatives 3×5 (3s down)</td><td>Build grip &amp; lat activation</td></tr>
-                <tr><td>Phase 2</td><td>Lighter band 3×5 + Negatives 3×5 (5s down) + 1 unassisted attempt</td><td>Slow negatives are king</td></tr>
-                <tr><td>Phase 3</td><td>Lightest band 3×3 + Unassisted attempts (up to 5 singles)</td><td>Grease the groove</td></tr>
-                <tr><td>Phase 4</td><td>Unassisted pull-ups 🎯 (even 1 rep = victory!)</td><td>You’ve earned this</td></tr>
+                <tr><td>Phase 1</td><td>Band-assisted 3&times;5 + Negatives 3&times;5 (3s down)</td><td>Build grip &amp; lat activation</td></tr>
+                <tr><td>Phase 2</td><td>Lighter band 3&times;5 + Negatives 3&times;5 (5s down) + 1 unassisted attempt</td><td>Slow negatives are king</td></tr>
+                <tr><td>Phase 3</td><td>Lightest band 3&times;3 + Unassisted attempts (up to 5 singles)</td><td>Grease the groove</td></tr>
+                <tr><td>Phase 4</td><td>Unassisted pull-ups &#x1F3AF; (even 1 rep = victory!)</td><td>You&rsquo;ve earned this</td></tr>
             </table>
-            <p style="font-size: 12px; color: #888; margin-top: 8px;">💡 First pull-up typically takes 4–6 months for women. This plan is 17 weeks — stay consistent with the daily homework and it’s very achievable.</p>
+            <p style="font-size: 12px; color: #888; margin-top: 8px;">&#x1F4A1; First pull-up typically takes 4&ndash;6 months for women. This plan is 19 weeks &mdash; stay consistent with the daily homework and it&rsquo;s very achievable.</p>
         </div>
 
         <!-- COLOUR KEY -->
         <div class="section">
-            <h2>🎨 Colour Key</h2>
+            <h2>&#x1F3A8; Colour Key</h2>
+            <p style="font-size: 12px; color: #888; margin-bottom: 12px;">&#x1F4A1; All runs include 10min easy warm-up jog + 5min cooldown jog (not listed in each day to keep it clean)</p>
             <div style="display: flex; flex-wrap: wrap; gap: 10px; font-size: 13px;">
-                <span><span style="color:#ff6b9d;">●</span> Strength</span>
-                <span><span style="color:#4ade80;">●</span> Easy run</span>
-                <span><span style="color:#fbbf24;">●</span> Quality run</span>
-                <span><span style="color:#f97316;">●</span> VO2max</span>
-                <span><span style="color:#00d4ff;">●</span> Long run</span>
-                <span><span style="color:#c084fc;">●</span> TSS</span>
-                <span><span style="color:#f87171;">●</span> Time trial</span>
+                <span><span style="color:#ff6b9d;">&#x25CF;</span> Strength</span>
+                <span><span style="color:#4ade80;">&#x25CF;</span> Easy run</span>
+                <span><span style="color:#fbbf24;">&#x25CF;</span> Quality run</span>
+                <span><span style="color:#f97316;">&#x25CF;</span> VO2max</span>
+                <span><span style="color:#00d4ff;">&#x25CF;</span> Long run</span>
+                <span><span style="color:#c084fc;">&#x25CF;</span> TSS</span>
+                <span><span style="color:#f87171;">&#x25CF;</span> Time trial</span>
+                <span><span style="color:#888;">&#x25CF;</span> <em>Optional</em></span>
             </div>
         </div>
 
-        <a href="index.html" class="back-link">← Back to HM Plan</a>
+        <a href="index.html" class="back-link">&larr; Back to HM Plan</a>
     </div>
 
     <script>
