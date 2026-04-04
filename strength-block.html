@@ -99,19 +99,32 @@
         }
 
         /* Sessions */
-        .strength-grid { display: grid; gap: 20px; }
-        @media (min-width: 600px) { .strength-grid { grid-template-columns: 1fr 1fr 1fr; } }
-        .strength-card {
+        .sessions { display: grid; gap: 20px; }
+        @media (min-width: 600px) { .sessions { grid-template-columns: 1fr 1fr 1fr; } }
+        .session {
             background: #2a2a4a; border-radius: 12px; padding: 20px;
         }
-        .strength-card h3 {
+        .session h3 {
             color: #00d4ff; margin-bottom: 15px; padding-bottom: 10px;
             border-bottom: 1px solid #ffffff22;
         }
-        .strength-card.session-b h3 { color: #ff6b9d; }
-        .strength-card.session-c h3 { color: #fbbf24; }
-        .strength-card ul { padding-left: 18px; }
-        .strength-card li { font-size: 15px; color: #ccc; margin-bottom: 6px; }
+        .session-b h3 { color: #ff6b9d; }
+        .session-c h3 { color: #fbbf24; }
+        .exercise-group { margin-bottom: 15px; }
+        .exercise-group-title {
+            font-size: 12px; color: #888; text-transform: uppercase;
+            margin-bottom: 8px; letter-spacing: 1px;
+        }
+        .exercise {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 8px 0; border-bottom: 1px solid #ffffff11;
+        }
+        .exercise:last-child { border-bottom: none; }
+        .exercise-name { flex: 1; font-size: 15px; color: #fff; }
+        .exercise-sets {
+            color: #00d4ff; font-weight: bold; margin-left: 10px;
+            white-space: nowrap; font-size: 15px;
+        }
 
         .section {
             margin-top: 30px; padding: 20px; background: #2a2a4a;
@@ -122,15 +135,16 @@
         .section li { font-size: 14px; color: #cbd5e1; margin-bottom: 5px; }
         .section li strong { color: #fff; }
 
-        .progression-table {
-            width: 100%; border-collapse: collapse; font-size: 14px;
+        .info-box {
+            margin-top: 20px; padding: 20px; background: #2a2a4a;
+            border-radius: 12px; border-left: 4px solid #fbbf24;
         }
-        .progression-table th, .progression-table td {
-            padding: 8px 12px; text-align: left; border-bottom: 1px solid #ffffff11;
-            vertical-align: top;
-        }
-        .progression-table th { color: #888; font-weight: normal; }
-        .progression-table td:first-child { color: #00d4ff; }
+        .info-box h4 { color: #fbbf24; margin-bottom: 15px; }
+        .info-box table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .info-box th, .info-box td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #ffffff11; vertical-align: top; }
+        .info-box th { color: #888; font-weight: normal; }
+        .info-box td:first-child { color: #00d4ff; }
+        .info-box p { color: #aaa; font-size: 13px; margin-top: 10px; }
 
         .back-link {
             display: block; text-align: center; margin-top: 30px;
@@ -383,41 +397,44 @@
 
         <div class="section">
             <h2>Weekly Session Templates</h2>
-            <div class="strength-grid">
-                <div class="strength-card session-a">
+            <div class="sessions">
+                <div class="session session-a">
                     <h3>Day 1</h3>
-                    <ul>
-                        <li><strong>Back Squat</strong> — main squat pattern</li>
-                        <li><strong>Bench Press</strong> — horizontal press</li>
-                        <li><strong>Barbell Row</strong> — upper back / pulling</li>
-                        <li><strong>Straight-knee calf raise</strong> — gastroc focus</li>
-                    </ul>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">Main Work</div>
+                        <div class="exercise"><span class="exercise-name">Back Squat</span><span class="exercise-sets">3–4 x 5</span></div>
+                        <div class="exercise"><span class="exercise-name">Bench Press</span><span class="exercise-sets">3–4 x 5</span></div>
+                        <div class="exercise"><span class="exercise-name">Barbell Row</span><span class="exercise-sets">3 x 6–8</span></div>
+                        <div class="exercise"><span class="exercise-name">Straight-knee calf raise</span><span class="exercise-sets">2–3 x 10–15</span></div>
+                    </div>
                 </div>
-                <div class="strength-card session-b">
+                <div class="session session-b">
                     <h3>Day 2</h3>
-                    <ul>
-                        <li><strong>Deadlift</strong> — main hinge</li>
-                        <li><strong>Overhead Press</strong> — vertical press</li>
-                        <li><strong>Split Squat</strong> — single-leg strength</li>
-                        <li><strong>Pull-up / Pulldown</strong> — vertical pull</li>
-                    </ul>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">Main Work</div>
+                        <div class="exercise"><span class="exercise-name">Deadlift</span><span class="exercise-sets">3 x 5</span></div>
+                        <div class="exercise"><span class="exercise-name">Overhead Press</span><span class="exercise-sets">3–4 x 5</span></div>
+                        <div class="exercise"><span class="exercise-name">Split Squat</span><span class="exercise-sets">2–3 x 8/leg</span></div>
+                        <div class="exercise"><span class="exercise-name">Pull-up / Pulldown</span><span class="exercise-sets">3 x 5–8</span></div>
+                    </div>
                 </div>
-                <div class="strength-card session-c">
+                <div class="session session-c">
                     <h3>Day 3</h3>
-                    <ul>
-                        <li><strong>Front or Pause Squat</strong> — secondary squat</li>
-                        <li><strong>Incline Bench</strong> — secondary press</li>
-                        <li><strong>Romanian Deadlift</strong> — posterior chain</li>
-                        <li><strong>Pull-up / Pulldown</strong> — vertical pull</li>
-                        <li><strong>Bent-knee calf raise</strong> — soleus focus</li>
-                    </ul>
+                    <div class="exercise-group">
+                        <div class="exercise-group-title">Main Work</div>
+                        <div class="exercise"><span class="exercise-name">Front or Pause Squat</span><span class="exercise-sets">3–4 x 5</span></div>
+                        <div class="exercise"><span class="exercise-name">Incline Bench</span><span class="exercise-sets">3–4 x 5</span></div>
+                        <div class="exercise"><span class="exercise-name">Romanian Deadlift</span><span class="exercise-sets">3 x 6–8</span></div>
+                        <div class="exercise"><span class="exercise-name">Pull-up / Pulldown</span><span class="exercise-sets">3 x 6–8</span></div>
+                        <div class="exercise"><span class="exercise-name">Bent-knee calf raise</span><span class="exercise-sets">2–3 x 10–15</span></div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="section">
-            <h2>Progression Rules</h2>
-            <table class="progression-table">
+        <div class="info-box">
+            <h4>Progression Rules</h4>
+            <table>
                 <thead>
                     <tr><th>Lift Type</th><th>How to Progress</th><th>Notes</th></tr>
                 </thead>
@@ -444,10 +461,11 @@
                     </tr>
                 </tbody>
             </table>
+            <p>If bar speed is ugly, hold the weight. This is a strength block, not an ego block.</p>
         </div>
 
-        <div class="section">
-            <h2>Notes</h2>
+        <div class="info-box">
+            <h4>Notes</h4>
             <ul>
                 <li><strong>Keep running simple:</strong> usually 2 easy runs per week, with strides once weekly.</li>
                 <li><strong>If recovery gets rough:</strong> reduce accessory volume first, not the core lifts.</li>
