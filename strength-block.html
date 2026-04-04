@@ -31,31 +31,22 @@
             border-radius: 20px; font-size: 13px; color: #00d4ff;
         }
         .week-nav {
-            position: sticky; top: 10px; z-index: 10;
-            background: #0f172acc; backdrop-filter: blur(8px);
-            border: 1px solid #ffffff1a; border-radius: 12px;
-            padding: 10px; margin-bottom: 24px;
+            display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 30px;
         }
         .week-nav-title {
-            font-size: 12px; color: #94a3b8; margin-bottom: 8px; text-align: center;
-        }
-        .week-nav-grid {
-            display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px;
-        }
-        @media (max-width: 640px) {
-            .week-nav-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            width: 100%; font-size: 12px; color: #94a3b8; margin-bottom: 2px; text-align: center;
         }
         .week-btn {
-            border: 1px solid #ffffff2a; background: #1e293b; color: #cbd5e1;
-            border-radius: 8px; padding: 8px 6px; font-size: 12px; font-weight: 600; cursor: pointer;
+            padding: 10px 15px; background: #2a2a4a; border: none; color: #fff;
+            border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.2s;
         }
-        .week-btn:hover { border-color: #00d4ff88; color: #e2f7ff; }
-        .week-btn.active { outline: 2px solid #00d4ff; color: #fff; transform: translateY(-1px); }
-        .week-btn.phase-1 { background: #14532d; }
-        .week-btn.phase-2 { background: #713f12; }
-        .week-btn.phase-3 { background: #334155; }
-        .week-btn.phase-4 { background: #4c1d95; }
-        .week-btn.special { border-color: #fbbf24; }
+        .week-btn:hover { background: #00d4ff; color: #000; }
+        .week-btn.active { background: #00d4ff; color: #000; font-weight: bold; }
+        .week-btn.phase-1 { background: #2a2a4a; }
+        .week-btn.phase-2 { background: #2a2a4a; }
+        .week-btn.phase-3 { background: #2a2a4a; }
+        .week-btn.phase-4 { background: #2a2a4a; }
+        .week-btn.special { border: 2px solid #ffd700; }
 
         .phase {
             margin-bottom: 28px; background: #ffffff08; border-radius: 12px; overflow: hidden;
@@ -170,20 +161,18 @@
 
         <div class="week-nav" id="week-nav">
             <div class="week-nav-title">Tap a week to jump straight to it</div>
-            <div class="week-nav-grid">
-                <button class="week-btn phase-1" data-week="1" onclick="showWeek(1)">W1</button>
-                <button class="week-btn phase-1" data-week="2" onclick="showWeek(2)">W2</button>
-                <button class="week-btn phase-1" data-week="3" onclick="showWeek(3)">W3</button>
-                <button class="week-btn phase-1" data-week="4" onclick="showWeek(4)">W4</button>
-                <button class="week-btn phase-2" data-week="5" onclick="showWeek(5)">W5</button>
-                <button class="week-btn phase-2" data-week="6" onclick="showWeek(6)">W6</button>
-                <button class="week-btn phase-2" data-week="7" onclick="showWeek(7)">W7</button>
-                <button class="week-btn phase-2" data-week="8" onclick="showWeek(8)">W8</button>
-                <button class="week-btn phase-3 special" data-week="9" onclick="showWeek(9)">W9</button>
-                <button class="week-btn phase-4" data-week="10" onclick="showWeek(10)">W10</button>
-                <button class="week-btn phase-4" data-week="11" onclick="showWeek(11)">W11</button>
-                <button class="week-btn phase-4" data-week="12" onclick="showWeek(12)">W12</button>
-            </div>
+            <button class="week-btn phase-1" data-week="1" onclick="showWeek(1)">W1</button>
+            <button class="week-btn phase-1" data-week="2" onclick="showWeek(2)">W2</button>
+            <button class="week-btn phase-1" data-week="3" onclick="showWeek(3)">W3</button>
+            <button class="week-btn phase-1" data-week="4" onclick="showWeek(4)">W4</button>
+            <button class="week-btn phase-2" data-week="5" onclick="showWeek(5)">W5</button>
+            <button class="week-btn phase-2" data-week="6" onclick="showWeek(6)">W6</button>
+            <button class="week-btn phase-2" data-week="7" onclick="showWeek(7)">W7</button>
+            <button class="week-btn phase-2" data-week="8" onclick="showWeek(8)">W8</button>
+            <button class="week-btn phase-3 special" data-week="9" onclick="showWeek(9)">W9</button>
+            <button class="week-btn phase-4" data-week="10" onclick="showWeek(10)">W10</button>
+            <button class="week-btn phase-4" data-week="11" onclick="showWeek(11)">W11</button>
+            <button class="week-btn phase-4" data-week="12" onclick="showWeek(12)">W12</button>
         </div>
 
         <div class="phase phase-1" id="phase-1">
