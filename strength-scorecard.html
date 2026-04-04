@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strength Scorecard</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #eee;
+            min-height: 100vh;
+            padding: 16px;
+        }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { text-align: center; margin-bottom: 10px; color: #00d4ff; }
+        .subtitle { text-align: center; color: #888; margin-bottom: 22px; }
+        .goal {
+            text-align: center; background: #00d4ff22; padding: 15px;
+            border-radius: 10px; margin-bottom: 24px;
+        }
+        .goal strong { color: #00d4ff; }
+        .section {
+            margin-top: 22px; padding: 18px; background: #2a2a4a;
+            border-radius: 12px; border-left: 4px solid #fbbf24;
+        }
+        .section h2 { color: #fbbf24; margin-bottom: 12px; font-size: 18px; }
+        .section p, .section li { color: #cbd5e1; font-size: 14px; }
+        .section ul { padding-left: 20px; }
+        .section li { margin-bottom: 6px; }
+        .section strong { color: #fff; }
+        table {
+            width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px;
+        }
+        th, td {
+            padding: 10px 8px; text-align: left; border-bottom: 1px solid #ffffff11; vertical-align: top;
+        }
+        th { color: #888; font-weight: normal; }
+        td:first-child { color: #00d4ff; width: 26%; }
+        .back-link {
+            display: block; text-align: center; margin-top: 28px;
+            color: #00d4ff; text-decoration: none; font-size: 14px;
+        }
+        @media (max-width: 600px) {
+            body { padding: 12px; }
+            h1 { font-size: 28px; }
+            .subtitle { font-size: 15px; }
+            .goal { font-size: 15px; }
+            .section { overflow-x: auto; }
+            table { font-size: 13px; }
+            th, td { padding: 8px 6px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Strength Scorecard</h1>
+        <p class="subtitle">A simple way to judge whether strength is improving, holding, or needs another build phase</p>
+
+        <div class="goal">
+            <strong>Use this every 8–12 weeks:</strong> look at trends, not perfection.
+        </div>
+
+        <div class="section">
+            <h2>How to use it</h2>
+            <ul>
+                <li><strong>Review every block:</strong> strength block, 5K block, 10K block, etc.</li>
+                <li><strong>Look for direction, not drama:</strong> improving, holding steady, or slipping badly.</li>
+                <li><strong>Use both numbers and feel:</strong> the barbell matters, but so do niggles, stability, and confidence.</li>
+                <li><strong>Main question:</strong> can you maintain a decent strength base while running well, or do you need another build phase?</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Scorecard</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Area</th>
+                        <th>What to track</th>
+                        <th>Good signs</th>
+                        <th>Warning signs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Squat</td>
+                        <td>Working weight, form, confidence, consistency</td>
+                        <td>Weights trend upward or hold steady; movement feels solid</td>
+                        <td>Repeated stalls, confidence dropping, knee irritation rising</td>
+                    </tr>
+                    <tr>
+                        <td>Deadlift / RDL</td>
+                        <td>Working weight, hinge quality, posterior-chain confidence</td>
+                        <td>Strong hinge, good control, weights feel more normal over time</td>
+                        <td>Back takes over, form gets messy, lifting feels scarier not easier</td>
+                    </tr>
+                    <tr>
+                        <td>Bench / OHP</td>
+                        <td>Working weight, bar speed, tolerance of pressing volume</td>
+                        <td>Slow steady progress or easy maintenance during run blocks</td>
+                        <td>Pressing collapses quickly once running rises</td>
+                    </tr>
+                    <tr>
+                        <td>Row / Pull</td>
+                        <td>Row quality, pulldown weight, pull-up assistance level</td>
+                        <td>More control, less assistance needed, better upper-back strength</td>
+                        <td>No progress at all, poor control, shoulders feel cranky</td>
+                    </tr>
+                    <tr>
+                        <td>Pull-up goal</td>
+                        <td>Dead hangs, eccentrics, assisted reps, first unassisted rep</td>
+                        <td>Assistance decreases over time; first rep gets closer</td>
+                        <td>Stuck for ages despite consistent work</td>
+                    </tr>
+                    <tr>
+                        <td>Single-leg stability</td>
+                        <td>Split squats, step-downs, step-ups, wobbliness</td>
+                        <td>More stable, less knee wobble, stronger control each side</td>
+                        <td>Persistent instability, big side-to-side difference, knee cave issues</td>
+                    </tr>
+                    <tr>
+                        <td>Calves / lower leg</td>
+                        <td>Calf raise consistency, soleus strength, tolerance of loading</td>
+                        <td>Can handle regular calf work and running without flare-ups</td>
+                        <td>Recurring lower-leg soreness, poor tolerance, skipped work</td>
+                    </tr>
+                    <tr>
+                        <td>Knee robustness</td>
+                        <td>Front-of-knee niggles, tolerance of hills, runs, and lifting</td>
+                        <td>Less awareness, fewer flare-ups, better control when tired</td>
+                        <td>Niggles recur often or show up earlier as load rises</td>
+                    </tr>
+                    <tr>
+                        <td>Maintenance test</td>
+                        <td>How strength holds during run-focused blocks</td>
+                        <td>2 sessions/week is enough to preserve most gains</td>
+                        <td>Strength falls apart immediately when running becomes priority</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Simple decision rule</h2>
+            <p><strong>Maintenance is probably enough</strong> if most of these are true:</p>
+            <ul>
+                <li>Your main lifts are holding steady or slowly improving</li>
+                <li>Your knee is mostly calm and running feels stable</li>
+                <li>You feel more robust, not more fragile</li>
+                <li>Pull-up progress is still moving, even slowly</li>
+                <li>Two strength sessions per week keep most of the gains</li>
+            </ul>
+            <p style="margin-top: 12px;"><strong>You probably need another strength-building phase</strong> if several of these are true:</p>
+            <ul>
+                <li>Your lifts are clearly sliding</li>
+                <li>You feel wobbly or underpowered</li>
+                <li>Knee niggles keep returning</li>
+                <li>Strength drops fast whenever running increases</li>
+                <li>You don’t feel like you’ve actually built enough yet</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Most important mindset</h2>
+            <p>You are not trying to become “strong enough forever” in one go. You’re trying to build a base that supports your running, health, confidence, and future self. The scorecard is there to help you notice whether you’re trending upward, holding well, or due for another build.</p>
+        </div>
+
+        <a class="back-link" href="strength-block.html">← Back to Strength Block</a>
+    </div>
+</body>
+</html>
