@@ -139,10 +139,10 @@
 </head>
 <body>
     <div class="container">
-        <div class="draft-banner">💪 Strength-first runway from 18 May, then straight into the 5K block</div>
+        <div class="draft-banner">💪 Strength-first runway from 11 May, with a slightly roomier handoff into the 5K block</div>
 
         <h1>Strength Block</h1>
-        <p class="subtitle">18 May to 28 June 2026 • 6 Weeks + 1 Transition Week • Build strength, keep running alive</p>
+        <p class="subtitle">11 May to 28 June 2026 • 6 Weeks + 2 Transition Weeks • Build strength, keep running alive</p>
 
         <div class="goal">
             <strong>Goals:</strong> Build useful strength and robustness • Keep aerobic fitness ticking over • Arrive fresh for the 5K block 🎯
@@ -161,7 +161,8 @@
             <button class="week-btn" onclick="showWeek(4)">W4</button>
             <button class="week-btn" onclick="showWeek(5)">W5</button>
             <button class="week-btn" onclick="showWeek(6)">W6</button>
-            <button class="week-btn transition" onclick="showWeek(7)">Transition</button>
+            <button class="week-btn transition" onclick="showWeek(7)">T1</button>
+            <button class="week-btn transition" onclick="showWeek(8)">T2</button>
         </div>
 
         <div class="week active" id="week1">
@@ -270,8 +271,8 @@
 
         <div class="week" id="week7">
             <div class="week-header">
-                <h2>Transition Week</h2>
-                <div class="week-summary">Reduce gym fatigue, bring running frequency up, and get ready for the 5K block.</div>
+                <h2>Transition Week 1</h2>
+                <div class="week-summary">Start reducing gym fatigue and let the running come back up a notch.</div>
                 <span class="phase-tag phase-transition">TRANSITION</span>
             </div>
             <div class="week-card">
@@ -283,6 +284,24 @@
                 <div class="day day-quality"><div class="day-name">Sat</div><div class="day-desc">Threshold intro: 2 x 6 min relaxed @ ~5:20–5:25/km</div></div>
                 <div class="day day-long"><div class="day-name">Sun</div><div class="day-desc">Long easy run 70 min</div></div>
                 <div class="note">This week should make you feel more like a runner again, not like you snuck in one more strength block.</div>
+            </div>
+        </div>
+
+        <div class="week" id="week8">
+            <div class="week-header">
+                <h2>Transition Week 2</h2>
+                <div class="week-summary">Final bridge week. Keep the strength light and let running frequency feel normal again.</div>
+                <span class="phase-tag phase-transition">TRANSITION</span>
+            </div>
+            <div class="week-card">
+                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Rest or walk</div></div>
+                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Light Strength A, 2 work sets only</div></div>
+                <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 40–45 min + 4–6 strides</div></div>
+                <div class="day day-easy"><div class="day-name">Thu</div><div class="day-desc">Easy run 30–40 min</div></div>
+                <div class="day day-rest"><div class="day-name">Fri</div><div class="day-desc">Rest / mobility</div></div>
+                <div class="day day-quality"><div class="day-name">Sat</div><div class="day-desc">5K intro session: 6 x 1 min smooth, full control</div></div>
+                <div class="day day-long"><div class="day-name">Sun</div><div class="day-desc">Long easy run 70–75 min</div></div>
+                <div class="note">You should finish this week feeling eager for the 5K block, not still foggy from the gym.</div>
             </div>
         </div>
 
@@ -351,7 +370,7 @@
                 <li><strong>Most runs easy:</strong> keep them conversational and finish feeling better than you started.</li>
                 <li><strong>Saturday quality is tiny:</strong> think aerobic support, not race prep.</li>
                 <li><strong>Sunday long run:</strong> long enough to keep the engine alive, not so long it trashes the gym week.</li>
-                <li><strong>Transition week:</strong> reduce lifting volume and start feeling ready for four-run weeks again.</li>
+                <li><strong>Transition phase:</strong> use these two weeks to reduce lifting volume and start feeling ready for four-run weeks again.</li>
             </ul>
         </div>
 
@@ -359,6 +378,7 @@
             <h4>Why this block is shorter now</h4>
             <ul>
                 <li><strong>Big strength returns come early:</strong> six focused weeks gets you most of the useful stuff.</li>
+                <li><strong>The extra week helps the handoff:</strong> rather than stretching the strength phase forever, it gives you a cleaner runway into 5K work.</li>
                 <li><strong>Running still matters:</strong> the goal is to carry the strength into the 5K and 10K phases, not live in gym cave mode.</li>
                 <li><strong>Longevity-friendly:</strong> strong, robust, and still aerobically fit is the point.</li>
                 <li><strong>Next step:</strong> move into the 5K block with 2 maintenance strength sessions per week.</li>
@@ -389,7 +409,7 @@
             const weekNum = Math.floor(diffDays / 7) + 1;
 
             if (weekNum < 1) return 1;
-            if (weekNum > 7) return 7;
+            if (weekNum > 8) return 8;
             return weekNum;
         }
 
