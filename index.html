@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winter Strength Block</title>
+    <title>Strength Block</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -26,7 +26,6 @@
             border-radius: 8px; text-align: center; margin-bottom: 18px;
             font-size: 13px; color: #86efac;
         }
-
         .week-nav {
             display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 24px;
         }
@@ -36,9 +35,7 @@
         }
         .week-btn:hover { background: #00d4ff; color: #000; }
         .week-btn.active { background: #00d4ff; color: #000; font-weight: bold; }
-        .week-btn.deload { border: 2px solid #ffd700; }
-        .week-btn.finish { border: 2px solid #f472b6; }
-
+        .week-btn.transition { border: 2px solid #f472b6; }
         .week { display: none; }
         .week.active { display: block; }
         .week-header {
@@ -53,9 +50,7 @@
         }
         .phase-build { background: #4ade80; color: #000; }
         .phase-progress { background: #fbbf24; color: #000; }
-        .phase-deload { background: #a78bfa; color: #000; }
-        .phase-finish { background: #f472b6; color: #000; }
-
+        .phase-transition { background: #f472b6; color: #000; }
         .week-card {
             background: #ffffff11; padding: 14px; border-radius: 10px;
             display: grid; gap: 8px;
@@ -68,15 +63,16 @@
         .day-strength { background: linear-gradient(90deg, #ff6b9d22, transparent); }
         .day-strength .day-name { color: #ff6b9d; }
         .day-easy .day-name { color: #4ade80; }
+        .day-quality .day-name { color: #fbbf24; }
         .day-rest .day-name { color: #94a3b8; }
+        .day-long .day-name { color: #00d4ff; }
         .day-desc { color: #eee; font-size: 15px; flex: 1; }
         .note {
             margin-top: 4px; padding: 10px 12px; background: #ffffff08;
             border-radius: 8px; font-size: 14px; color: #aaa;
         }
-
         .sessions { display: grid; gap: 16px; }
-        @media (min-width: 700px) { .sessions { grid-template-columns: 1fr 1fr 1fr; } }
+        @media (min-width: 700px) { .sessions { grid-template-columns: 1fr 1fr; } }
         .session {
             background: #2a2a4a; border-radius: 12px; padding: 18px;
         }
@@ -85,7 +81,6 @@
             border-bottom: 1px solid #ffffff22;
         }
         .session-b h3 { color: #ff6b9d; }
-        .session-c h3 { color: #fbbf24; }
         .exercise-group { margin-bottom: 12px; }
         .exercise-group-title {
             font-size: 12px; color: #888; text-transform: uppercase;
@@ -100,7 +95,6 @@
         .exercise-sets {
             color: #00d4ff; font-weight: bold; white-space: nowrap; font-size: 14px;
         }
-
         .info-box {
             margin-top: 22px; padding: 18px; background: #2a2a4a;
             border-radius: 12px; border-left: 4px solid #fbbf24;
@@ -116,12 +110,10 @@
         .info-box ul { padding-left: 20px; }
         .info-box li { font-size: 14px; color: #cbd5e1; margin-bottom: 6px; }
         .info-box li strong { color: #fff; }
-
         .back-link {
             display: block; text-align: center; margin-top: 28px;
             color: #00d4ff; text-decoration: none; font-size: 14px;
         }
-
         @media (max-width: 600px) {
             body { padding: 12px; }
             h1 { font-size: 28px; }
@@ -147,19 +139,19 @@
 </head>
 <body>
     <div class="container">
-        <div class="draft-banner">💪 Winter strength block — Tue/Thu/Sat lifting with easy running around it</div>
+        <div class="draft-banner">💪 Strength-first runway from 11 May, with a slightly roomier handoff into the 5K block</div>
 
-        <h1>Winter Strength Block</h1>
-        <p class="subtitle">May–July 2026 • 12 Weeks • Full-body strength + easy running</p>
+        <h1>Strength Block</h1>
+        <p class="subtitle">11 May to 28 June 2026 • 6 Weeks + 2 Transition Weeks • Build strength, keep running alive</p>
 
         <div class="goal">
-            <strong>Goals:</strong> Build whole-body strength • Keep running alive • Work toward a first pull-up 🎯
+            <strong>Goals:</strong> Build useful strength and robustness • Keep aerobic fitness ticking over • Arrive fresh for the 5K block 🎯
             <br><br>
             <a href="recovery-block.html" style="color: #a78bfa; text-decoration: none;">🌿 Post-HM Recovery Month →</a>
             <br><br>
             <a href="strength-scorecard.html" style="color: #a78bfa; text-decoration: none;">📋 Strength Scorecard →</a>
             <br><br>
-            <a href="archive.html" style="color: #a78bfa; text-decoration: none;">🗂️ Archive →</a>
+            <a href="5k-block.html" style="color: #a78bfa; text-decoration: none;">🏃 Next Phase: 5K Block →</a>
         </div>
 
         <div class="week-nav">
@@ -169,12 +161,8 @@
             <button class="week-btn" onclick="showWeek(4)">W4</button>
             <button class="week-btn" onclick="showWeek(5)">W5</button>
             <button class="week-btn" onclick="showWeek(6)">W6</button>
-            <button class="week-btn" onclick="showWeek(7)">W7</button>
-            <button class="week-btn" onclick="showWeek(8)">W8</button>
-            <button class="week-btn deload" onclick="showWeek(9)">W9</button>
-            <button class="week-btn finish" onclick="showWeek(10)">W10</button>
-            <button class="week-btn finish" onclick="showWeek(11)">W11</button>
-            <button class="week-btn finish" onclick="showWeek(12)">W12</button>
+            <button class="week-btn transition" onclick="showWeek(7)">T1</button>
+            <button class="week-btn transition" onclick="showWeek(8)">T2</button>
         </div>
 
         <div class="week active" id="week1">
@@ -184,14 +172,14 @@
                 <span class="phase-tag phase-build">BASE / GROOVE</span>
             </div>
             <div class="week-card">
-                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Optional easy run or cross-training</div></div>
-                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Day 1 strength — Squat 42.5 kg, OHP 17.5 kg, Row 25 kg</div></div>
-                <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 30–40 min + strides</div></div>
-                <div class="day day-strength"><div class="day-name">Thu</div><div class="day-desc">Day 2 strength — Deadlift 50 kg, Bench 27.5 kg</div></div>
-                <div class="day day-rest"><div class="day-name">Fri</div><div class="day-desc">Rest / walk / mobility</div></div>
-                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Day 3 strength — Squat 42.5 kg, Bench 27.5 kg, RDL 30 kg</div></div>
-                <div class="day day-easy"><div class="day-name">Sun</div><div class="day-desc">Long run</div></div>
-                <div class="note">Keep 2–4 reps in reserve on the main lifts this week. These listed weights are just for week 1.</div>
+                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Rest or gentle walk</div></div>
+                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Strength A — Squat 42.5 kg, OHP 17.5 kg, Row 25 kg</div></div>
+                <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 30–40 min + 4 strides</div></div>
+                <div class="day day-strength"><div class="day-name">Thu</div><div class="day-desc">Strength B — Deadlift 50 kg, Bench 27.5 kg</div></div>
+                <div class="day day-rest"><div class="day-name">Fri</div><div class="day-desc">Rest / mobility</div></div>
+                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Strength C — light runner support day</div></div>
+                <div class="day day-long"><div class="day-name">Sun</div><div class="day-desc">Long easy run 50–60 min</div></div>
+                <div class="note">Keep 2–4 reps in reserve on the main lifts. These listed weights are just for week 1. The point is to get stronger without burying the running legs.</div>
             </div>
         </div>
 
@@ -202,218 +190,156 @@
                 <span class="phase-tag phase-build">BASE / GROOVE</span>
             </div>
             <div class="week-card">
-                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Optional easy run or cross-training</div></div>
-                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Day 1 strength</div></div>
-                <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 30–45 min + strides</div></div>
-                <div class="day day-strength"><div class="day-name">Thu</div><div class="day-desc">Day 2 strength</div></div>
+                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Rest or gentle walk</div></div>
+                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Strength A</div></div>
+                <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 35–40 min + 4 strides</div></div>
+                <div class="day day-strength"><div class="day-name">Thu</div><div class="day-desc">Strength B</div></div>
                 <div class="day day-rest"><div class="day-name">Fri</div><div class="day-desc">Rest / mobility</div></div>
-                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Day 3 strength</div></div>
-                <div class="day day-easy"><div class="day-name">Sun</div><div class="day-desc">Long run</div></div>
+                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Strength C — light runner support day</div></div>
+                <div class="day day-long"><div class="day-name">Sun</div><div class="day-desc">Long easy run 55–65 min</div></div>
             </div>
         </div>
 
         <div class="week" id="week3">
             <div class="week-header">
                 <h2>Week 3</h2>
-                <div class="week-summary">Build consistency. Still controlled.</div>
-                <span class="phase-tag phase-build">BASE / GROOVE</span>
+                <div class="week-summary">Build consistency. Add a little more aerobic support, not more drama.</div>
+                <span class="phase-tag phase-progress">PROGRESS / BUILD</span>
             </div>
             <div class="week-card">
-                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Optional easy run or cross-training</div></div>
-                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Day 1 strength</div></div>
-                <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 35–45 min + strides</div></div>
-                <div class="day day-strength"><div class="day-name">Thu</div><div class="day-desc">Day 2 strength</div></div>
+                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Rest or walk</div></div>
+                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Strength A</div></div>
+                <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 35–45 min + 4–6 strides</div></div>
+                <div class="day day-strength"><div class="day-name">Thu</div><div class="day-desc">Strength B</div></div>
                 <div class="day day-rest"><div class="day-name">Fri</div><div class="day-desc">Rest / recovery</div></div>
-                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Day 3 strength</div></div>
-                <div class="day day-easy"><div class="day-name">Sun</div><div class="day-desc">Long run</div></div>
+                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Strength C — light runner support day</div></div>
+                <div class="day day-long"><div class="day-name">Sun</div><div class="day-desc">Long easy run 60–70 min</div></div>
             </div>
         </div>
 
         <div class="week" id="week4">
             <div class="week-header">
                 <h2>Week 4</h2>
-                <div class="week-summary">Finish the base phase feeling solid, not smashed.</div>
-                <span class="phase-tag phase-build">BASE / GROOVE</span>
+                <div class="week-summary">Keep building, but stay tidy. No ugly grinders in the gym.</div>
+                <span class="phase-tag phase-progress">PROGRESS / BUILD</span>
             </div>
             <div class="week-card">
-                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Optional easy run or cross-training</div></div>
-                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Day 1 strength</div></div>
-                <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 30–45 min + strides</div></div>
-                <div class="day day-strength"><div class="day-name">Thu</div><div class="day-desc">Day 2 strength</div></div>
+                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Rest or walk</div></div>
+                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Strength A</div></div>
+                <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 35–45 min + 4–6 strides</div></div>
+                <div class="day day-strength"><div class="day-name">Thu</div><div class="day-desc">Strength B</div></div>
                 <div class="day day-rest"><div class="day-name">Fri</div><div class="day-desc">Rest / mobility</div></div>
-                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Day 3 strength</div></div>
-                <div class="day day-easy"><div class="day-name">Sun</div><div class="day-desc">Long run</div></div>
+                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Strength C — light runner support day</div></div>
+                <div class="day day-long"><div class="day-name">Sun</div><div class="day-desc">Long easy run 65–75 min</div></div>
             </div>
         </div>
 
         <div class="week" id="week5">
             <div class="week-header">
                 <h2>Week 5</h2>
-                <div class="week-summary">Volume nudges up. Build phase begins.</div>
-                <span class="phase-tag phase-progress">PROGRESS / BUILD</span>
+                <div class="week-summary">Peak strength week, but still sane. Running stays supportive.</div>
+                <span class="phase-tag phase-progress">PEAK STRENGTH</span>
             </div>
             <div class="week-card">
-                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Optional easy run or cross-training</div></div>
-                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Day 1 strength</div></div>
-                <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 30–45 min + strides</div></div>
-                <div class="day day-strength"><div class="day-name">Thu</div><div class="day-desc">Day 2 strength</div></div>
+                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Rest or walk</div></div>
+                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Strength A</div></div>
+                <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 35–45 min + strides</div></div>
+                <div class="day day-strength"><div class="day-name">Thu</div><div class="day-desc">Strength B</div></div>
                 <div class="day day-rest"><div class="day-name">Fri</div><div class="day-desc">Rest / recovery</div></div>
-                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Day 3 strength</div></div>
-                <div class="day day-easy"><div class="day-name">Sun</div><div class="day-desc">Long run</div></div>
+                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Strength C — light runner support day</div></div>
+                <div class="day day-long"><div class="day-name">Sun</div><div class="day-desc">Long easy run 70–75 min</div></div>
+                <div class="note">If fatigue gets a bit spicy, cut accessory volume before touching the main lifts.</div>
             </div>
         </div>
 
         <div class="week" id="week6">
             <div class="week-header">
                 <h2>Week 6</h2>
-                <div class="week-summary">Settle into the work. Build, don’t thrash yourself.</div>
-                <span class="phase-tag phase-progress">PROGRESS / BUILD</span>
+                <div class="week-summary">Consolidate. Strong, fresh-ish, and ready to pivot toward running.</div>
+                <span class="phase-tag phase-progress">CONSOLIDATE</span>
             </div>
             <div class="week-card">
-                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Optional easy run or cross-training</div></div>
-                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Day 1 strength</div></div>
+                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Rest or walk</div></div>
+                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Strength A, slightly reduced volume</div></div>
                 <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 35–45 min + strides</div></div>
-                <div class="day day-strength"><div class="day-name">Thu</div><div class="day-desc">Day 2 strength</div></div>
-                <div class="day day-rest"><div class="day-name">Fri</div><div class="day-desc">Rest / recovery</div></div>
-                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Day 3 strength</div></div>
-                <div class="day day-easy"><div class="day-name">Sun</div><div class="day-desc">Long run</div></div>
+                <div class="day day-strength"><div class="day-name">Thu</div><div class="day-desc">Strength B, slightly reduced volume</div></div>
+                <div class="day day-rest"><div class="day-name">Fri</div><div class="day-desc">Rest / mobility</div></div>
+                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Strength C — lighter, reduced volume</div></div>
+                <div class="day day-long"><div class="day-name">Sun</div><div class="day-desc">Long easy run 65–75 min</div></div>
             </div>
         </div>
 
         <div class="week" id="week7">
             <div class="week-header">
-                <h2>Week 7</h2>
-                <div class="week-summary">Strongest week so far, but still controlled.</div>
-                <span class="phase-tag phase-progress">PROGRESS / BUILD</span>
+                <h2>Transition Week 1</h2>
+                <div class="week-summary">Start reducing gym fatigue and let the running come back up a notch.</div>
+                <span class="phase-tag phase-transition">TRANSITION</span>
             </div>
             <div class="week-card">
-                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Optional easy run or cross-training</div></div>
-                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Day 1 strength</div></div>
-                <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 30–45 min + strides</div></div>
-                <div class="day day-strength"><div class="day-name">Thu</div><div class="day-desc">Day 2 strength</div></div>
-                <div class="day day-rest"><div class="day-name">Fri</div><div class="day-desc">Rest / recovery</div></div>
-                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Day 3 strength</div></div>
-                <div class="day day-easy"><div class="day-name">Sun</div><div class="day-desc">Long run</div></div>
+                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Rest or walk</div></div>
+                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Light Strength A</div></div>
+                <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 35–45 min + 4 strides</div></div>
+                <div class="day day-easy"><div class="day-name">Thu</div><div class="day-desc">Easy run 30–35 min</div></div>
+                <div class="day day-rest"><div class="day-name">Fri</div><div class="day-desc">Rest / mobility</div></div>
+                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Light Strength C</div></div>
+                <div class="day day-long"><div class="day-name">Sun</div><div class="day-desc">Long easy run 70 min</div></div>
+                <div class="note">This week should make you feel more like a runner again, not like you snuck in one more strength block.</div>
             </div>
         </div>
 
         <div class="week" id="week8">
             <div class="week-header">
-                <h2>Week 8</h2>
-                <div class="week-summary">Last full build week before deload.</div>
-                <span class="phase-tag phase-progress">PROGRESS / BUILD</span>
+                <h2>Transition Week 2</h2>
+                <div class="week-summary">Final bridge week. Keep the strength light and let running frequency feel normal again.</div>
+                <span class="phase-tag phase-transition">TRANSITION</span>
             </div>
             <div class="week-card">
-                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Optional easy run or cross-training</div></div>
-                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Day 1 strength</div></div>
-                <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 30–40 min + strides</div></div>
-                <div class="day day-strength"><div class="day-name">Thu</div><div class="day-desc">Day 2 strength</div></div>
-                <div class="day day-rest"><div class="day-name">Fri</div><div class="day-desc">Rest / recovery</div></div>
-                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Day 3 strength</div></div>
-                <div class="day day-easy"><div class="day-name">Sun</div><div class="day-desc">Long run</div></div>
-            </div>
-        </div>
-
-        <div class="week" id="week9">
-            <div class="week-header">
-                <h2>Week 9</h2>
-                <div class="week-summary">Deload. Reduce load and sets.</div>
-                <span class="phase-tag phase-deload">DELOAD</span>
-            </div>
-            <div class="week-card">
-                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Optional easy run or cross-training</div></div>
-                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Day 1 strength (lighter)</div></div>
-                <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 25–35 min + strides</div></div>
-                <div class="day day-strength"><div class="day-name">Thu</div><div class="day-desc">Day 2 strength (lighter)</div></div>
-                <div class="day day-rest"><div class="day-name">Fri</div><div class="day-desc">Recovery / mobility</div></div>
-                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Day 3 strength (lighter)</div></div>
-                <div class="day day-easy"><div class="day-name">Sun</div><div class="day-desc">Long run</div></div>
-            </div>
-        </div>
-
-        <div class="week" id="week10">
-            <div class="week-header">
-                <h2>Week 10</h2>
-                <div class="week-summary">Re-ramp after deload. Slightly heavier, less endless volume.</div>
-                <span class="phase-tag phase-finish">FINISH STRONG</span>
-            </div>
-            <div class="week-card">
-                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Optional easy run or cross-training</div></div>
-                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Day 1 strength</div></div>
-                <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 30–45 min + strides</div></div>
-                <div class="day day-strength"><div class="day-name">Thu</div><div class="day-desc">Day 2 strength</div></div>
-                <div class="day day-rest"><div class="day-name">Fri</div><div class="day-desc">Rest / recovery</div></div>
-                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Day 3 strength</div></div>
-                <div class="day day-easy"><div class="day-name">Sun</div><div class="day-desc">Long run</div></div>
-            </div>
-        </div>
-
-        <div class="week" id="week11">
-            <div class="week-header">
-                <h2>Week 11</h2>
-                <div class="week-summary">Strong and tidy. No ugly grinders.</div>
-                <span class="phase-tag phase-finish">FINISH STRONG</span>
-            </div>
-            <div class="week-card">
-                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Optional easy run or cross-training</div></div>
-                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Day 1 strength</div></div>
-                <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 30–40 min + strides</div></div>
-                <div class="day day-strength"><div class="day-name">Thu</div><div class="day-desc">Day 2 strength</div></div>
-                <div class="day day-rest"><div class="day-name">Fri</div><div class="day-desc">Rest / recovery</div></div>
-                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Day 3 strength</div></div>
-                <div class="day day-easy"><div class="day-name">Sun</div><div class="day-desc">Long run</div></div>
-            </div>
-        </div>
-
-        <div class="week" id="week12">
-            <div class="week-header">
-                <h2>Week 12</h2>
-                <div class="week-summary">Consolidate and finish with confidence.</div>
-                <span class="phase-tag phase-finish">FINISH STRONG</span>
-            </div>
-            <div class="week-card">
-                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Optional easy run or cross-training</div></div>
-                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Day 1 strength</div></div>
-                <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 30–40 min + strides</div></div>
-                <div class="day day-strength"><div class="day-name">Thu</div><div class="day-desc">Day 2 strength</div></div>
-                <div class="day day-rest"><div class="day-name">Fri</div><div class="day-desc">Rest / recovery</div></div>
-                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Day 3 strength</div></div>
-                <div class="day day-easy"><div class="day-name">Sun</div><div class="day-desc">Long run</div></div>
+                <div class="day day-rest"><div class="day-name">Mon</div><div class="day-desc">Rest or walk</div></div>
+                <div class="day day-strength"><div class="day-name">Tue</div><div class="day-desc">Light Strength A, 2 work sets only</div></div>
+                <div class="day day-easy"><div class="day-name">Wed</div><div class="day-desc">Easy run 40–45 min + 4–6 strides</div></div>
+                <div class="day day-easy"><div class="day-name">Thu</div><div class="day-desc">Easy run 30–40 min</div></div>
+                <div class="day day-rest"><div class="day-name">Fri</div><div class="day-desc">Rest / mobility</div></div>
+                <div class="day day-strength"><div class="day-name">Sat</div><div class="day-desc">Light Strength C, 1–2 rounds only</div></div>
+                <div class="day day-long"><div class="day-name">Sun</div><div class="day-desc">Long easy run 70–75 min</div></div>
+                <div class="note">You should finish this week feeling eager for the 5K block, not still foggy from the gym.</div>
             </div>
         </div>
 
         <div class="sessions">
             <div class="session session-a">
-                <h3>Tuesday — Day 1</h3>
+                <h3>Strength A</h3>
                 <div class="exercise-group">
                     <div class="exercise-group-title">Main Work</div>
-                    <div class="exercise"><span class="exercise-name">Back Squat</span><span class="exercise-sets">3–4 x 5</span></div>
-                    <div class="exercise"><span class="exercise-name">Overhead Press</span><span class="exercise-sets">3–4 x 5</span></div>
+                    <div class="exercise"><span class="exercise-name">Back Squat</span><span class="exercise-sets">3 x 5</span></div>
+                    <div class="exercise"><span class="exercise-name">Overhead Press</span><span class="exercise-sets">3 x 5</span></div>
                     <div class="exercise"><span class="exercise-name">Barbell Row</span><span class="exercise-sets">3 x 6–8</span></div>
-                    <div class="exercise"><span class="exercise-name">Straight-knee calf raise</span><span class="exercise-sets">2–3 x 10–15</span></div>
+                    <div class="exercise"><span class="exercise-name">Bent-knee calf raise</span><span class="exercise-sets">2–3 x 12–15</span></div>
+                    <div class="exercise"><span class="exercise-name">Pull-up / Pulldown</span><span class="exercise-sets">2–3 x 5–8</span></div>
                 </div>
             </div>
 
             <div class="session session-b">
-                <h3>Thursday — Day 2</h3>
+                <h3>Strength B</h3>
                 <div class="exercise-group">
                     <div class="exercise-group-title">Main Work</div>
-                    <div class="exercise"><span class="exercise-name">Deadlift</span><span class="exercise-sets">3 x 5</span></div>
-                    <div class="exercise"><span class="exercise-name">Bench Press</span><span class="exercise-sets">3–4 x 5</span></div>
-                    <div class="exercise"><span class="exercise-name">Split Squat</span><span class="exercise-sets">2–3 x 8/leg</span></div>
-                    <div class="exercise"><span class="exercise-name">Pull-up / Pulldown</span><span class="exercise-sets">3 x 5–8</span></div>
+                    <div class="exercise"><span class="exercise-name">Romanian Deadlift or Deadlift</span><span class="exercise-sets">3 x 5–6</span></div>
+                    <div class="exercise"><span class="exercise-name">Bench Press</span><span class="exercise-sets">3 x 5</span></div>
+                    <div class="exercise"><span class="exercise-name">Split Squat</span><span class="exercise-sets">2–3 x 6–8/leg</span></div>
+                    <div class="exercise"><span class="exercise-name">Straight-knee calf raise</span><span class="exercise-sets">2–3 x 12–15</span></div>
+                    <div class="exercise"><span class="exercise-name">Pull-up / Pulldown</span><span class="exercise-sets">2–3 x 5–8</span></div>
                 </div>
             </div>
 
-            <div class="session session-c">
-                <h3>Saturday — Day 3</h3>
+            <div class="session session-b">
+                <h3>Strength C — Runner Support Day</h3>
                 <div class="exercise-group">
-                    <div class="exercise-group-title">Main Work</div>
-                    <div class="exercise"><span class="exercise-name">Back Squat</span><span class="exercise-sets">3–4 x 5</span></div>
-                    <div class="exercise"><span class="exercise-name">Bench Press</span><span class="exercise-sets">3–4 x 5</span></div>
-                    <div class="exercise"><span class="exercise-name">Romanian Deadlift</span><span class="exercise-sets">3 x 6–8</span></div>
-                    <div class="exercise"><span class="exercise-name">Pull-up / Pulldown</span><span class="exercise-sets">3 x 6–8</span></div>
-                    <div class="exercise"><span class="exercise-name">Bent-knee calf raise</span><span class="exercise-sets">2–3 x 10–15</span></div>
+                    <div class="exercise-group-title">Focused Work</div>
+                    <div class="exercise"><span class="exercise-name">Step-down or step-up</span><span class="exercise-sets">2 x 6–8/leg</span></div>
+                    <div class="exercise"><span class="exercise-name">Single-leg RDL</span><span class="exercise-sets">2 x 6–8/leg</span></div>
+                    <div class="exercise"><span class="exercise-name">Bent-knee calf raise</span><span class="exercise-sets">2 x 12–15</span></div>
+                    <div class="exercise"><span class="exercise-name">Straight-knee calf raise</span><span class="exercise-sets">2 x 12–15</span></div>
+                    <div class="exercise"><span class="exercise-name">Side plank or dead bug</span><span class="exercise-sets">1–2 sets</span></div>
+                    <div class="exercise"><span class="exercise-name">Optional light pogo hops</span><span class="exercise-sets">1–2 x 15–20</span></div>
                 </div>
             </div>
         </div>
@@ -443,7 +369,7 @@
                     <tr>
                         <td>Calves</td>
                         <td>Stay in the range and push smooth reps</td>
-                        <td>Don’t turn them into bounce reps from hell</td>
+                        <td>No bounce-rep nonsense</td>
                     </tr>
                 </tbody>
             </table>
@@ -451,40 +377,29 @@
         </div>
 
         <div class="info-box">
-            <h4>Optional Extras</h4>
+            <h4>How running fits during this block</h4>
             <ul>
-                <li><strong>Pull-up work:</strong> assisted pull-ups, slow eccentrics, top holds, or dead hangs.</li>
-                <li><strong>Calves / lower leg:</strong> extra bent-knee calf raises, straight-knee calf raises, or tib raises.</li>
-                <li><strong>Core:</strong> side planks, dead bugs, Pallof press, or loaded carries.</li>
-                <li><strong>Single-leg control:</strong> step-downs, light step-ups, or lateral band walks if recovery is good.</li>
-                <li><strong>Upper back / shoulder health:</strong> face pulls, band pull-aparts, or rear delt work.</li>
+                <li><strong>Main idea:</strong> strength is the emphasis, but you are not abandoning aerobic fitness.</li>
+                <li><strong>Most runs easy:</strong> keep them conversational and finish feeling better than you started.</li>
+                <li><strong>Saturday Strength C:</strong> this is runner support work, not a sneaky fourth hard session.</li>
+                <li><strong>Keep it tight:</strong> single-leg control, calves, core, and a little elasticity beat a laundry list of low-value fluff.</li>
+                <li><strong>Sunday long run:</strong> long enough to keep the engine alive, not so long it trashes the gym week.</li>
+                <li><strong>Transition phase:</strong> use these two weeks to reduce lifting volume and start feeling ready for four-run weeks again.</li>
             </ul>
-            <p>Add extras only after the main lifts are done, and only if they don’t make the main program worse.</p>
         </div>
 
         <div class="info-box">
-            <h4>If your knee flares up…</h4>
+            <h4>Why this block is shorter now</h4>
             <ul>
-                <li><strong>Keep it simple:</strong> wall sits or Spanish squats, step-downs, split squats, bent-knee calf raises, and lateral band walks are your best first-line extras.</li>
-                <li><strong>Reduce intensity first:</strong> back off hills, faster running, and aggressive lower-body fatigue before you slash everything else.</li>
-                <li><strong>Use the pain rule:</strong> mild awareness is okay, sharp pain or worsening pain is not.</li>
-                <li><strong>Best tiny routine:</strong> wall sit 2 x 30–45s, step-downs 2 x 6–8/side, bent-knee calf raises 2 x 12–15, band walks 1–2 x 10–15 steps each way.</li>
-            </ul>
-            <p>Think “calm it down and improve control,” not “punish it into behaving.”</p>
-        </div>
-
-        <div class="info-box">
-            <h4>Notes</h4>
-            <ul>
-                <li><strong>Monday is flexible:</strong> use it for an optional easy run, cross-training, or full rest depending on fatigue.</li>
-                <li><strong>Keep running simple:</strong> Wednesday and Sunday are your main run days, with Sunday as the long run and strides added to Wednesday.</li>
-                <li><strong>If recovery gets rough:</strong> reduce accessory volume first, not the core lifts.</li>
-                <li><strong>Goal of the block:</strong> finish stronger, more stable, and ready to transition into a 5K block — not utterly cooked.</li>
+                <li><strong>Big strength returns come early:</strong> six focused weeks gets you most of the useful stuff.</li>
+                <li><strong>The extra week helps the handoff:</strong> rather than stretching the strength phase forever, it gives you a cleaner runway into 5K work.</li>
+                <li><strong>Running still matters:</strong> the goal is to carry the strength into the 5K and 10K phases, not live in gym cave mode.</li>
+                <li><strong>Longevity-friendly:</strong> strong, robust, and still aerobically fit is the point.</li>
+                <li><strong>Next step:</strong> move into the 5K block with 2 maintenance strength sessions per week.</li>
             </ul>
         </div>
 
-        <a class="back-link" href="5k-block.html">→ Next: 5K Block</a>
-        <a class="back-link" href="archive.html">🗂️ Archive</a>
+        <a class="back-link" href="index.html">← Back to Sophia Training</a>
     </div>
 
     <script>
@@ -498,8 +413,23 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        function getCurrentWeek() {
+            const start = new Date(2026, 4, 18);
+            const today = new Date();
+            start.setHours(0, 0, 0, 0);
+            today.setHours(0, 0, 0, 0);
+
+            const diffDays = Math.floor((today - start) / (1000 * 60 * 60 * 24));
+            const weekNum = Math.floor(diffDays / 7) + 1;
+
+            if (weekNum < 1) return 1;
+            if (weekNum > 8) return 8;
+            return weekNum;
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
-            document.querySelector('.week-btn').classList.add('active');
+            const currentWeek = getCurrentWeek();
+            showWeek(currentWeek);
         });
     </script>
 </body>
